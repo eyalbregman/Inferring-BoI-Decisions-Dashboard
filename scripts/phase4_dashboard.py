@@ -57,7 +57,7 @@ body{margin:0;background:var(--bg);color:var(--ink);
 h1{font-family:"IBM Plex Serif",Georgia,serif;font-weight:600;font-size:27px;line-height:1.25;
   text-wrap:balance;margin:0 0 10px;letter-spacing:-.005em}
 .sub{color:var(--muted);margin:0 0 22px;max-width:64ch}
-#sheetsub{color:var(--ink)}
+.sub b{color:inherit}
 
 .tabs{display:flex;gap:4px;margin:0 0 22px;border-bottom:1px solid var(--line)}
 .tab{appearance:none;border:0;background:none;font:inherit;font-weight:500;cursor:pointer;
