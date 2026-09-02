@@ -1,5 +1,6 @@
-"""Phase 4: build the dashboard -> docs/index.html (the one canonical file: in the folder,
-in git, and served by GitHub Pages). Two sheets: reasoning-only vs prior-rate-known. Chart.js from cdnjs."""
+"""Phase 4: build the dashboard -> index.html at the repo root (the one canonical file:
+in the folder, in git, and served by GitHub Pages from main/). Two sheets: reasoning-only
+vs prior-rate-known. Chart.js from cdnjs."""
 import json, os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -258,8 +259,7 @@ PAGE = ("<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\">"
         "<title>Inferring BoI Rate Decisions</title>" + FONTS + CHARTJS
         + "<style>" + STYLE + "</style></head><body>" + BODY + SCRIPT + "</body></html>")
 
-# One canonical file: docs/index.html — it is what sits in the folder, what git tracks,
-# and what GitHub Pages serves. Regenerate, then commit + push to update everywhere.
-os.makedirs(os.path.join(ROOT, 'docs'), exist_ok=True)
-open(os.path.join(ROOT, 'docs', 'index.html'), 'w', encoding='utf-8').write(PAGE)
-print("wrote docs/index.html")
+# One canonical file: index.html at the repo root — it is what sits in the folder, what git
+# tracks, and what GitHub Pages serves. Regenerate, then commit + push to update everywhere.
+open(os.path.join(ROOT, 'index.html'), 'w', encoding='utf-8').write(PAGE)
+print("wrote index.html")

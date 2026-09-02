@@ -38,7 +38,7 @@ data/ground_truth.json
 results/predictions.json          predictions.json  (reasoning only)
 results/predictions_rate.json     predictions      (prior rate level also given)
 results/scores.json  results/scores_rate.json
-docs/index.html      the dashboard (GitHub Pages entry)
+index.html      the dashboard (GitHub Pages entry)
 .claude/agents/interpreter.md     the classifier subagent
 scripts/             scrape / blind / score / dashboard pipeline
 ```
