@@ -108,7 +108,6 @@ td.res .pill{border-color:currentColor}
 tr.ok td.guess .pill{color:var(--good)}
 tr.bad td.guess .pill{color:var(--bad)}
 
-footer{margin-top:26px;color:var(--muted);font-size:12px;line-height:1.6;max-width:70ch}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 """
 
@@ -143,8 +142,6 @@ BODY = r"""
       <tbody></tbody>
     </table>
   </div>
-
-  <footer id="foot"></footer>
 </div>
 """
 
@@ -243,11 +240,6 @@ function render(v){
       <td class="guess"><span class="pill">${r.guess ?? '—'}</span></td>
       <td class="res"><span class="pill">${r.actual}</span></td>
     </tr>`).join('');
-
-  document.getElementById('foot').textContent =
-    `Ground truth is parsed from each press-release title. The interpreter runs as a subagent in a fresh `
-    + `context per announcement and never sees another announcement, the dates, or the real decisions. `
-    + `${S.n_decisions} decisions. Source pages retrieved via the Wayback Machine.`;
 }
 document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click', ()=>render(t.dataset.v)));
 render('blind');
