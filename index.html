@@ -40,7 +40,8 @@ body{margin:0;background:var(--bg);color:var(--ink);
   text-transform:uppercase;color:var(--accent);margin:0 0 10px;font-weight:500}
 h1{font-family:"IBM Plex Serif",Georgia,serif;font-weight:600;font-size:27px;line-height:1.25;
   text-wrap:balance;margin:0 0 10px;letter-spacing:-.005em}
-.sub{color:var(--muted);margin:0 0 26px;max-width:64ch}
+.sub{color:var(--muted);margin:0 0 22px;max-width:64ch}
+#sheetsub{color:var(--ink)}
 
 .tabs{display:flex;gap:4px;margin:0 0 22px;border-bottom:1px solid var(--line)}
 .tab{appearance:none;border:0;background:none;font:inherit;font-weight:500;cursor:pointer;
@@ -50,7 +51,6 @@ h1{font-family:"IBM Plex Serif",Georgia,serif;font-weight:600;font-size:27px;lin
 .tab[aria-selected="true"]{color:var(--ink);border-color:var(--accent)}
 .tab:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
 
-.sheetsub{color:var(--muted);font-size:13.5px;margin:0 0 22px;max-width:66ch}
 
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:12px;margin-bottom:6px}
 .stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px;box-shadow:var(--shadow)}
@@ -100,9 +100,7 @@ tr.bad td.guess .pill{color:var(--bad)}
   <p class="sub">Every Bank of Israel interest-rate announcement is stripped of its headline, the
      decision sentence, the policy-rate figure and the dates. A model then reads only what's left
      &mdash; the economic reasoning &mdash; and predicts <b>lower</b>, <b>maintain</b> or <b>raise</b>.
-     Each announcement is judged in a fresh, isolated context.</p>
-
-  <p class="sheetsub" id="sheetsub"></p>
+     Each announcement is judged in a fresh, isolated context. <span id="sheetsub"></span></p>
 
   <div class="tabs" role="tablist" aria-label="Model condition">
     <button class="tab" role="tab" data-v="blind" aria-selected="true">Reasoning only</button>
