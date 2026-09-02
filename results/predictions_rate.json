@@ -1,0 +1,436 @@
+{
+  "2021-08-23": {
+    "decision": "maintain",
+    "confidence": 0.95,
+    "rationale": "Rate at 0.1%, inflation at 1.9% within target with no feared outbreak, shekel strengthened, Delta-variant uncertainty amid recovery - hold.",
+    "blinded_file": "data/blinded/2021-08-23.txt",
+    "given_prior_rate": true
+  },
+  "2023-01-02": {
+    "decision": "raise",
+    "confidence": 0.85,
+    "rationale": "Inflation 5.3% well above target and broad, strong activity, tight labor market, shekel depreciation, hawkish global backdrop - hike.",
+    "blinded_file": "data/blinded/2023-01-02.txt",
+    "given_prior_rate": true
+  },
+  "2026-07-06": {
+    "decision": "maintain",
+    "confidence": 0.72,
+    "rationale": "Inflation near/just below target midpoint, recovering-but-depressed economy against a hike; tight labor market, wage growth, shekel depreciation and uncertainty against a cut - risks in opposite directions.",
+    "blinded_file": "data/blinded/2026-07-06.txt",
+    "given_prior_rate": true
+  },
+  "2020-02-24": {
+    "decision": "maintain",
+    "confidence": 0.63,
+    "rationale": "Inflation below target, shekel appreciated sharply, but growth around trend with a tight labor market and guidance to hold the low rate for a prolonged period - no immediate change.",
+    "blinded_file": "data/blinded/2020-02-24.txt",
+    "given_prior_rate": true
+  },
+  "2020-01-09": {
+    "decision": "maintain",
+    "confidence": 0.7,
+    "rationale": "Low sub-target inflation and shekel appreciation, but solid activity and tight labor market, with guidance to hold the low rate for a prolonged period.",
+    "blinded_file": "data/blinded/2020-01-09.txt",
+    "given_prior_rate": true
+  },
+  "2022-04-11": {
+    "decision": "raise",
+    "confidence": 0.9,
+    "rationale": "Strong activity, tight labor market, inflation 3.5% above target with rising expectations, accelerating home prices, global tightening - hike from 0.1%.",
+    "blinded_file": "data/blinded/2022-04-11.txt",
+    "given_prior_rate": true
+  },
+  "2019-07-08": {
+    "decision": "maintain",
+    "confidence": 0.82,
+    "rationale": "Inflation only 1.5% near lower bound, growth moderating, global central banks easing, yet a tight labor market keeps guidance to only a gradual future rise - no change now.",
+    "blinded_file": "data/blinded/2019-07-08.txt",
+    "given_prior_rate": true
+  },
+  "2019-04-08": {
+    "decision": "maintain",
+    "confidence": 0.9,
+    "rationale": "Inflation stable just above lower target bound, shekel appreciation and global slowdown offset solid growth and tight labor market; future increases framed as gradual and cautious.",
+    "blinded_file": "data/blinded/2019-04-08.txt",
+    "given_prior_rate": true
+  },
+  "2021-05-31": {
+    "decision": "maintain",
+    "confidence": 0.95,
+    "rationale": "Rate at 0.1% floor, inflation still below target though rising, rapid recovery but persistent health/labor risks, very accommodative global backdrop - hold.",
+    "blinded_file": "data/blinded/2021-05-31.txt",
+    "given_prior_rate": true
+  },
+  "2020-05-25": {
+    "decision": "maintain",
+    "confidence": 0.52,
+    "rationale": "Overwhelmingly dovish (deep contraction, negative inflation, shekel appreciation), but rate already at 0.1% and further rate action framed as conditional on the crisis lengthening - held, leaned on other tools.",
+    "blinded_file": "data/blinded/2020-05-25.txt",
+    "given_prior_rate": true
+  },
+  "2024-07-08": {
+    "decision": "maintain",
+    "confidence": 0.85,
+    "rationale": "Inflation near upper target bound with upside risks and shekel depreciation against a cut; moderating growth, war uncertainty, market-stabilization focus against a hike - hold.",
+    "blinded_file": "data/blinded/2024-07-08.txt",
+    "given_prior_rate": true
+  },
+  "2025-09-29": {
+    "decision": "maintain",
+    "confidence": 0.88,
+    "rationale": "Inflation near upper target bound and tight labor market against cuts, but high geopolitical uncertainty, incomplete recovery, shekel appreciation and conditional guidance - hold.",
+    "blinded_file": "data/blinded/2025-09-29.txt",
+    "given_prior_rate": true
+  },
+  "2025-01-06": {
+    "decision": "maintain",
+    "confidence": 0.82,
+    "rationale": "Inflation above target with near-term VAT upside but expected to moderate later, only moderate recovery, shekel appreciation, war uncertainty and market-stabilization focus - hold.",
+    "blinded_file": "data/blinded/2025-01-06.txt",
+    "given_prior_rate": true
+  },
+  "2023-07-10": {
+    "decision": "maintain",
+    "confidence": 0.62,
+    "rationale": "Inflation above target but visibly moderating, activity and labor market cooling, expectations back within target, data-dependent guidance signals a pause despite shekel weakness.",
+    "blinded_file": "data/blinded/2023-07-10.txt",
+    "given_prior_rate": true
+  },
+  "2026-02-23": {
+    "decision": "maintain",
+    "confidence": 0.78,
+    "rationale": "Inflation at target midpoint (1.8%) with anchored expectations, but strong 4% growth, tight labor market, re-accelerating housing/rents, higher oil, renewed geopolitical risk keep upside risks alive - hold.",
+    "blinded_file": "data/blinded/2026-02-23.txt",
+    "given_prior_rate": true
+  },
+  "2020-10-22": {
+    "decision": "maintain",
+    "confidence": 0.78,
+    "rationale": "Rate at the 0.1% floor; the Bank responds to the second-lockdown contraction and deflation with bond purchases and credit facilities while only conditionally mentioning the rate tool - rate held.",
+    "blinded_file": "data/blinded/2020-10-22.txt",
+    "given_prior_rate": true
+  },
+  "2019-11-25": {
+    "decision": "maintain",
+    "confidence": 0.6,
+    "rationale": "Inflation is low but growth near potential with a tight labor market, and guidance is to keep the low rate for a prolonged period (with only an option to cut) - no immediate move.",
+    "blinded_file": "data/blinded/2019-11-25.txt",
+    "given_prior_rate": true
+  },
+  "2025-04-07": {
+    "decision": "maintain",
+    "confidence": 0.88,
+    "rationale": "Inflation above target with upward risks and sharp shekel depreciation against a cut; weak growth, war and global/tariff uncertainty against a hike - hold to stabilize markets.",
+    "blinded_file": "data/blinded/2025-04-07.txt",
+    "given_prior_rate": true
+  },
+  "2022-08-22": {
+    "decision": "raise",
+    "confidence": 0.9,
+    "rationale": "Inflation 5.2% broadly above target, GDP +6.8% with a tight full-employment labor market, accelerating home prices, global tightening - hike despite recent shekel appreciation.",
+    "blinded_file": "data/blinded/2022-08-22.txt",
+    "given_prior_rate": true
+  },
+  "2024-08-28": {
+    "decision": "maintain",
+    "confidence": 0.9,
+    "rationale": "Inflation above target and rising with upside risks and shekel weakness against a cut; weak below-trend activity, record risk premiums and war uncertainty against a hike - wait-and-see hold.",
+    "blinded_file": "data/blinded/2024-08-28.txt",
+    "given_prior_rate": true
+  },
+  "2022-07-04": {
+    "decision": "raise",
+    "confidence": 0.95,
+    "rationale": "Inflation 4.1% above target with above-target expectations, strong growth, tight labor market with wage pressure, shekel -5.1%, aggressive global tightening - hike.",
+    "blinded_file": "data/blinded/2022-07-04.txt",
+    "given_prior_rate": true
+  },
+  "2022-10-03": {
+    "decision": "raise",
+    "confidence": 0.94,
+    "rationale": "Inflation 4.6% well above target and broad, sharp 8% shekel depreciation, strong activity, tight full-employment labor market, surging home prices, global tightening - decisive hike.",
+    "blinded_file": "data/blinded/2022-10-03.txt",
+    "given_prior_rate": true
+  },
+  "2020-04-06": {
+    "decision": "lower",
+    "confidence": 0.6,
+    "rationale": "Sharp contraction, mass unemployment, collapsing demand, falling inflation amid a crisis with global central banks easing and explicit readiness to expand use of the interest-rate tool - cut, only partly offset by shekel depreciation.",
+    "blinded_file": "data/blinded/2020-04-06.txt",
+    "given_prior_rate": true
+  },
+  "2019-01-07": {
+    "decision": "maintain",
+    "confidence": 0.82,
+    "rationale": "Inflation stable just above lower bound with expectations near it, growth only converging to potential amid global slowdown and equity declines; further hikes framed as gradual and cautious after a recent increase - pause.",
+    "blinded_file": "data/blinded/2019-01-07.txt",
+    "given_prior_rate": true
+  },
+  "2024-10-09": {
+    "decision": "maintain",
+    "confidence": 0.78,
+    "rationale": "Inflation above target with upside risks and shekel depreciation, but weak wartime growth, credit downgrade, and explicit focus on stabilizing markets - hold.",
+    "blinded_file": "data/blinded/2024-10-09.txt",
+    "given_prior_rate": true
+  },
+  "2022-11-21": {
+    "decision": "raise",
+    "confidence": 0.85,
+    "rationale": "Inflation 5.1% well above target and broad, strong activity and labor market, surging home prices, global central banks still tightening - unambiguously hawkish despite early moderation.",
+    "blinded_file": "data/blinded/2022-11-21.txt",
+    "given_prior_rate": true
+  },
+  "2025-02-24": {
+    "decision": "maintain",
+    "confidence": 0.88,
+    "rationale": "Inflation above target but expected to converge later with anchored expectations, while war uncertainty, moderate growth, shekel appreciation and market-stabilization focus argue against a hike - hold.",
+    "blinded_file": "data/blinded/2025-02-24.txt",
+    "given_prior_rate": true
+  },
+  "2022-01-03": {
+    "decision": "maintain",
+    "confidence": 0.88,
+    "rationale": "Inflation stable at target midpoint with no feared outbreak; despite strengthening activity and labor market, Omicron uncertainty and the aim to keep supporting recovery point to holding the 0.1% rate.",
+    "blinded_file": "data/blinded/2022-01-03.txt",
+    "given_prior_rate": true
+  },
+  "2022-02-21": {
+    "decision": "raise",
+    "confidence": 0.88,
+    "rationale": "Inflation at the top of target with rising expectations, exceptionally strong above-pre-crisis-trend growth, shekel depreciation, surging home prices, global tightening - clearly hawkish from a near-zero rate.",
+    "blinded_file": "data/blinded/2022-02-21.txt",
+    "given_prior_rate": true
+  },
+  "2024-01-01": {
+    "decision": "lower",
+    "confidence": 0.55,
+    "rationale": "Inflation steadily moderating with expectations returning to target, shekel appreciation, weak activity gradually recovering from a war-driven contraction, and global central banks expected to ease - cut.",
+    "blinded_file": "data/blinded/2024-01-01.txt",
+    "given_prior_rate": true
+  },
+  "2020-11-30": {
+    "decision": "maintain",
+    "confidence": 0.6,
+    "rationale": "Despite clearly dovish conditions (negative inflation, ~18-23% broad unemployment, shekel appreciation), rate already at the 0.1% lower bound and the Committee frames action around expanding existing tools, with vaccine optimism cited - hold.",
+    "blinded_file": "data/blinded/2020-11-30.txt",
+    "given_prior_rate": true
+  },
+  "2021-04-19": {
+    "decision": "maintain",
+    "confidence": 0.9,
+    "rationale": "Rapid recovery but inflation well below target at 0.2%, weak labor market with prolonged crisis effects, expectations at the lower bound, policy framed as needing to stay very accommodative at the 0.1% floor.",
+    "blinded_file": "data/blinded/2021-04-19.txt",
+    "given_prior_rate": true
+  },
+  "2020-07-06": {
+    "decision": "maintain",
+    "confidence": 0.6,
+    "rationale": "Despite deeply dovish conditions (negative inflation, 6% GDP contraction, shekel appreciation), rate already at 0.1% and action framed as expanding other tools 'to the extent' the crisis lengthens - hold now.",
+    "blinded_file": "data/blinded/2020-07-06.txt",
+    "given_prior_rate": true
+  },
+  "2025-05-26": {
+    "decision": "maintain",
+    "confidence": 0.9,
+    "rationale": "Inflation above target with delayed convergence and upside risks, but weak below-trend growth, shekel appreciation, easing labor tightness, war uncertainty and a market-stabilization focus - hold at 4.5%.",
+    "blinded_file": "data/blinded/2025-05-26.txt",
+    "given_prior_rate": true
+  },
+  "2025-11-24": {
+    "decision": "maintain",
+    "confidence": 0.82,
+    "rationale": "Inflation back within target with anchored expectations, but a sharply recovering economy, tight labor market with rising wages, and explicit upside inflation risks alongside geopolitical/fiscal uncertainty - hold.",
+    "blinded_file": "data/blinded/2025-11-24.txt",
+    "given_prior_rate": true
+  },
+  "2024-05-27": {
+    "decision": "maintain",
+    "confidence": 0.88,
+    "rationale": "Inflation rose toward the upper target bound with multiple upside risks and accelerating dynamics against a cut; high war-driven risk premium and below-potential activity against a hike - wait-and-see hold.",
+    "blinded_file": "data/blinded/2024-05-27.txt",
+    "given_prior_rate": true
+  },
+  "2023-11-27": {
+    "decision": "maintain",
+    "confidence": 0.63,
+    "rationale": "Inflation still above target at 3.7% and shekel volatility poses upside risk, but weak wartime activity, a lowered growth forecast, shekel appreciation and dovish framing about shifting focus to activity - hold, not a hike or immediate cut.",
+    "blinded_file": "data/blinded/2023-11-27.txt",
+    "given_prior_rate": true
+  },
+  "2026-01-05": {
+    "decision": "maintain",
+    "confidence": 0.44,
+    "rationale": "Inflation moderated to within target and the shekel strengthened notably, but robust expansion, a still-tight labor market, strong projected 2026 growth and explicit upside inflation risks argue for holding rather than easing.",
+    "blinded_file": "data/blinded/2026-01-05.txt",
+    "given_prior_rate": true
+  },
+  "2018-11-26": {
+    "decision": "raise",
+    "confidence": 0.9,
+    "rationale": "Inflation entrenched in target, economy at full employment with a record-tight labor market and rising wages, shekel depreciation, and explicit language that 'even after' the move policy stays accommodative with a gradual rising path - hike.",
+    "blinded_file": "data/blinded/2018-11-26.txt",
+    "given_prior_rate": true
+  },
+  "2019-08-28": {
+    "decision": "maintain",
+    "confidence": 0.72,
+    "rationale": "Despite a dovish tilt from falling inflation, shekel appreciation and global easing, guidance only says rates will not rise for an extended period while activity grows near potential and the labor market stays tight - hold at 0.25%.",
+    "blinded_file": "data/blinded/2019-08-28.txt",
+    "given_prior_rate": true
+  },
+  "2025-08-20": {
+    "decision": "maintain",
+    "confidence": 0.9,
+    "rationale": "High geopolitical uncertainty, inflation only slightly above target with anchored expectations and forecast convergence, activity recovering from a temporary war-driven contraction, global central banks holding - hold.",
+    "blinded_file": "data/blinded/2025-08-20.txt",
+    "given_prior_rate": true
+  },
+  "2019-05-20": {
+    "decision": "maintain",
+    "confidence": 0.9,
+    "rationale": "Inflation stable at 1.3% below the target midpoint with shekel appreciation delaying its rise, growth only near potential, rising global trade-war risks, and future hikes framed as gradual and cautious - hold.",
+    "blinded_file": "data/blinded/2019-05-20.txt",
+    "given_prior_rate": true
+  },
+  "2024-04-08": {
+    "decision": "maintain",
+    "confidence": 0.9,
+    "rationale": "Inflation within target but expectations rose to the upper bound and the shekel depreciated amid high war-related uncertainty, with the Committee prioritizing market stability and citing upside inflation risks - hold.",
+    "blinded_file": "data/blinded/2024-04-08.txt",
+    "given_prior_rate": true
+  },
+  "2019-10-07": {
+    "decision": "maintain",
+    "confidence": 0.63,
+    "rationale": "Despite low below-target inflation, shekel appreciation and global slowdown creating a dovish tilt, guidance is to leave the rate unchanged for a prolonged period (or possibly cut later), with activity near potential and a tight labor market.",
+    "blinded_file": "data/blinded/2019-10-07.txt",
+    "given_prior_rate": true
+  },
+  "2021-02-22": {
+    "decision": "maintain",
+    "confidence": 0.85,
+    "rationale": "Rate already at the 0.1% floor, negative but gradually rising inflation, a better-than-expected contraction, heavy emphasis on ongoing crisis risks and accommodative tools - hold while keeping easing options open.",
+    "blinded_file": "data/blinded/2021-02-22.txt",
+    "given_prior_rate": true
+  },
+  "2023-09-04": {
+    "decision": "maintain",
+    "confidence": 0.82,
+    "rationale": "Inflation moderating though still above target with expectations anchored near the upper bound, activity and labor market cooling, and emphasis on awaiting further data - wait-and-see hold; shekel depreciation offsets any easing bias.",
+    "blinded_file": "data/blinded/2023-09-04.txt",
+    "given_prior_rate": true
+  },
+  "2021-11-22": {
+    "decision": "maintain",
+    "confidence": 0.85,
+    "rationale": "Inflation within target and expected to decline with no feared outbreak, growth slowed, the shekel appreciated sharply, and the labor market has not fully recovered - keep rates at 0.1% while winding down asset purchases.",
+    "blinded_file": "data/blinded/2021-11-22.txt",
+    "given_prior_rate": true
+  },
+  "2023-04-03": {
+    "decision": "raise",
+    "confidence": 0.82,
+    "rationale": "Inflation 5.2% broad and above target with rising expectations, labor market at full employment, shekel weakened, global central banks still hiking - continued tightening.",
+    "blinded_file": "data/blinded/2023-04-03.txt",
+    "given_prior_rate": true
+  },
+  "2023-10-23": {
+    "decision": "maintain",
+    "confidence": 0.82,
+    "rationale": "Amid the war shock the Committee focuses on market stabilization and reducing uncertainty rather than the rate path, with weakening demand and high uncertainty offsetting above-target inflation and sharp shekel depreciation - hold.",
+    "blinded_file": "data/blinded/2023-10-23.txt",
+    "given_prior_rate": true
+  },
+  "2024-02-26": {
+    "decision": "maintain",
+    "confidence": 0.72,
+    "rationale": "Inflation back within target but war-driven uncertainty is extreme, growth only gradually recovering, shekel roughly stable, upside inflation risks persist, major central banks on hold - wait-and-see hold.",
+    "blinded_file": "data/blinded/2024-02-26.txt",
+    "given_prior_rate": true
+  },
+  "2026-03-30": {
+    "decision": "maintain",
+    "confidence": 0.87,
+    "rationale": "Despite rising inflation risks from energy and wages, inflation still at target midpoint while activity contracted sharply and geopolitical uncertainty is extreme, and global central banks held - wait-and-see hold.",
+    "blinded_file": "data/blinded/2026-03-30.txt",
+    "given_prior_rate": true
+  },
+  "2019-02-25": {
+    "decision": "maintain",
+    "confidence": 0.9,
+    "rationale": "Inflation only near the lower bound, shekel appreciation and global slowdown offset a tight labor market, and future rate increases framed as gradual and cautious - no change now.",
+    "blinded_file": "data/blinded/2019-02-25.txt",
+    "given_prior_rate": true
+  },
+  "2024-11-25": {
+    "decision": "maintain",
+    "confidence": 0.83,
+    "rationale": "Inflation above target and expected to rise with upside risks (VAT, war) rules out easing, but the focus on market stabilization amid high geopolitical uncertainty and a mixed recovery argues against a hike - hold at 4.5%.",
+    "blinded_file": "data/blinded/2024-11-25.txt",
+    "given_prior_rate": true
+  },
+  "2023-02-20": {
+    "decision": "raise",
+    "confidence": 0.85,
+    "rationale": "Inflation 5.4% well above target and broad, robust activity, tight labor market, recent 5% shekel depreciation, ongoing global rate hikes - further tightening from 3.75%.",
+    "blinded_file": "data/blinded/2023-02-20.txt",
+    "given_prior_rate": true
+  },
+  "2021-07-05": {
+    "decision": "maintain",
+    "confidence": 0.9,
+    "rationale": "Rate at 0.1%, inflation only just entering target at 1.5% with anchored expectations and explicitly no concern of an outbreak, incomplete recovery, still-elevated unemployment, renewed Delta risks, very accommodative global policy - hold.",
+    "blinded_file": "data/blinded/2021-07-05.txt",
+    "given_prior_rate": true
+  },
+  "2025-07-07": {
+    "decision": "maintain",
+    "confidence": 0.58,
+    "rationale": "Inflation still above the target range and the labor market tight amid high geopolitical uncertainty, but sharp shekel appreciation, a falling risk premium, and forecast convergence to target argue against further tightening - wait-and-see hold.",
+    "blinded_file": "data/blinded/2025-07-07.txt",
+    "given_prior_rate": true
+  },
+  "2021-01-04": {
+    "decision": "maintain",
+    "confidence": 0.68,
+    "rationale": "Despite low/negative inflation, shekel appreciation and lockdown-driven downside risks, rate already at a near-zero 0.1% floor and the improving vaccination-driven outlook plus reliance on other tools - hold rather than a token cut.",
+    "blinded_file": "data/blinded/2021-01-04.txt",
+    "given_prior_rate": true
+  },
+  "2023-05-22": {
+    "decision": "raise",
+    "confidence": 0.6,
+    "rationale": "Inflation 5% broad-based above target with shekel depreciation and a still-tight labor market, and although activity and momentum are moderating, the hawkish framing points to a further hike.",
+    "blinded_file": "data/blinded/2023-05-22.txt",
+    "given_prior_rate": true
+  },
+  "2021-10-07": {
+    "decision": "maintain",
+    "confidence": 0.9,
+    "rationale": "Inflation within target and expected to moderate with no feared outbreak, growth recovering but uncertain amid COVID waves, and near-term normalization framed only as ending QE rather than raising rates from 0.1%.",
+    "blinded_file": "data/blinded/2021-10-07.txt",
+    "given_prior_rate": true
+  },
+  "2026-05-25": {
+    "decision": "maintain",
+    "confidence": 0.7,
+    "rationale": "Inflation near the target midpoint and the shekel appreciated sharply, but a contracting-then-recovering economy, labor-supply constraints, high wage growth, rising global inflation, upside risks and heavy geopolitical uncertainty - balanced wait-and-see.",
+    "blinded_file": "data/blinded/2026-05-25.txt",
+    "given_prior_rate": true
+  },
+  "2022-05-23": {
+    "decision": "raise",
+    "confidence": 0.94,
+    "rationale": "Inflation 4% above target with broad-based increases, tight labor market near full employment, strong activity, shekel depreciation, accelerating home prices, global tightening - hike from the very low 0.35% level.",
+    "blinded_file": "data/blinded/2022-05-23.txt",
+    "given_prior_rate": true
+  },
+  "2020-08-24": {
+    "decision": "maintain",
+    "confidence": 0.7,
+    "rationale": "Despite a deep pandemic contraction, negative inflation, and weak labor market, rate already at the 0.1% lower bound and the Committee frames policy around expanding other tools while only conditionally noting the rate could be used - hold.",
+    "blinded_file": "data/blinded/2020-08-24.txt",
+    "given_prior_rate": true
+  }
+}

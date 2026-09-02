@@ -1,0 +1,14 @@
+# scratch / tooling
+scripts/__pycache__/
+scripts/*.pyc
+scripts/cdx_raw.txt
+scripts/fetch_batches.txt
+scripts/batches2plus.txt
+scripts/html_fetch.txt
+*.log
+.DS_Store
+Thumbs.db
+
+scripts/raw_fetch_recent.json
+scripts/jan5_2026.txt
+scripts/nov27_2023.txt
