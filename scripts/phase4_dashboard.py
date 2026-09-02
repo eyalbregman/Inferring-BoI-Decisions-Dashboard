@@ -1,7 +1,5 @@
-"""Phase 4: build the dashboard in two wrappers from one shared body:
-  results/Inferring BoI Decisions Dashboard.html   -> standalone local file (full HTML doc)
-  results/artifact.html                            -> Artifact-format (no doctype/html/head/body)
-Two sheets: reasoning-only vs prior-rate-known. Chart.js from cdnjs."""
+"""Phase 4: build the dashboard -> docs/index.html (the one canonical file: in the folder,
+in git, and served by GitHub Pages). Two sheets: reasoning-only vs prior-rate-known. Chart.js from cdnjs."""
 import json, os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -116,7 +114,7 @@ footer{margin-top:26px;color:var(--muted);font-size:12px;line-height:1.6;max-wid
 BODY = r"""
 <div class="wrap">
   <p class="eyebrow">Bank of Israel &nbsp;/&nbsp; Nov 2018 &ndash; today</p>
-  <h1>Can a language model read a rate decision from the reasoning alone?</h1>
+  <h1>Inferring Bank of Israel rate decisions from the reasoning alone</h1>
   <p class="sub">Every Bank of Israel interest-rate announcement is stripped of its headline, the
      decision sentence, the policy-rate figure and the dates. A model then reads only what's left
      &mdash; the economic reasoning &mdash; and predicts <b>lower</b>, <b>maintain</b> or <b>raise</b>.
@@ -157,8 +155,8 @@ const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).
 const fmtPct = x => x==null ? 'n/a' : Math.round(x*100)+'%';
 const SHEETSUB = {
   blind: "The model sees only the blinded rationale — nothing about the rate, the date, or the previous decision.",
-  rate: "Same blinded rationale, plus one line giving the interest-rate level in effect before the decision "
-      + "(e.g. “the rate was 4.5 percent”). It is still not told what was decided at the previous meeting."
+  rate: "The model sees only the blinded rationale, and here the previous rate level too — but still nothing "
+      + "about the date or the previous decision."
 };
 let charts = [];
 
@@ -173,9 +171,9 @@ function render(v){
     ['Decisions', S.n_decisions, 'Nov 2018 – today', null, false],
     ['Majority baseline', fmtPct(S.majority_class_baseline), "always guess '"+S.majority_class+"'", S.majority_class_baseline, false],
     ['Persistence baseline', fmtPct(S.persistence_baseline), 'guess = last meeting', S.persistence_baseline, false],
-    ['Cuts', fmtPct(pc.lower.accuracy), pc.lower.correct+' / '+pc.lower.n, pc.lower.accuracy, false],
-    ['Holds', fmtPct(pc.maintain.accuracy), pc.maintain.correct+' / '+pc.maintain.n, pc.maintain.accuracy, false],
-    ['Hikes', fmtPct(pc.raise.accuracy), pc.raise.correct+' / '+pc.raise.n, pc.raise.accuracy, false],
+    ['Lower', fmtPct(pc.lower.accuracy), pc.lower.correct+' / '+pc.lower.n, pc.lower.accuracy, false],
+    ['Maintain', fmtPct(pc.maintain.accuracy), pc.maintain.correct+' / '+pc.maintain.n, pc.maintain.accuracy, false],
+    ['Raise', fmtPct(pc.raise.accuracy), pc.raise.correct+' / '+pc.raise.n, pc.raise.accuracy, false],
   ];
   document.getElementById('cards').innerHTML = cards.map(c=>{
     const bar = c[3]==null ? '' : `<div class="bar"><i style="width:${Math.round(c[3]*100)}%"></i></div>`;
@@ -189,7 +187,7 @@ function render(v){
     + `ignores the text. Always guessing &ldquo;${S.majority_class}&rdquo; scores <b>${fmtPct(S.majority_class_baseline)}</b>; `
     + `guessing &ldquo;same as last meeting&rdquo; scores <b>${fmtPct(S.persistence_baseline)}</b>. `
     + `The model scored <b>${acc}</b> &mdash; ${liftM>=0?'+':''}${liftM} over the first, ${liftP>=0?'+':''}${liftP} over the second.`;
-  if (pc.lower.n && pc.lower.correct===0) note += ` It reads hikes and holds well but caught none of the ${pc.lower.n} cuts.`;
+  if (pc.lower.n && pc.lower.correct===0) note += ` It gets raise and maintain almost always right, but caught none of the ${pc.lower.n} lower decisions.`;
   document.getElementById('baseline-note').innerHTML = note;
 
   const cn = document.getElementById('compare-note');
@@ -198,9 +196,9 @@ function render(v){
     const d = Math.round((S.overall_accuracy - B.overall_accuracy)*100);
     const dl = Math.round((pc.lower.accuracy - bL)*100);
     cn.innerHTML = `<b>Versus the reasoning-only sheet:</b> overall ${fmtPct(B.overall_accuracy)} &rarr; ${acc} `
-      + `(${d>=0?'+':''}${d} pts), cuts ${fmtPct(bL)} &rarr; ${fmtPct(pc.lower.accuracy)} (${dl>=0?'+':''}${dl} pts). `
-      + `Knowing the rate level mostly helps the model see that a high rate leaves room to cut, and that a rate `
-      + `already at the floor cannot be cut &mdash; not that it reads tone any better.`;
+      + `(${d>=0?'+':''}${d} pts), and <b>lower</b> ${fmtPct(bL)} &rarr; ${fmtPct(pc.lower.accuracy)} (${dl>=0?'+':''}${dl} pts). `
+      + `Knowing the rate level mostly helps the model see that a high rate leaves room to lower it, and that a rate `
+      + `already at the floor cannot be lowered &mdash; not that it reads tone any better.`;
     cn.hidden = false;
   } else cn.hidden = true;
 
@@ -255,15 +253,13 @@ render('blind');
 </script>
 """.replace("__DATA__", PAYLOAD)
 
-LOCAL = ("<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\">"
-         "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
-         "<title>Reading BoI Rate Decisions</title>" + FONTS + CHARTJS
-         + "<style>" + STYLE + "</style></head><body>" + BODY + SCRIPT + "</body></html>")
+PAGE = ("<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\">"
+        "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+        "<title>Inferring BoI Rate Decisions</title>" + FONTS + CHARTJS
+        + "<style>" + STYLE + "</style></head><body>" + BODY + SCRIPT + "</body></html>")
 
-ARTIFACT = ("<title>Reading BoI Rate Decisions</title>" + FONTS + CHARTJS
-            + "<style>" + STYLE + "</style>" + BODY + SCRIPT)
-
-open(os.path.join(ROOT, 'results', 'Inferring BoI Decisions Dashboard.html'), 'w', encoding='utf-8').write(LOCAL)
+# One canonical file: docs/index.html — it is what sits in the folder, what git tracks,
+# and what GitHub Pages serves. Regenerate, then commit + push to update everywhere.
 os.makedirs(os.path.join(ROOT, 'docs'), exist_ok=True)
-open(os.path.join(ROOT, 'docs', 'index.html'), 'w', encoding='utf-8').write(LOCAL)   # GitHub Pages entry
-print("wrote results/Inferring BoI Decisions Dashboard.html + docs/index.html")
+open(os.path.join(ROOT, 'docs', 'index.html'), 'w', encoding='utf-8').write(PAGE)
+print("wrote docs/index.html")

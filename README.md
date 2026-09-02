@@ -19,9 +19,9 @@ press-release titles and kept in a file the interpreter never reads.
 | Overall accuracy | 85.5% (53/62) | 91.9% (57/62) |
 | Majority-class baseline ("always maintain") | 72.6% | 72.6% |
 | Persistence baseline ("same as last meeting") | 82.3% | 82.3% |
-| Hikes (raise) | 11/11 | 11/11 |
-| Holds (maintain) | 42/45 | 44/45 |
-| **Cuts (lower)** | **0/6** | **2/6** |
+| raise | 11/11 | 11/11 |
+| maintain | 42/45 | 44/45 |
+| **lower** | **0/6** | **2/6** |
 
 The model nails every hiking cycle and nearly every hold, but from the reasoning alone it caught
 **none of the six rate cuts** — blinded BoI cut announcements read as balanced "holds". Telling
