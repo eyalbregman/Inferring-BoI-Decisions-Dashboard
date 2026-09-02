@@ -10,7 +10,7 @@ Each announcement is classified by a fresh subagent in an isolated context, so t
 sees another announcement, the dates, or the true decisions. Ground truth is parsed from the
 press-release titles and kept in a file the interpreter never reads.
 
-**[→ Live dashboard](https://EYALBREGMAN.github.io/REPO/)**  *(update this link after enabling GitHub Pages)*
+**[→ Live dashboard](https://eyalbregman.github.io/Inferring-BoI-Decisions-Dashboard/)**
 
 ## Headline results
 
