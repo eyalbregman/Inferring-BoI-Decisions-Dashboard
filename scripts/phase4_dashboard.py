@@ -114,7 +114,7 @@ tr.bad td.guess .pill{color:var(--bad)}
 BODY = r"""
 <div class="wrap">
   <p class="eyebrow">Bank of Israel &nbsp;/&nbsp; Nov 2018 &ndash; today</p>
-  <h1>Inferring Bank of Israel rate decisions</h1>
+  <h1>Inferring Bank of Israel interest-rate decisions</h1>
   <p class="sub">Every Bank of Israel interest-rate announcement is stripped of its headline, the
      decision sentence, the policy-rate figure and the dates. A model then reads only what's left
      &mdash; the economic reasoning &mdash; and predicts <b>lower</b>, <b>maintain</b> or <b>raise</b>.
