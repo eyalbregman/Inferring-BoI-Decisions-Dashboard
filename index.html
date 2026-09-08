@@ -74,6 +74,12 @@ h1{font-family:"IBM Plex Serif",Georgia,serif;font-weight:600;font-size:27px;lin
 .panel h2{font-size:12px;font-family:"IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;
   color:var(--muted);margin:0 0 14px;font-weight:500}
 .cwrap{position:relative;height:270px;max-width:300px;margin:0 auto}
+.cwrap.wide{max-width:none;height:340px}
+.panel.full{grid-column:1/-1}
+.tone-legend{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin:2px 0 18px}
+.tone-legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:middle}
+td.sc{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;text-align:right}
+td.sc.h{color:var(--bad)} td.sc.d{color:var(--accent)}
 
 .tablewrap{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
 table{width:100%;border-collapse:collapse}
@@ -102,25 +108,51 @@ tr.bad td.guess .pill{color:var(--bad)}
      &mdash; the economic reasoning &mdash; and predicts <b>lower</b>, <b>maintain</b> or <b>raise</b>.
      Each announcement is judged in a fresh, isolated context. <span id="sheetsub"></span></p>
 
-  <div class="tabs" role="tablist" aria-label="Model condition">
+  <div class="tabs" role="tablist" aria-label="View">
     <button class="tab" role="tab" data-v="blind" aria-selected="true">Reasoning only</button>
     <button class="tab" role="tab" data-v="rate" aria-selected="false">&plus; prior rate level</button>
+    <button class="tab" role="tab" data-v="tone" aria-selected="false">Sentence tone</button>
   </div>
 
-  <div class="cards" id="cards"></div>
-  <div class="note base" id="baseline-note"></div>
-  <div class="note good" id="compare-note" hidden></div>
+  <div id="view-infer">
+    <div class="cards" id="cards"></div>
+    <div class="note base" id="baseline-note"></div>
+    <div class="note good" id="compare-note" hidden></div>
 
-  <div class="charts">
-    <div class="panel"><h2>Correct vs incorrect</h2><div class="cwrap"><canvas id="pie1"></canvas></div></div>
-    <div class="panel"><h2>Where it went wrong</h2><div class="cwrap"><canvas id="pie2"></canvas></div></div>
+    <div class="charts">
+      <div class="panel"><h2>Correct vs incorrect</h2><div class="cwrap"><canvas id="pie1"></canvas></div></div>
+      <div class="panel"><h2>Where it went wrong</h2><div class="cwrap"><canvas id="pie2"></canvas></div></div>
+    </div>
+
+    <div class="tablewrap">
+      <table id="tbl">
+        <thead><tr><th>Date</th><th>New rate</th><th>Change</th><th>Agent guess</th><th>Reality</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
   </div>
 
-  <div class="tablewrap">
-    <table id="tbl">
-      <thead><tr><th>Date</th><th>New rate</th><th>Change</th><th>Agent guess</th><th>Reality</th></tr></thead>
-      <tbody></tbody>
-    </table>
+  <div id="view-tone" hidden>
+    <p class="sub" style="margin-top:-6px">Each announcement is split into sentences; every sentence is
+       labelled <b>hawkish</b> (strong, confident, emphatic wording), <b>dovish</b> (hedged, tentative,
+       qualified wording) or <b>neutral</b> &mdash; by the language only, not the decision. The score is
+       <b>(hawkish &minus; dovish) &divide; total sentences</b>, from &minus;1 (all dovish) to &plus;1 (all hawkish).</p>
+    <div class="cards" id="tone-cards"></div>
+    <div class="tone-legend">
+      <span><i style="background:var(--bad)"></i>Hawkish tone (score &gt; 0)</span>
+      <span><i style="background:var(--accent)"></i>Dovish tone (score &lt; 0)</span>
+      <span>Marker = actual decision that month (&#9650; raise &nbsp; &#9644; maintain &nbsp; &#9660; lower)</span>
+    </div>
+    <div class="panel full" style="margin-bottom:22px">
+      <h2>Tone score by announcement &mdash; Nov 2018 to today</h2>
+      <div class="cwrap wide"><canvas id="toneTL"></canvas></div>
+    </div>
+    <div class="tablewrap">
+      <table id="tonetbl">
+        <thead><tr><th>Date</th><th>Decision</th><th>Hawkish</th><th>Dovish</th><th>Neutral</th><th>Total</th><th>Score</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
   </div>
 </div>
 
@@ -1714,7 +1746,629 @@ tr.bad td.guess .pill{color:var(--bad)}
    }
   ],
   "variant": "rate"
- }
+ },
+ "tone": [
+  {
+   "id": "2018-11-26",
+   "date": "2018-11-26",
+   "n": 51,
+   "H": 10,
+   "D": 20,
+   "N": 21,
+   "score": -0.1961,
+   "decision": "raise"
+  },
+  {
+   "id": "2019-01-07",
+   "date": "2019-01-07",
+   "n": 50,
+   "H": 6,
+   "D": 21,
+   "N": 23,
+   "score": -0.3,
+   "decision": "maintain"
+  },
+  {
+   "id": "2019-02-25",
+   "date": "2019-02-25",
+   "n": 50,
+   "H": 8,
+   "D": 14,
+   "N": 28,
+   "score": -0.12,
+   "decision": "maintain"
+  },
+  {
+   "id": "2019-04-08",
+   "date": "2019-04-08",
+   "n": 50,
+   "H": 4,
+   "D": 19,
+   "N": 27,
+   "score": -0.3,
+   "decision": "maintain"
+  },
+  {
+   "id": "2019-05-20",
+   "date": "2019-05-20",
+   "n": 50,
+   "H": 7,
+   "D": 17,
+   "N": 26,
+   "score": -0.2,
+   "decision": "maintain"
+  },
+  {
+   "id": "2019-07-08",
+   "date": "2019-07-08",
+   "n": 53,
+   "H": 8,
+   "D": 20,
+   "N": 25,
+   "score": -0.2264,
+   "decision": "maintain"
+  },
+  {
+   "id": "2019-08-28",
+   "date": "2019-08-28",
+   "n": 55,
+   "H": 9,
+   "D": 14,
+   "N": 32,
+   "score": -0.0909,
+   "decision": "maintain"
+  },
+  {
+   "id": "2019-10-07",
+   "date": "2019-10-07",
+   "n": 52,
+   "H": 5,
+   "D": 10,
+   "N": 37,
+   "score": -0.0962,
+   "decision": "maintain"
+  },
+  {
+   "id": "2019-11-25",
+   "date": "2019-11-25",
+   "n": 52,
+   "H": 13,
+   "D": 18,
+   "N": 21,
+   "score": -0.0962,
+   "decision": "maintain"
+  },
+  {
+   "id": "2020-01-09",
+   "date": "2020-01-09",
+   "n": 48,
+   "H": 8,
+   "D": 18,
+   "N": 22,
+   "score": -0.2083,
+   "decision": "maintain"
+  },
+  {
+   "id": "2020-02-24",
+   "date": "2020-02-24",
+   "n": 56,
+   "H": 8,
+   "D": 20,
+   "N": 28,
+   "score": -0.2143,
+   "decision": "maintain"
+  },
+  {
+   "id": "2020-04-06",
+   "date": "2020-04-06",
+   "n": 54,
+   "H": 16,
+   "D": 18,
+   "N": 20,
+   "score": -0.037,
+   "decision": "lower"
+  },
+  {
+   "id": "2020-05-25",
+   "date": "2020-05-25",
+   "n": 62,
+   "H": 14,
+   "D": 21,
+   "N": 27,
+   "score": -0.1129,
+   "decision": "maintain"
+  },
+  {
+   "id": "2020-07-06",
+   "date": "2020-07-06",
+   "n": 59,
+   "H": 9,
+   "D": 13,
+   "N": 37,
+   "score": -0.0678,
+   "decision": "maintain"
+  },
+  {
+   "id": "2020-08-24",
+   "date": "2020-08-24",
+   "n": 64,
+   "H": 11,
+   "D": 16,
+   "N": 37,
+   "score": -0.0781,
+   "decision": "maintain"
+  },
+  {
+   "id": "2020-10-22",
+   "date": "2020-10-22",
+   "n": 72,
+   "H": 10,
+   "D": 23,
+   "N": 39,
+   "score": -0.1806,
+   "decision": "maintain"
+  },
+  {
+   "id": "2020-11-30",
+   "date": "2020-11-30",
+   "n": 69,
+   "H": 10,
+   "D": 26,
+   "N": 33,
+   "score": -0.2319,
+   "decision": "maintain"
+  },
+  {
+   "id": "2021-01-04",
+   "date": "2021-01-04",
+   "n": 75,
+   "H": 5,
+   "D": 31,
+   "N": 39,
+   "score": -0.3467,
+   "decision": "maintain"
+  },
+  {
+   "id": "2021-02-22",
+   "date": "2021-02-22",
+   "n": 76,
+   "H": 16,
+   "D": 15,
+   "N": 45,
+   "score": 0.0132,
+   "decision": "maintain"
+  },
+  {
+   "id": "2021-04-19",
+   "date": "2021-04-19",
+   "n": 81,
+   "H": 19,
+   "D": 25,
+   "N": 37,
+   "score": -0.0741,
+   "decision": "maintain"
+  },
+  {
+   "id": "2021-05-31",
+   "date": "2021-05-31",
+   "n": 93,
+   "H": 19,
+   "D": 17,
+   "N": 57,
+   "score": 0.0215,
+   "decision": "maintain"
+  },
+  {
+   "id": "2021-07-05",
+   "date": "2021-07-05",
+   "n": 77,
+   "H": 8,
+   "D": 22,
+   "N": 47,
+   "score": -0.1818,
+   "decision": "maintain"
+  },
+  {
+   "id": "2021-08-23",
+   "date": "2021-08-23",
+   "n": 75,
+   "H": 12,
+   "D": 14,
+   "N": 49,
+   "score": -0.0267,
+   "decision": "maintain"
+  },
+  {
+   "id": "2021-10-07",
+   "date": "2021-10-07",
+   "n": 79,
+   "H": 7,
+   "D": 21,
+   "N": 51,
+   "score": -0.1772,
+   "decision": "maintain"
+  },
+  {
+   "id": "2021-11-22",
+   "date": "2021-11-22",
+   "n": 70,
+   "H": 13,
+   "D": 15,
+   "N": 42,
+   "score": -0.0286,
+   "decision": "maintain"
+  },
+  {
+   "id": "2022-01-03",
+   "date": "2022-01-03",
+   "n": 76,
+   "H": 12,
+   "D": 21,
+   "N": 43,
+   "score": -0.1184,
+   "decision": "maintain"
+  },
+  {
+   "id": "2022-02-21",
+   "date": "2022-02-21",
+   "n": 69,
+   "H": 13,
+   "D": 13,
+   "N": 43,
+   "score": 0.0,
+   "decision": "maintain"
+  },
+  {
+   "id": "2022-04-11",
+   "date": "2022-04-11",
+   "n": 65,
+   "H": 19,
+   "D": 8,
+   "N": 38,
+   "score": 0.1692,
+   "decision": "raise"
+  },
+  {
+   "id": "2022-05-23",
+   "date": "2022-05-23",
+   "n": 62,
+   "H": 18,
+   "D": 9,
+   "N": 35,
+   "score": 0.1452,
+   "decision": "raise"
+  },
+  {
+   "id": "2022-07-04",
+   "date": "2022-07-04",
+   "n": 70,
+   "H": 20,
+   "D": 15,
+   "N": 35,
+   "score": 0.0714,
+   "decision": "raise"
+  },
+  {
+   "id": "2022-08-22",
+   "date": "2022-08-22",
+   "n": 65,
+   "H": 23,
+   "D": 7,
+   "N": 35,
+   "score": 0.2462,
+   "decision": "raise"
+  },
+  {
+   "id": "2022-10-03",
+   "date": "2022-10-03",
+   "n": 71,
+   "H": 24,
+   "D": 8,
+   "N": 39,
+   "score": 0.2254,
+   "decision": "raise"
+  },
+  {
+   "id": "2022-11-21",
+   "date": "2022-11-21",
+   "n": 74,
+   "H": 25,
+   "D": 9,
+   "N": 40,
+   "score": 0.2162,
+   "decision": "raise"
+  },
+  {
+   "id": "2023-01-02",
+   "date": "2023-01-02",
+   "n": 78,
+   "H": 20,
+   "D": 21,
+   "N": 37,
+   "score": -0.0128,
+   "decision": "raise"
+  },
+  {
+   "id": "2023-02-20",
+   "date": "2023-02-20",
+   "n": 70,
+   "H": 14,
+   "D": 17,
+   "N": 39,
+   "score": -0.0429,
+   "decision": "raise"
+  },
+  {
+   "id": "2023-04-03",
+   "date": "2023-04-03",
+   "n": 98,
+   "H": 15,
+   "D": 32,
+   "N": 51,
+   "score": -0.1735,
+   "decision": "raise"
+  },
+  {
+   "id": "2023-05-22",
+   "date": "2023-05-22",
+   "n": 78,
+   "H": 13,
+   "D": 17,
+   "N": 48,
+   "score": -0.0513,
+   "decision": "raise"
+  },
+  {
+   "id": "2023-07-10",
+   "date": "2023-07-10",
+   "n": 94,
+   "H": 12,
+   "D": 20,
+   "N": 62,
+   "score": -0.0851,
+   "decision": "maintain"
+  },
+  {
+   "id": "2023-09-04",
+   "date": "2023-09-04",
+   "n": 94,
+   "H": 18,
+   "D": 16,
+   "N": 60,
+   "score": 0.0213,
+   "decision": "maintain"
+  },
+  {
+   "id": "2023-10-23",
+   "date": "2023-10-23",
+   "n": 99,
+   "H": 15,
+   "D": 29,
+   "N": 55,
+   "score": -0.1414,
+   "decision": "maintain"
+  },
+  {
+   "id": "2023-11-27",
+   "date": "2023-11-27",
+   "n": 116,
+   "H": 19,
+   "D": 36,
+   "N": 61,
+   "score": -0.1466,
+   "decision": "maintain"
+  },
+  {
+   "id": "2024-01-01",
+   "date": "2024-01-01",
+   "n": 90,
+   "H": 10,
+   "D": 27,
+   "N": 53,
+   "score": -0.1889,
+   "decision": "lower"
+  },
+  {
+   "id": "2024-02-26",
+   "date": "2024-02-26",
+   "n": 96,
+   "H": 11,
+   "D": 31,
+   "N": 54,
+   "score": -0.2083,
+   "decision": "maintain"
+  },
+  {
+   "id": "2024-04-08",
+   "date": "2024-04-08",
+   "n": 101,
+   "H": 12,
+   "D": 36,
+   "N": 53,
+   "score": -0.2376,
+   "decision": "maintain"
+  },
+  {
+   "id": "2024-05-27",
+   "date": "2024-05-27",
+   "n": 90,
+   "H": 11,
+   "D": 19,
+   "N": 60,
+   "score": -0.0889,
+   "decision": "maintain"
+  },
+  {
+   "id": "2024-07-08",
+   "date": "2024-07-08",
+   "n": 87,
+   "H": 12,
+   "D": 29,
+   "N": 46,
+   "score": -0.1954,
+   "decision": "maintain"
+  },
+  {
+   "id": "2024-08-28",
+   "date": "2024-08-28",
+   "n": 78,
+   "H": 20,
+   "D": 23,
+   "N": 35,
+   "score": -0.0385,
+   "decision": "maintain"
+  },
+  {
+   "id": "2024-10-09",
+   "date": "2024-10-09",
+   "n": 87,
+   "H": 12,
+   "D": 23,
+   "N": 52,
+   "score": -0.1264,
+   "decision": "maintain"
+  },
+  {
+   "id": "2024-11-25",
+   "date": "2024-11-25",
+   "n": 82,
+   "H": 14,
+   "D": 13,
+   "N": 55,
+   "score": 0.0122,
+   "decision": "maintain"
+  },
+  {
+   "id": "2025-01-06",
+   "date": "2025-01-06",
+   "n": 88,
+   "H": 17,
+   "D": 35,
+   "N": 36,
+   "score": -0.2045,
+   "decision": "maintain"
+  },
+  {
+   "id": "2025-02-24",
+   "date": "2025-02-24",
+   "n": 78,
+   "H": 21,
+   "D": 14,
+   "N": 43,
+   "score": 0.0897,
+   "decision": "maintain"
+  },
+  {
+   "id": "2025-04-07",
+   "date": "2025-04-07",
+   "n": 83,
+   "H": 20,
+   "D": 29,
+   "N": 34,
+   "score": -0.1084,
+   "decision": "maintain"
+  },
+  {
+   "id": "2025-05-26",
+   "date": "2025-05-26",
+   "n": 72,
+   "H": 7,
+   "D": 19,
+   "N": 46,
+   "score": -0.1667,
+   "decision": "maintain"
+  },
+  {
+   "id": "2025-07-07",
+   "date": "2025-07-07",
+   "n": 84,
+   "H": 20,
+   "D": 26,
+   "N": 38,
+   "score": -0.0714,
+   "decision": "maintain"
+  },
+  {
+   "id": "2025-08-20",
+   "date": "2025-08-20",
+   "n": 74,
+   "H": 12,
+   "D": 22,
+   "N": 40,
+   "score": -0.1351,
+   "decision": "maintain"
+  },
+  {
+   "id": "2025-09-29",
+   "date": "2025-09-29",
+   "n": 80,
+   "H": 19,
+   "D": 33,
+   "N": 28,
+   "score": -0.175,
+   "decision": "maintain"
+  },
+  {
+   "id": "2025-11-24",
+   "date": "2025-11-24",
+   "n": 76,
+   "H": 21,
+   "D": 20,
+   "N": 35,
+   "score": 0.0132,
+   "decision": "lower"
+  },
+  {
+   "id": "2026-01-05",
+   "date": "2026-01-05",
+   "n": 93,
+   "H": 15,
+   "D": 25,
+   "N": 53,
+   "score": -0.1075,
+   "decision": "lower"
+  },
+  {
+   "id": "2026-02-23",
+   "date": "2026-02-23",
+   "n": 86,
+   "H": 17,
+   "D": 21,
+   "N": 48,
+   "score": -0.0465,
+   "decision": "maintain"
+  },
+  {
+   "id": "2026-03-30",
+   "date": "2026-03-30",
+   "n": 92,
+   "H": 16,
+   "D": 32,
+   "N": 44,
+   "score": -0.1739,
+   "decision": "maintain"
+  },
+  {
+   "id": "2026-05-25",
+   "date": "2026-05-25",
+   "n": 78,
+   "H": 17,
+   "D": 13,
+   "N": 48,
+   "score": 0.0513,
+   "decision": "lower"
+  },
+  {
+   "id": "2026-07-06",
+   "date": "2026-07-06",
+   "n": 85,
+   "H": 13,
+   "D": 27,
+   "N": 45,
+   "score": -0.1647,
+   "decision": "lower"
+  }
+ ]
 }</script>
 <script>
 const ALL = JSON.parse(document.getElementById('data').textContent);
@@ -1728,9 +2382,14 @@ const SHEETSUB = {
 let charts = [];
 
 function render(v){
-  const S = ALL[v], pc = S.per_class_accuracy;
   document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected', t.dataset.v===v));
-  document.getElementById('sheetsub').textContent = SHEETSUB[v];
+  const isTone = v === 'tone';
+  document.getElementById('view-infer').hidden = isTone;
+  document.getElementById('view-tone').hidden = !isTone;
+  document.getElementById('sheetsub').textContent = isTone ? "" : SHEETSUB[v];
+  if (isTone){ renderTone(); return; }
+
+  const S = ALL[v], pc = S.per_class_accuracy;
 
   const acc = fmtPct(S.overall_accuracy);
   const cards = [
@@ -1810,6 +2469,72 @@ function render(v){
       <td class="res"><span class="pill">${r.actual}</span></td>
     </tr>`).join('');
 }
+function renderTone(){
+  const T = [...ALL.tone].sort((a,b)=>a.date.localeCompare(b.date));
+  const haw = css('--bad'), dov = css('--accent'), mut = css('--muted');
+  const n = T.length;
+  const mean = T.reduce((s,r)=>s+r.score,0)/n;
+  const sH = T.reduce((s,r)=>s+r.H,0), sD = T.reduce((s,r)=>s+r.D,0), sN = T.reduce((s,r)=>s+r.N,0);
+  const tot = sH+sD+sN;
+  const mostH = T.reduce((a,b)=>b.score>a.score?b:a);
+  const mostD = T.reduce((a,b)=>b.score<a.score?b:a);
+  const cards = [
+    ['Announcements', n, 'Nov 2018 – today', true],
+    ['Sentences classified', tot.toLocaleString(), `${Math.round(100*sH/tot)}% H · ${Math.round(100*sD/tot)}% D · ${Math.round(100*sN/tot)}% N`, false],
+    ['Mean tone score', (mean>=0?'+':'')+mean.toFixed(3), mean>=0?'net hawkish wording':'net dovish wording', false],
+    ['Most hawkish', (mostH.score>=0?'+':'')+mostH.score.toFixed(2), mostH.date, false],
+    ['Most dovish', mostD.score.toFixed(2), mostD.date, false],
+  ];
+  document.getElementById('tone-cards').innerHTML = cards.map(c=>
+    `<div class="stat${c[3]?' lead':''}"><div class="k">${c[0]}</div><div class="v">${c[1]}</div><div class="n">${c[2]}</div></div>`
+  ).join('');
+
+  const shape = {raise:'triangle', maintain:'rect', lower:'triangle'};
+  const rot = T.map(r=>r.decision==='lower'?180:0);
+  charts.forEach(c=>c.destroy()); charts = [];
+  Chart.defaults.font.family = "'IBM Plex Sans', sans-serif";
+  Chart.defaults.color = mut;
+  charts.push(new Chart(document.getElementById('toneTL'), {
+    type:'bar',
+    data:{ labels: T.map(r=>r.date),
+      datasets:[
+        { type:'bar', label:'Tone score', data: T.map(r=>r.score),
+          backgroundColor: T.map(r=>r.score>=0?haw:dov), borderWidth:0,
+          categoryPercentage:0.9, barPercentage:0.95 },
+        { type:'line', label:'Decision', data: T.map(r=>r.score),
+          showLine:false,
+          pointStyle: T.map(r=>shape[r.decision]||'rect'),
+          rotation: rot,
+          pointRadius: T.map(r=>r.decision==='maintain'?4:6),
+          pointBackgroundColor:'transparent',
+          pointBorderColor: css('--ink'), pointBorderWidth:1.5 }
+      ] },
+    options:{ responsive:true, maintainAspectRatio:false, animation:false,
+      scales:{
+        y:{ min:-0.5, max:0.5, title:{display:true,text:'dovish  ←   tone score   →  hawkish'},
+            grid:{color:c=>c.tick.value===0?css('--muted'):css('--line-soft')}, ticks:{stepSize:0.1} },
+        x:{ ticks:{ maxRotation:90, minRotation:90, autoSkip:true, maxTicksLimit:24, font:{size:9} },
+            grid:{display:false} } },
+      plugins:{ legend:{display:false},
+        tooltip:{ callbacks:{ title:i=>T[i[0].dataIndex].date,
+          label:i=>{ const r=T[i.dataIndex];
+            return [`score ${r.score>=0?'+':''}${r.score.toFixed(3)}  =  (${r.H} − ${r.D}) / ${r.n}`,
+                    `decision that month: ${r.decision}`]; } } } } }
+  }));
+
+  const chg = d => d==='raise'?'raise':d==='lower'?'lower':'maintain';
+  document.querySelector('#tonetbl tbody').innerHTML = T.map(r=>`
+    <tr>
+      <td class="mono">${r.date}</td>
+      <td><span class="pill">${chg(r.decision)}</span></td>
+      <td class="mono" style="text-align:right">${r.H}</td>
+      <td class="mono" style="text-align:right">${r.D}</td>
+      <td class="mono" style="text-align:right">${r.N}</td>
+      <td class="mono" style="text-align:right">${r.n}</td>
+      <td class="sc ${r.score>0?'h':r.score<0?'d':''}">${r.score>=0?'+':''}${r.score.toFixed(3)}</td>
+    </tr>`).join('');
+}
+
 document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click', ()=>render(t.dataset.v)));
 render('blind');
 </script>

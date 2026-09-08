@@ -6,7 +6,9 @@ import json, os
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 S_BLIND = json.load(open(os.path.join(ROOT, 'results', 'scores.json')))
 S_RATE = json.load(open(os.path.join(ROOT, 'results', 'scores_rate.json')))
-PAYLOAD = json.dumps({"blind": S_BLIND, "rate": S_RATE}, indent=1)
+TONE_PATH = os.path.join(ROOT, 'results', 'sentence_scores.json')
+S_TONE = json.load(open(TONE_PATH)) if os.path.exists(TONE_PATH) else []
+PAYLOAD = json.dumps({"blind": S_BLIND, "rate": S_RATE, "tone": S_TONE}, indent=1)
 
 FONTS = ('<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
          '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
@@ -90,6 +92,12 @@ h1{font-family:"IBM Plex Serif",Georgia,serif;font-weight:600;font-size:27px;lin
 .panel h2{font-size:12px;font-family:"IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;
   color:var(--muted);margin:0 0 14px;font-weight:500}
 .cwrap{position:relative;height:270px;max-width:300px;margin:0 auto}
+.cwrap.wide{max-width:none;height:340px}
+.panel.full{grid-column:1/-1}
+.tone-legend{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin:2px 0 18px}
+.tone-legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:middle}
+td.sc{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;text-align:right}
+td.sc.h{color:var(--bad)} td.sc.d{color:var(--accent)}
 
 .tablewrap{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
 table{width:100%;border-collapse:collapse}
@@ -120,25 +128,51 @@ BODY = r"""
      &mdash; the economic reasoning &mdash; and predicts <b>lower</b>, <b>maintain</b> or <b>raise</b>.
      Each announcement is judged in a fresh, isolated context. <span id="sheetsub"></span></p>
 
-  <div class="tabs" role="tablist" aria-label="Model condition">
+  <div class="tabs" role="tablist" aria-label="View">
     <button class="tab" role="tab" data-v="blind" aria-selected="true">Reasoning only</button>
     <button class="tab" role="tab" data-v="rate" aria-selected="false">&plus; prior rate level</button>
+    <button class="tab" role="tab" data-v="tone" aria-selected="false">Sentence tone</button>
   </div>
 
-  <div class="cards" id="cards"></div>
-  <div class="note base" id="baseline-note"></div>
-  <div class="note good" id="compare-note" hidden></div>
+  <div id="view-infer">
+    <div class="cards" id="cards"></div>
+    <div class="note base" id="baseline-note"></div>
+    <div class="note good" id="compare-note" hidden></div>
 
-  <div class="charts">
-    <div class="panel"><h2>Correct vs incorrect</h2><div class="cwrap"><canvas id="pie1"></canvas></div></div>
-    <div class="panel"><h2>Where it went wrong</h2><div class="cwrap"><canvas id="pie2"></canvas></div></div>
+    <div class="charts">
+      <div class="panel"><h2>Correct vs incorrect</h2><div class="cwrap"><canvas id="pie1"></canvas></div></div>
+      <div class="panel"><h2>Where it went wrong</h2><div class="cwrap"><canvas id="pie2"></canvas></div></div>
+    </div>
+
+    <div class="tablewrap">
+      <table id="tbl">
+        <thead><tr><th>Date</th><th>New rate</th><th>Change</th><th>Agent guess</th><th>Reality</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
   </div>
 
-  <div class="tablewrap">
-    <table id="tbl">
-      <thead><tr><th>Date</th><th>New rate</th><th>Change</th><th>Agent guess</th><th>Reality</th></tr></thead>
-      <tbody></tbody>
-    </table>
+  <div id="view-tone" hidden>
+    <p class="sub" style="margin-top:-6px">Each announcement is split into sentences; every sentence is
+       labelled <b>hawkish</b> (strong, confident, emphatic wording), <b>dovish</b> (hedged, tentative,
+       qualified wording) or <b>neutral</b> &mdash; by the language only, not the decision. The score is
+       <b>(hawkish &minus; dovish) &divide; total sentences</b>, from &minus;1 (all dovish) to &plus;1 (all hawkish).</p>
+    <div class="cards" id="tone-cards"></div>
+    <div class="tone-legend">
+      <span><i style="background:var(--bad)"></i>Hawkish tone (score &gt; 0)</span>
+      <span><i style="background:var(--accent)"></i>Dovish tone (score &lt; 0)</span>
+      <span>Marker = actual decision that month (&#9650; raise &nbsp; &#9644; maintain &nbsp; &#9660; lower)</span>
+    </div>
+    <div class="panel full" style="margin-bottom:22px">
+      <h2>Tone score by announcement &mdash; Nov 2018 to today</h2>
+      <div class="cwrap wide"><canvas id="toneTL"></canvas></div>
+    </div>
+    <div class="tablewrap">
+      <table id="tonetbl">
+        <thead><tr><th>Date</th><th>Decision</th><th>Hawkish</th><th>Dovish</th><th>Neutral</th><th>Total</th><th>Score</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
   </div>
 </div>
 """
@@ -157,9 +191,14 @@ const SHEETSUB = {
 let charts = [];
 
 function render(v){
-  const S = ALL[v], pc = S.per_class_accuracy;
   document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected', t.dataset.v===v));
-  document.getElementById('sheetsub').textContent = SHEETSUB[v];
+  const isTone = v === 'tone';
+  document.getElementById('view-infer').hidden = isTone;
+  document.getElementById('view-tone').hidden = !isTone;
+  document.getElementById('sheetsub').textContent = isTone ? "" : SHEETSUB[v];
+  if (isTone){ renderTone(); return; }
+
+  const S = ALL[v], pc = S.per_class_accuracy;
 
   const acc = fmtPct(S.overall_accuracy);
   const cards = [
@@ -239,6 +278,72 @@ function render(v){
       <td class="res"><span class="pill">${r.actual}</span></td>
     </tr>`).join('');
 }
+function renderTone(){
+  const T = [...ALL.tone].sort((a,b)=>a.date.localeCompare(b.date));
+  const haw = css('--bad'), dov = css('--accent'), mut = css('--muted');
+  const n = T.length;
+  const mean = T.reduce((s,r)=>s+r.score,0)/n;
+  const sH = T.reduce((s,r)=>s+r.H,0), sD = T.reduce((s,r)=>s+r.D,0), sN = T.reduce((s,r)=>s+r.N,0);
+  const tot = sH+sD+sN;
+  const mostH = T.reduce((a,b)=>b.score>a.score?b:a);
+  const mostD = T.reduce((a,b)=>b.score<a.score?b:a);
+  const cards = [
+    ['Announcements', n, 'Nov 2018 – today', true],
+    ['Sentences classified', tot.toLocaleString(), `${Math.round(100*sH/tot)}% H · ${Math.round(100*sD/tot)}% D · ${Math.round(100*sN/tot)}% N`, false],
+    ['Mean tone score', (mean>=0?'+':'')+mean.toFixed(3), mean>=0?'net hawkish wording':'net dovish wording', false],
+    ['Most hawkish', (mostH.score>=0?'+':'')+mostH.score.toFixed(2), mostH.date, false],
+    ['Most dovish', mostD.score.toFixed(2), mostD.date, false],
+  ];
+  document.getElementById('tone-cards').innerHTML = cards.map(c=>
+    `<div class="stat${c[3]?' lead':''}"><div class="k">${c[0]}</div><div class="v">${c[1]}</div><div class="n">${c[2]}</div></div>`
+  ).join('');
+
+  const shape = {raise:'triangle', maintain:'rect', lower:'triangle'};
+  const rot = T.map(r=>r.decision==='lower'?180:0);
+  charts.forEach(c=>c.destroy()); charts = [];
+  Chart.defaults.font.family = "'IBM Plex Sans', sans-serif";
+  Chart.defaults.color = mut;
+  charts.push(new Chart(document.getElementById('toneTL'), {
+    type:'bar',
+    data:{ labels: T.map(r=>r.date),
+      datasets:[
+        { type:'bar', label:'Tone score', data: T.map(r=>r.score),
+          backgroundColor: T.map(r=>r.score>=0?haw:dov), borderWidth:0,
+          categoryPercentage:0.9, barPercentage:0.95 },
+        { type:'line', label:'Decision', data: T.map(r=>r.score),
+          showLine:false,
+          pointStyle: T.map(r=>shape[r.decision]||'rect'),
+          rotation: rot,
+          pointRadius: T.map(r=>r.decision==='maintain'?4:6),
+          pointBackgroundColor:'transparent',
+          pointBorderColor: css('--ink'), pointBorderWidth:1.5 }
+      ] },
+    options:{ responsive:true, maintainAspectRatio:false, animation:false,
+      scales:{
+        y:{ min:-0.5, max:0.5, title:{display:true,text:'dovish  ←   tone score   →  hawkish'},
+            grid:{color:c=>c.tick.value===0?css('--muted'):css('--line-soft')}, ticks:{stepSize:0.1} },
+        x:{ ticks:{ maxRotation:90, minRotation:90, autoSkip:true, maxTicksLimit:24, font:{size:9} },
+            grid:{display:false} } },
+      plugins:{ legend:{display:false},
+        tooltip:{ callbacks:{ title:i=>T[i[0].dataIndex].date,
+          label:i=>{ const r=T[i.dataIndex];
+            return [`score ${r.score>=0?'+':''}${r.score.toFixed(3)}  =  (${r.H} − ${r.D}) / ${r.n}`,
+                    `decision that month: ${r.decision}`]; } } } } }
+  }));
+
+  const chg = d => d==='raise'?'raise':d==='lower'?'lower':'maintain';
+  document.querySelector('#tonetbl tbody').innerHTML = T.map(r=>`
+    <tr>
+      <td class="mono">${r.date}</td>
+      <td><span class="pill">${chg(r.decision)}</span></td>
+      <td class="mono" style="text-align:right">${r.H}</td>
+      <td class="mono" style="text-align:right">${r.D}</td>
+      <td class="mono" style="text-align:right">${r.N}</td>
+      <td class="mono" style="text-align:right">${r.n}</td>
+      <td class="sc ${r.score>0?'h':r.score<0?'d':''}">${r.score>=0?'+':''}${r.score.toFixed(3)}</td>
+    </tr>`).join('');
+}
+
 document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click', ()=>render(t.dataset.v)));
 render('blind');
 </script>
