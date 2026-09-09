@@ -8,7 +8,9 @@ S_BLIND = json.load(open(os.path.join(ROOT, 'results', 'scores.json')))
 S_RATE = json.load(open(os.path.join(ROOT, 'results', 'scores_rate.json')))
 TONE_PATH = os.path.join(ROOT, 'results', 'sentence_scores.json')
 S_TONE = json.load(open(TONE_PATH)) if os.path.exists(TONE_PATH) else []
-PAYLOAD = json.dumps({"blind": S_BLIND, "rate": S_RATE, "tone": S_TONE}, indent=1)
+FED_PATH = os.path.join(ROOT, 'results', 'fed_lexicon_scores.json')
+S_FED = json.load(open(FED_PATH)) if os.path.exists(FED_PATH) else []
+PAYLOAD = json.dumps({"blind": S_BLIND, "rate": S_RATE, "tone": S_TONE, "fed": S_FED}, indent=1)
 
 FONTS = ('<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
          '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
@@ -132,6 +134,7 @@ BODY = r"""
     <button class="tab" role="tab" data-v="blind" aria-selected="true">Reasoning only</button>
     <button class="tab" role="tab" data-v="rate" aria-selected="false">&plus; prior rate level</button>
     <button class="tab" role="tab" data-v="tone" aria-selected="false">Sentence tone</button>
+    <button class="tab" role="tab" data-v="fed" aria-selected="false">Fed-anchored score</button>
   </div>
 
   <div id="view-infer">
@@ -174,6 +177,29 @@ BODY = r"""
       </table>
     </div>
   </div>
+
+  <div id="view-fed" hidden>
+    <p class="sub" style="margin-top:-6px">The Fed drafts a fully <b>dovish</b> and a fully <b>hawkish</b> version of every
+       FOMC statement. We pooled 75 meetings of those drafts, learned which words and phrasings separate the two
+       poles, curated that list, and added the decision + guidance vocabulary. Each <b>raw</b> BoI announcement is
+       scored <b>(hawkish &minus; dovish hits) &divide; (hawkish &plus; dovish hits)</b>, &minus;1 to &plus;1.</p>
+    <div class="cards" id="fed-cards"></div>
+    <div class="tone-legend">
+      <span><i style="background:var(--bad)"></i>Hawkish wording (score &gt; 0)</span>
+      <span><i style="background:var(--accent)"></i>Dovish wording (score &lt; 0)</span>
+      <span>Marker = actual decision that month (&#9650; raise &nbsp; &#9644; maintain &nbsp; &#9660; lower)</span>
+    </div>
+    <div class="panel full" style="margin-bottom:22px">
+      <h2>Fed-anchored hawkish&ndash;dovish score by announcement</h2>
+      <div class="cwrap wide"><canvas id="fedTL"></canvas></div>
+    </div>
+    <div class="tablewrap">
+      <table id="fedtbl">
+        <thead><tr><th>Date</th><th>Decision</th><th>Hawkish hits</th><th>Dovish hits</th><th>Score</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
 </div>
 """
 
@@ -192,11 +218,13 @@ let charts = [];
 
 function render(v){
   document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected', t.dataset.v===v));
-  const isTone = v === 'tone';
-  document.getElementById('view-infer').hidden = isTone;
+  const isTone = v === 'tone', isFed = v === 'fed';
+  document.getElementById('view-infer').hidden = isTone || isFed;
   document.getElementById('view-tone').hidden = !isTone;
-  document.getElementById('sheetsub').textContent = isTone ? "" : SHEETSUB[v];
+  document.getElementById('view-fed').hidden = !isFed;
+  document.getElementById('sheetsub').textContent = (isTone || isFed) ? "" : SHEETSUB[v];
   if (isTone){ renderTone(); return; }
+  if (isFed){ renderFed(); return; }
 
   const S = ALL[v], pc = S.per_class_accuracy;
 
@@ -340,6 +368,65 @@ function renderTone(){
       <td class="mono" style="text-align:right">${r.D}</td>
       <td class="mono" style="text-align:right">${r.N}</td>
       <td class="mono" style="text-align:right">${r.n}</td>
+      <td class="sc ${r.score>0?'h':r.score<0?'d':''}">${r.score>=0?'+':''}${r.score.toFixed(3)}</td>
+    </tr>`).join('');
+}
+
+function renderFed(){
+  const T = [...ALL.fed].sort((a,b)=>a.date.localeCompare(b.date));
+  const haw = css('--bad'), dov = css('--accent'), mut = css('--muted');
+  const n = T.length;
+  const mean = T.reduce((s,r)=>s+r.score,0)/n;
+  const sH = T.reduce((s,r)=>s+r.H,0), sD = T.reduce((s,r)=>s+r.D,0);
+  const byDec = d => { const v=T.filter(r=>r.decision===d); return v.reduce((s,r)=>s+r.score,0)/v.length; };
+  const cards = [
+    ['Announcements scored', n, 'raw text, Nov 2018 – today', true],
+    ['Lexicon terms', '125', 'from 75 Fed draft-statement pairs', false],
+    ['Mean score', (mean>=0?'+':'')+mean.toFixed(3), mean>=0?'net hawkish':'net dovish wording', false],
+    ['Mean when hiking', '+'+byDec('raise').toFixed(2), 'vs holds '+byDec('maintain').toFixed(2)+', cuts '+byDec('lower').toFixed(2), false],
+  ];
+  document.getElementById('fed-cards').innerHTML = cards.map(c=>
+    `<div class="stat${c[3]?' lead':''}"><div class="k">${c[0]}</div><div class="v">${c[1]}</div><div class="n">${c[2]}</div></div>`
+  ).join('');
+
+  const shape = {raise:'triangle', maintain:'rect', lower:'triangle'};
+  const rot = T.map(r=>r.decision==='lower'?180:0);
+  charts.forEach(c=>c.destroy()); charts = [];
+  Chart.defaults.font.family = "'IBM Plex Sans', sans-serif";
+  Chart.defaults.color = mut;
+  charts.push(new Chart(document.getElementById('fedTL'), {
+    type:'bar',
+    data:{ labels: T.map(r=>r.date),
+      datasets:[
+        { type:'bar', data: T.map(r=>r.score),
+          backgroundColor: T.map(r=>r.score>=0?haw:dov), borderWidth:0,
+          categoryPercentage:0.9, barPercentage:0.95 },
+        { type:'line', data: T.map(r=>r.score), showLine:false,
+          pointStyle: T.map(r=>shape[r.decision]||'rect'), rotation: rot,
+          pointRadius: T.map(r=>r.decision==='maintain'?4:6),
+          pointBackgroundColor:'transparent',
+          pointBorderColor: css('--ink'), pointBorderWidth:1.5 }
+      ] },
+    options:{ responsive:true, maintainAspectRatio:false, animation:false,
+      scales:{
+        y:{ min:-1, max:1, title:{display:true,text:'dovish  ←   Fed-anchored score   →  hawkish'},
+            grid:{color:c=>c.tick.value===0?css('--muted'):css('--line-soft')}, ticks:{stepSize:0.25} },
+        x:{ ticks:{ maxRotation:90, minRotation:90, autoSkip:true, maxTicksLimit:24, font:{size:9} },
+            grid:{display:false} } },
+      plugins:{ legend:{display:false},
+        tooltip:{ callbacks:{ title:i=>T[i[0].dataIndex].date,
+          label:i=>{ const r=T[i.dataIndex];
+            return [`score ${r.score>=0?'+':''}${r.score.toFixed(3)}  =  (${r.H} − ${r.D}) / (${r.H} + ${r.D})`,
+                    `decision that month: ${r.decision}`]; } } } } }
+  }));
+
+  const lab = d => d==='raise'?'raise':d==='lower'?'lower':'maintain';
+  document.querySelector('#fedtbl tbody').innerHTML = T.map(r=>`
+    <tr>
+      <td class="mono">${r.date}</td>
+      <td><span class="pill">${lab(r.decision)}</span></td>
+      <td class="mono" style="text-align:right">${r.H}</td>
+      <td class="mono" style="text-align:right">${r.D}</td>
       <td class="sc ${r.score>0?'h':r.score<0?'d':''}">${r.score>=0?'+':''}${r.score.toFixed(3)}</td>
     </tr>`).join('');
 }

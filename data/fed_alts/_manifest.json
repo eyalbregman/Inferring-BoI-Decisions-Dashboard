@@ -1,0 +1,1619 @@
+[
+ {
+  "meeting": "20051213",
+  "alt": "B",
+  "file": "20051213__B.txt",
+  "chars": 16591,
+  "src": "FOMC20051213bluebook20051209"
+ },
+ {
+  "meeting": "20081216",
+  "alt": "A",
+  "file": "20081216__A.txt",
+  "chars": 2622,
+  "src": "FOMC20081216bluebook20081211"
+ },
+ {
+  "meeting": "20081216",
+  "alt": "B",
+  "file": "20081216__B.txt",
+  "chars": 2130,
+  "src": "FOMC20081216bluebook20081211"
+ },
+ {
+  "meeting": "20081216",
+  "alt": "C",
+  "file": "20081216__C.txt",
+  "chars": 2386,
+  "src": "FOMC20081216bluebook20081211"
+ },
+ {
+  "meeting": "20081216",
+  "alt": "D",
+  "file": "20081216__D.txt",
+  "chars": 34839,
+  "src": "FOMC20081216bluebook20081211"
+ },
+ {
+  "meeting": "20090128",
+  "alt": "A",
+  "file": "20090128__A.txt",
+  "chars": 3077,
+  "src": "FOMC20090128bluebook20090122"
+ },
+ {
+  "meeting": "20090128",
+  "alt": "B",
+  "file": "20090128__B.txt",
+  "chars": 2460,
+  "src": "FOMC20090128bluebook20090122"
+ },
+ {
+  "meeting": "20090128",
+  "alt": "C",
+  "file": "20090128__C.txt",
+  "chars": 10433,
+  "src": "FOMC20090128bluebook20090122"
+ },
+ {
+  "meeting": "20090318",
+  "alt": "A",
+  "file": "20090318__A.txt",
+  "chars": 2650,
+  "src": "FOMC20090318bluebook20090313"
+ },
+ {
+  "meeting": "20090318",
+  "alt": "B",
+  "file": "20090318__B.txt",
+  "chars": 2685,
+  "src": "FOMC20090318bluebook20090313"
+ },
+ {
+  "meeting": "20090318",
+  "alt": "C",
+  "file": "20090318__C.txt",
+  "chars": 2613,
+  "src": "FOMC20090318bluebook20090313"
+ },
+ {
+  "meeting": "20100623",
+  "alt": "A",
+  "file": "20100623__A.txt",
+  "chars": 2634,
+  "src": "FOMC20100623tealbookb20100617"
+ },
+ {
+  "meeting": "20100623",
+  "alt": "B",
+  "file": "20100623__B.txt",
+  "chars": 1845,
+  "src": "FOMC20100623tealbookb20100617"
+ },
+ {
+  "meeting": "20100623",
+  "alt": "C",
+  "file": "20100623__C.txt",
+  "chars": 1653,
+  "src": "FOMC20100623tealbookb20100617"
+ },
+ {
+  "meeting": "20100810",
+  "alt": "A",
+  "file": "20100810__A.txt",
+  "chars": 3220,
+  "src": "FOMC20100810tealbookb20100805"
+ },
+ {
+  "meeting": "20100810",
+  "alt": "B",
+  "file": "20100810__B.txt",
+  "chars": 2577,
+  "src": "FOMC20100810tealbookb20100805"
+ },
+ {
+  "meeting": "20100810",
+  "alt": "C",
+  "file": "20100810__C.txt",
+  "chars": 2431,
+  "src": "FOMC20100810tealbookb20100805"
+ },
+ {
+  "meeting": "20100921",
+  "alt": "A",
+  "file": "20100921__A.txt",
+  "chars": 3001,
+  "src": "FOMC20100921tealbookb20100916"
+ },
+ {
+  "meeting": "20100921",
+  "alt": "B",
+  "file": "20100921__B.txt",
+  "chars": 2718,
+  "src": "FOMC20100921tealbookb20100916"
+ },
+ {
+  "meeting": "20100921",
+  "alt": "C",
+  "file": "20100921__C.txt",
+  "chars": 2570,
+  "src": "FOMC20100921tealbookb20100916"
+ },
+ {
+  "meeting": "20101103",
+  "alt": "A",
+  "file": "20101103__A.txt",
+  "chars": 3409,
+  "src": "FOMC20101103tealbookb20101028"
+ },
+ {
+  "meeting": "20101103",
+  "alt": "B",
+  "file": "20101103__B.txt",
+  "chars": 3360,
+  "src": "FOMC20101103tealbookb20101028"
+ },
+ {
+  "meeting": "20101103",
+  "alt": "C",
+  "file": "20101103__C.txt",
+  "chars": 2223,
+  "src": "FOMC20101103tealbookb20101028"
+ },
+ {
+  "meeting": "20101103",
+  "alt": "D",
+  "file": "20101103__D.txt",
+  "chars": 2362,
+  "src": "FOMC20101103tealbookb20101028"
+ },
+ {
+  "meeting": "20101214",
+  "alt": "A",
+  "file": "20101214__A.txt",
+  "chars": 3038,
+  "src": "FOMC20101214tealbookb20101209"
+ },
+ {
+  "meeting": "20101214",
+  "alt": "B",
+  "file": "20101214__B.txt",
+  "chars": 2763,
+  "src": "FOMC20101214tealbookb20101209"
+ },
+ {
+  "meeting": "20101214",
+  "alt": "C",
+  "file": "20101214__C.txt",
+  "chars": 3087,
+  "src": "FOMC20101214tealbookb20101209"
+ },
+ {
+  "meeting": "20101214",
+  "alt": "D",
+  "file": "20101214__D.txt",
+  "chars": 3125,
+  "src": "FOMC20101214tealbookb20101209"
+ },
+ {
+  "meeting": "20110126",
+  "alt": "A",
+  "file": "20110126__A.txt",
+  "chars": 3238,
+  "src": "FOMC20110126tealbookb20110120"
+ },
+ {
+  "meeting": "20110126",
+  "alt": "B",
+  "file": "20110126__B.txt",
+  "chars": 2939,
+  "src": "FOMC20110126tealbookb20110120"
+ },
+ {
+  "meeting": "20110126",
+  "alt": "C",
+  "file": "20110126__C.txt",
+  "chars": 3340,
+  "src": "FOMC20110126tealbookb20110120"
+ },
+ {
+  "meeting": "20110126",
+  "alt": "D",
+  "file": "20110126__D.txt",
+  "chars": 3433,
+  "src": "FOMC20110126tealbookb20110120"
+ },
+ {
+  "meeting": "20110315",
+  "alt": "A",
+  "file": "20110315__A.txt",
+  "chars": 3204,
+  "src": "FOMC20110315tealbookb20110310"
+ },
+ {
+  "meeting": "20110315",
+  "alt": "B",
+  "file": "20110315__B.txt",
+  "chars": 3325,
+  "src": "FOMC20110315tealbookb20110310"
+ },
+ {
+  "meeting": "20110315",
+  "alt": "C",
+  "file": "20110315__C.txt",
+  "chars": 3616,
+  "src": "FOMC20110315tealbookb20110310"
+ },
+ {
+  "meeting": "20110427",
+  "alt": "A",
+  "file": "20110427__A.txt",
+  "chars": 3381,
+  "src": "FOMC20110427tealbookb20110421"
+ },
+ {
+  "meeting": "20110427",
+  "alt": "B",
+  "file": "20110427__B.txt",
+  "chars": 3110,
+  "src": "FOMC20110427tealbookb20110421"
+ },
+ {
+  "meeting": "20110427",
+  "alt": "C",
+  "file": "20110427__C.txt",
+  "chars": 3513,
+  "src": "FOMC20110427tealbookb20110421"
+ },
+ {
+  "meeting": "20110622",
+  "alt": "A",
+  "file": "20110622__A.txt",
+  "chars": 3028,
+  "src": "FOMC20110622tealbookb20110616"
+ },
+ {
+  "meeting": "20110622",
+  "alt": "B",
+  "file": "20110622__B.txt",
+  "chars": 2889,
+  "src": "FOMC20110622tealbookb20110616"
+ },
+ {
+  "meeting": "20110622",
+  "alt": "C",
+  "file": "20110622__C.txt",
+  "chars": 2924,
+  "src": "FOMC20110622tealbookb20110616"
+ },
+ {
+  "meeting": "20110809",
+  "alt": "A",
+  "file": "20110809__A.txt",
+  "chars": 4573,
+  "src": "FOMC20110809tealbookb20110804"
+ },
+ {
+  "meeting": "20110809",
+  "alt": "B",
+  "file": "20110809__B.txt",
+  "chars": 3703,
+  "src": "FOMC20110809tealbookb20110804"
+ },
+ {
+  "meeting": "20110809",
+  "alt": "C",
+  "file": "20110809__C.txt",
+  "chars": 3237,
+  "src": "FOMC20110809tealbookb20110804"
+ },
+ {
+  "meeting": "20111102",
+  "alt": "A",
+  "file": "20111102__A.txt",
+  "chars": 5243,
+  "src": "FOMC20111102tealbookb20111027"
+ },
+ {
+  "meeting": "20111102",
+  "alt": "B",
+  "file": "20111102__B.txt",
+  "chars": 3766,
+  "src": "FOMC20111102tealbookb20111027"
+ },
+ {
+  "meeting": "20111102",
+  "alt": "C",
+  "file": "20111102__C.txt",
+  "chars": 4044,
+  "src": "FOMC20111102tealbookb20111027"
+ },
+ {
+  "meeting": "20111213",
+  "alt": "A",
+  "file": "20111213__A.txt",
+  "chars": 5348,
+  "src": "FOMC20111213tealbookb20111208"
+ },
+ {
+  "meeting": "20111213",
+  "alt": "B",
+  "file": "20111213__B.txt",
+  "chars": 3278,
+  "src": "FOMC20111213tealbookb20111208"
+ },
+ {
+  "meeting": "20111213",
+  "alt": "C",
+  "file": "20111213__C.txt",
+  "chars": 3553,
+  "src": "FOMC20111213tealbookb20111208"
+ },
+ {
+  "meeting": "20120125",
+  "alt": "A",
+  "file": "20120125__A.txt",
+  "chars": 4770,
+  "src": "FOMC20120125tealbookb20120119"
+ },
+ {
+  "meeting": "20120125",
+  "alt": "B",
+  "file": "20120125__B.txt",
+  "chars": 4003,
+  "src": "FOMC20120125tealbookb20120119"
+ },
+ {
+  "meeting": "20120125",
+  "alt": "C",
+  "file": "20120125__C.txt",
+  "chars": 3019,
+  "src": "FOMC20120125tealbookb20120119"
+ },
+ {
+  "meeting": "20120313",
+  "alt": "A",
+  "file": "20120313__A.txt",
+  "chars": 4462,
+  "src": "FOMC20120313tealbookb20120308"
+ },
+ {
+  "meeting": "20120313",
+  "alt": "B",
+  "file": "20120313__B.txt",
+  "chars": 2775,
+  "src": "FOMC20120313tealbookb20120308"
+ },
+ {
+  "meeting": "20120313",
+  "alt": "C",
+  "file": "20120313__C.txt",
+  "chars": 3388,
+  "src": "FOMC20120313tealbookb20120308"
+ },
+ {
+  "meeting": "20120425",
+  "alt": "A",
+  "file": "20120425__A.txt",
+  "chars": 4842,
+  "src": "FOMC20120425tealbookb20120419"
+ },
+ {
+  "meeting": "20120425",
+  "alt": "B",
+  "file": "20120425__B.txt",
+  "chars": 2791,
+  "src": "FOMC20120425tealbookb20120419"
+ },
+ {
+  "meeting": "20120425",
+  "alt": "C",
+  "file": "20120425__C.txt",
+  "chars": 4164,
+  "src": "FOMC20120425tealbookb20120419"
+ },
+ {
+  "meeting": "20120620",
+  "alt": "A",
+  "file": "20120620__A.txt",
+  "chars": 4726,
+  "src": "FOMC20120620tealbookb20120614"
+ },
+ {
+  "meeting": "20120620",
+  "alt": "B",
+  "file": "20120620__B.txt",
+  "chars": 3718,
+  "src": "FOMC20120620tealbookb20120614"
+ },
+ {
+  "meeting": "20120620",
+  "alt": "C",
+  "file": "20120620__C.txt",
+  "chars": 4010,
+  "src": "FOMC20120620tealbookb20120614"
+ },
+ {
+  "meeting": "20120801",
+  "alt": "A",
+  "file": "20120801__A.txt",
+  "chars": 6591,
+  "src": "FOMC20120801tealbookb20120726"
+ },
+ {
+  "meeting": "20120801",
+  "alt": "B",
+  "file": "20120801__B.txt",
+  "chars": 3208,
+  "src": "FOMC20120801tealbookb20120726"
+ },
+ {
+  "meeting": "20120801",
+  "alt": "C",
+  "file": "20120801__C.txt",
+  "chars": 4462,
+  "src": "FOMC20120801tealbookb20120726"
+ },
+ {
+  "meeting": "20120913",
+  "alt": "A",
+  "file": "20120913__A.txt",
+  "chars": 4707,
+  "src": "FOMC20120913tealbookb20120906"
+ },
+ {
+  "meeting": "20120913",
+  "alt": "B",
+  "file": "20120913__B.txt",
+  "chars": 4827,
+  "src": "FOMC20120913tealbookb20120906"
+ },
+ {
+  "meeting": "20120913",
+  "alt": "C",
+  "file": "20120913__C.txt",
+  "chars": 4245,
+  "src": "FOMC20120913tealbookb20120906"
+ },
+ {
+  "meeting": "20121024",
+  "alt": "A",
+  "file": "20121024__A.txt",
+  "chars": 3657,
+  "src": "FOMC20121024tealbookb20121018"
+ },
+ {
+  "meeting": "20121024",
+  "alt": "B",
+  "file": "20121024__B.txt",
+  "chars": 3369,
+  "src": "FOMC20121024tealbookb20121018"
+ },
+ {
+  "meeting": "20121024",
+  "alt": "C",
+  "file": "20121024__C.txt",
+  "chars": 5092,
+  "src": "FOMC20121024tealbookb20121018"
+ },
+ {
+  "meeting": "20121212",
+  "alt": "A",
+  "file": "20121212__A.txt",
+  "chars": 4919,
+  "src": "FOMC20121212tealbookb20121206"
+ },
+ {
+  "meeting": "20121212",
+  "alt": "B",
+  "file": "20121212__B.txt",
+  "chars": 5497,
+  "src": "FOMC20121212tealbookb20121206"
+ },
+ {
+  "meeting": "20121212",
+  "alt": "C",
+  "file": "20121212__C.txt",
+  "chars": 5144,
+  "src": "FOMC20121212tealbookb20121206"
+ },
+ {
+  "meeting": "20130130",
+  "alt": "A",
+  "file": "20130130__A.txt",
+  "chars": 4663,
+  "src": "FOMC20130130tealbookb20130124"
+ },
+ {
+  "meeting": "20130130",
+  "alt": "B",
+  "file": "20130130__B.txt",
+  "chars": 4672,
+  "src": "FOMC20130130tealbookb20130124"
+ },
+ {
+  "meeting": "20130130",
+  "alt": "C",
+  "file": "20130130__C.txt",
+  "chars": 5270,
+  "src": "FOMC20130130tealbookb20130124"
+ },
+ {
+  "meeting": "20130320",
+  "alt": "A",
+  "file": "20130320__A.txt",
+  "chars": 4429,
+  "src": "FOMC20130320tealbookb20130314"
+ },
+ {
+  "meeting": "20130320",
+  "alt": "B",
+  "file": "20130320__B.txt",
+  "chars": 4598,
+  "src": "FOMC20130320tealbookb20130314"
+ },
+ {
+  "meeting": "20130320",
+  "alt": "C",
+  "file": "20130320__C.txt",
+  "chars": 4790,
+  "src": "FOMC20130320tealbookb20130314"
+ },
+ {
+  "meeting": "20130619",
+  "alt": "A",
+  "file": "20130619__A.txt",
+  "chars": 4726,
+  "src": "FOMC20130619tealbookb20130613"
+ },
+ {
+  "meeting": "20130619",
+  "alt": "B",
+  "file": "20130619__B.txt",
+  "chars": 4153,
+  "src": "FOMC20130619tealbookb20130613"
+ },
+ {
+  "meeting": "20130619",
+  "alt": "C",
+  "file": "20130619__C.txt",
+  "chars": 4703,
+  "src": "FOMC20130619tealbookb20130613"
+ },
+ {
+  "meeting": "20130731",
+  "alt": "A",
+  "file": "20130731__A.txt",
+  "chars": 5423,
+  "src": "FOMC20130731tealbookb20130725"
+ },
+ {
+  "meeting": "20130731",
+  "alt": "B",
+  "file": "20130731__B.txt",
+  "chars": 6002,
+  "src": "FOMC20130731tealbookb20130725"
+ },
+ {
+  "meeting": "20130731",
+  "alt": "C",
+  "file": "20130731__C.txt",
+  "chars": 5196,
+  "src": "FOMC20130731tealbookb20130725"
+ },
+ {
+  "meeting": "20130918",
+  "alt": "A",
+  "file": "20130918__A.txt",
+  "chars": 6120,
+  "src": "FOMC20130918tealbookb20130912"
+ },
+ {
+  "meeting": "20130918",
+  "alt": "B",
+  "file": "20130918__B.txt",
+  "chars": 5462,
+  "src": "FOMC20130918tealbookb20130912"
+ },
+ {
+  "meeting": "20130918",
+  "alt": "C",
+  "file": "20130918__C.txt",
+  "chars": 7173,
+  "src": "FOMC20130918tealbookb20130912"
+ },
+ {
+  "meeting": "20131030",
+  "alt": "A",
+  "file": "20131030__A.txt",
+  "chars": 6355,
+  "src": "FOMC20131030tealbookb20131024"
+ },
+ {
+  "meeting": "20131030",
+  "alt": "B",
+  "file": "20131030__B.txt",
+  "chars": 5756,
+  "src": "FOMC20131030tealbookb20131024"
+ },
+ {
+  "meeting": "20131030",
+  "alt": "C",
+  "file": "20131030__C.txt",
+  "chars": 7135,
+  "src": "FOMC20131030tealbookb20131024"
+ },
+ {
+  "meeting": "20131218",
+  "alt": "A",
+  "file": "20131218__A.txt",
+  "chars": 6209,
+  "src": "FOMC20131218tealbookb20131212"
+ },
+ {
+  "meeting": "20131218",
+  "alt": "B",
+  "file": "20131218__B.txt",
+  "chars": 6381,
+  "src": "FOMC20131218tealbookb20131212"
+ },
+ {
+  "meeting": "20131218",
+  "alt": "C",
+  "file": "20131218__C.txt",
+  "chars": 8025,
+  "src": "FOMC20131218tealbookb20131212"
+ },
+ {
+  "meeting": "20140129",
+  "alt": "A",
+  "file": "20140129__A.txt",
+  "chars": 6020,
+  "src": "FOMC20140129tealbookb20140123"
+ },
+ {
+  "meeting": "20140129",
+  "alt": "B",
+  "file": "20140129__B.txt",
+  "chars": 5567,
+  "src": "FOMC20140129tealbookb20140123"
+ },
+ {
+  "meeting": "20140129",
+  "alt": "C",
+  "file": "20140129__C.txt",
+  "chars": 5746,
+  "src": "FOMC20140129tealbookb20140123"
+ },
+ {
+  "meeting": "20140319",
+  "alt": "A",
+  "file": "20140319__A.txt",
+  "chars": 6272,
+  "src": "FOMC20140319tealbookb20140313"
+ },
+ {
+  "meeting": "20140319",
+  "alt": "B",
+  "file": "20140319__B.txt",
+  "chars": 6972,
+  "src": "FOMC20140319tealbookb20140313"
+ },
+ {
+  "meeting": "20140319",
+  "alt": "C",
+  "file": "20140319__C.txt",
+  "chars": 6294,
+  "src": "FOMC20140319tealbookb20140313"
+ },
+ {
+  "meeting": "20140430",
+  "alt": "A",
+  "file": "20140430__A.txt",
+  "chars": 6089,
+  "src": "FOMC20140430tealbookb20140424"
+ },
+ {
+  "meeting": "20140430",
+  "alt": "B",
+  "file": "20140430__B.txt",
+  "chars": 5646,
+  "src": "FOMC20140430tealbookb20140424"
+ },
+ {
+  "meeting": "20140430",
+  "alt": "C",
+  "file": "20140430__C.txt",
+  "chars": 5788,
+  "src": "FOMC20140430tealbookb20140424"
+ },
+ {
+  "meeting": "20140618",
+  "alt": "A",
+  "file": "20140618__A.txt",
+  "chars": 6001,
+  "src": "FOMC20140618tealbookb20140612"
+ },
+ {
+  "meeting": "20140618",
+  "alt": "B",
+  "file": "20140618__B.txt",
+  "chars": 5435,
+  "src": "FOMC20140618tealbookb20140612"
+ },
+ {
+  "meeting": "20140618",
+  "alt": "C",
+  "file": "20140618__C.txt",
+  "chars": 5670,
+  "src": "FOMC20140618tealbookb20140612"
+ },
+ {
+  "meeting": "20140730",
+  "alt": "A",
+  "file": "20140730__A.txt",
+  "chars": 6170,
+  "src": "FOMC20140730tealbookb20140724"
+ },
+ {
+  "meeting": "20140730",
+  "alt": "B",
+  "file": "20140730__B.txt",
+  "chars": 5688,
+  "src": "FOMC20140730tealbookb20140724"
+ },
+ {
+  "meeting": "20140730",
+  "alt": "C",
+  "file": "20140730__C.txt",
+  "chars": 5693,
+  "src": "FOMC20140730tealbookb20140724"
+ },
+ {
+  "meeting": "20140917",
+  "alt": "A",
+  "file": "20140917__A.txt",
+  "chars": 5529,
+  "src": "FOMC20140917tealbookb20140911"
+ },
+ {
+  "meeting": "20140917",
+  "alt": "B",
+  "file": "20140917__B.txt",
+  "chars": 5362,
+  "src": "FOMC20140917tealbookb20140911"
+ },
+ {
+  "meeting": "20140917",
+  "alt": "C",
+  "file": "20140917__C.txt",
+  "chars": 5734,
+  "src": "FOMC20140917tealbookb20140911"
+ },
+ {
+  "meeting": "20141029",
+  "alt": "A",
+  "file": "20141029__A.txt",
+  "chars": 5748,
+  "src": "FOMC20141029tealbookb20141023"
+ },
+ {
+  "meeting": "20141029",
+  "alt": "B",
+  "file": "20141029__B.txt",
+  "chars": 6404,
+  "src": "FOMC20141029tealbookb20141023"
+ },
+ {
+  "meeting": "20141029",
+  "alt": "C",
+  "file": "20141029__C.txt",
+  "chars": 6114,
+  "src": "FOMC20141029tealbookb20141023"
+ },
+ {
+  "meeting": "20141217",
+  "alt": "A",
+  "file": "20141217__A.txt",
+  "chars": 6751,
+  "src": "FOMC20141217tealbookb20141211"
+ },
+ {
+  "meeting": "20141217",
+  "alt": "B",
+  "file": "20141217__B.txt",
+  "chars": 5165,
+  "src": "FOMC20141217tealbookb20141211"
+ },
+ {
+  "meeting": "20141217",
+  "alt": "C",
+  "file": "20141217__C.txt",
+  "chars": 6479,
+  "src": "FOMC20141217tealbookb20141211"
+ },
+ {
+  "meeting": "20150128",
+  "alt": "A",
+  "file": "20150128__A.txt",
+  "chars": 6621,
+  "src": "FOMC20150128tealbookb20150122"
+ },
+ {
+  "meeting": "20150128",
+  "alt": "B",
+  "file": "20150128__B.txt",
+  "chars": 4365,
+  "src": "FOMC20150128tealbookb20150122"
+ },
+ {
+  "meeting": "20150128",
+  "alt": "C",
+  "file": "20150128__C.txt",
+  "chars": 4668,
+  "src": "FOMC20150128tealbookb20150122"
+ },
+ {
+  "meeting": "20150318",
+  "alt": "A",
+  "file": "20150318__A.txt",
+  "chars": 4292,
+  "src": "FOMC20150318tealbookb20150312"
+ },
+ {
+  "meeting": "20150318",
+  "alt": "B",
+  "file": "20150318__B.txt",
+  "chars": 4500,
+  "src": "FOMC20150318tealbookb20150312"
+ },
+ {
+  "meeting": "20150318",
+  "alt": "C",
+  "file": "20150318__C.txt",
+  "chars": 4439,
+  "src": "FOMC20150318tealbookb20150312"
+ },
+ {
+  "meeting": "20150429",
+  "alt": "A",
+  "file": "20150429__A.txt",
+  "chars": 4508,
+  "src": "FOMC20150429tealbookb20150423"
+ },
+ {
+  "meeting": "20150429",
+  "alt": "B",
+  "file": "20150429__B.txt",
+  "chars": 4274,
+  "src": "FOMC20150429tealbookb20150423"
+ },
+ {
+  "meeting": "20150429",
+  "alt": "C",
+  "file": "20150429__C.txt",
+  "chars": 4644,
+  "src": "FOMC20150429tealbookb20150423"
+ },
+ {
+  "meeting": "20150617",
+  "alt": "A",
+  "file": "20150617__A.txt",
+  "chars": 4362,
+  "src": "FOMC20150617tealbookb20150611"
+ },
+ {
+  "meeting": "20150617",
+  "alt": "B",
+  "file": "20150617__B.txt",
+  "chars": 3952,
+  "src": "FOMC20150617tealbookb20150611"
+ },
+ {
+  "meeting": "20150617",
+  "alt": "C",
+  "file": "20150617__C.txt",
+  "chars": 4103,
+  "src": "FOMC20150617tealbookb20150611"
+ },
+ {
+  "meeting": "20150729",
+  "alt": "A",
+  "file": "20150729__A.txt",
+  "chars": 3984,
+  "src": "FOMC20150729tealbookb20150723"
+ },
+ {
+  "meeting": "20150729",
+  "alt": "B",
+  "file": "20150729__B.txt",
+  "chars": 3662,
+  "src": "FOMC20150729tealbookb20150723"
+ },
+ {
+  "meeting": "20150729",
+  "alt": "C",
+  "file": "20150729__C.txt",
+  "chars": 4917,
+  "src": "FOMC20150729tealbookb20150723"
+ },
+ {
+  "meeting": "20150917",
+  "alt": "A",
+  "file": "20150917__A.txt",
+  "chars": 4303,
+  "src": "FOMC20150917tealbookb20150910"
+ },
+ {
+  "meeting": "20150917",
+  "alt": "B",
+  "file": "20150917__B.txt",
+  "chars": 3849,
+  "src": "FOMC20150917tealbookb20150910"
+ },
+ {
+  "meeting": "20150917",
+  "alt": "C",
+  "file": "20150917__C.txt",
+  "chars": 5320,
+  "src": "FOMC20150917tealbookb20150910"
+ },
+ {
+  "meeting": "20151028",
+  "alt": "A",
+  "file": "20151028__A.txt",
+  "chars": 4378,
+  "src": "FOMC20151028tealbookb20151022"
+ },
+ {
+  "meeting": "20151028",
+  "alt": "B",
+  "file": "20151028__B.txt",
+  "chars": 3935,
+  "src": "FOMC20151028tealbookb20151022"
+ },
+ {
+  "meeting": "20151028",
+  "alt": "C",
+  "file": "20151028__C.txt",
+  "chars": 6006,
+  "src": "FOMC20151028tealbookb20151022"
+ },
+ {
+  "meeting": "20151216",
+  "alt": "A",
+  "file": "20151216__A.txt",
+  "chars": 4215,
+  "src": "FOMC20151216tealbookb20151210"
+ },
+ {
+  "meeting": "20151216",
+  "alt": "B",
+  "file": "20151216__B.txt",
+  "chars": 5297,
+  "src": "FOMC20151216tealbookb20151210"
+ },
+ {
+  "meeting": "20151216",
+  "alt": "C",
+  "file": "20151216__C.txt",
+  "chars": 5033,
+  "src": "FOMC20151216tealbookb20151210"
+ },
+ {
+  "meeting": "20160127",
+  "alt": "A",
+  "file": "20160127__A.txt",
+  "chars": 4376,
+  "src": "FOMC20160127tealbookb20160121"
+ },
+ {
+  "meeting": "20160127",
+  "alt": "B",
+  "file": "20160127__B.txt",
+  "chars": 4402,
+  "src": "FOMC20160127tealbookb20160121"
+ },
+ {
+  "meeting": "20160127",
+  "alt": "C",
+  "file": "20160127__C.txt",
+  "chars": 4381,
+  "src": "FOMC20160127tealbookb20160121"
+ },
+ {
+  "meeting": "20160316",
+  "alt": "A",
+  "file": "20160316__A.txt",
+  "chars": 4504,
+  "src": "FOMC20160316tealbookb20160310"
+ },
+ {
+  "meeting": "20160316",
+  "alt": "B",
+  "file": "20160316__B.txt",
+  "chars": 3962,
+  "src": "FOMC20160316tealbookb20160310"
+ },
+ {
+  "meeting": "20160316",
+  "alt": "C",
+  "file": "20160316__C.txt",
+  "chars": 4048,
+  "src": "FOMC20160316tealbookb20160310"
+ },
+ {
+  "meeting": "20160427",
+  "alt": "A",
+  "file": "20160427__A.txt",
+  "chars": 4187,
+  "src": "FOMC20160427tealbookb20160421"
+ },
+ {
+  "meeting": "20160427",
+  "alt": "B",
+  "file": "20160427__B.txt",
+  "chars": 3778,
+  "src": "FOMC20160427tealbookb20160421"
+ },
+ {
+  "meeting": "20160427",
+  "alt": "C",
+  "file": "20160427__C.txt",
+  "chars": 3817,
+  "src": "FOMC20160427tealbookb20160421"
+ },
+ {
+  "meeting": "20160615",
+  "alt": "C",
+  "file": "20160615__C.txt",
+  "chars": 4409,
+  "src": "FOMC20160615tealbookb20160609"
+ },
+ {
+  "meeting": "20160727",
+  "alt": "A",
+  "file": "20160727__A.txt",
+  "chars": 4331,
+  "src": "FOMC20160727tealbookb20160721"
+ },
+ {
+  "meeting": "20160727",
+  "alt": "B",
+  "file": "20160727__B.txt",
+  "chars": 3786,
+  "src": "FOMC20160727tealbookb20160721"
+ },
+ {
+  "meeting": "20160727",
+  "alt": "C",
+  "file": "20160727__C.txt",
+  "chars": 4422,
+  "src": "FOMC20160727tealbookb20160721"
+ },
+ {
+  "meeting": "20160921",
+  "alt": "A",
+  "file": "20160921__A.txt",
+  "chars": 3882,
+  "src": "FOMC20160921tealbookb20160915"
+ },
+ {
+  "meeting": "20160921",
+  "alt": "B",
+  "file": "20160921__B.txt",
+  "chars": 3867,
+  "src": "FOMC20160921tealbookb20160915"
+ },
+ {
+  "meeting": "20160921",
+  "alt": "C",
+  "file": "20160921__C.txt",
+  "chars": 3838,
+  "src": "FOMC20160921tealbookb20160915"
+ },
+ {
+  "meeting": "20161102",
+  "alt": "A",
+  "file": "20161102__A.txt",
+  "chars": 4083,
+  "src": "FOMC20161102tealbookb20161027"
+ },
+ {
+  "meeting": "20161102",
+  "alt": "B",
+  "file": "20161102__B.txt",
+  "chars": 3812,
+  "src": "FOMC20161102tealbookb20161027"
+ },
+ {
+  "meeting": "20161102",
+  "alt": "C",
+  "file": "20161102__C.txt",
+  "chars": 4032,
+  "src": "FOMC20161102tealbookb20161027"
+ },
+ {
+  "meeting": "20161214",
+  "alt": "A",
+  "file": "20161214__A.txt",
+  "chars": 3850,
+  "src": "FOMC20161214tealbookb20161208"
+ },
+ {
+  "meeting": "20161214",
+  "alt": "B",
+  "file": "20161214__B.txt",
+  "chars": 3820,
+  "src": "FOMC20161214tealbookb20161208"
+ },
+ {
+  "meeting": "20161214",
+  "alt": "C",
+  "file": "20161214__C.txt",
+  "chars": 3885,
+  "src": "FOMC20161214tealbookb20161208"
+ },
+ {
+  "meeting": "20170315",
+  "alt": "A",
+  "file": "20170315__A.txt",
+  "chars": 3544,
+  "src": "FOMC20170315tealbookb20170309"
+ },
+ {
+  "meeting": "20170315",
+  "alt": "B",
+  "file": "20170315__B.txt",
+  "chars": 3461,
+  "src": "FOMC20170315tealbookb20170309"
+ },
+ {
+  "meeting": "20170315",
+  "alt": "C",
+  "file": "20170315__C.txt",
+  "chars": 3343,
+  "src": "FOMC20170315tealbookb20170309"
+ },
+ {
+  "meeting": "20170503",
+  "alt": "A",
+  "file": "20170503__A.txt",
+  "chars": 3495,
+  "src": "FOMC20170503tealbookb20170427"
+ },
+ {
+  "meeting": "20170503",
+  "alt": "B",
+  "file": "20170503__B.txt",
+  "chars": 3590,
+  "src": "FOMC20170503tealbookb20170427"
+ },
+ {
+  "meeting": "20170503",
+  "alt": "C",
+  "file": "20170503__C.txt",
+  "chars": 3620,
+  "src": "FOMC20170503tealbookb20170427"
+ },
+ {
+  "meeting": "20170614",
+  "alt": "A",
+  "file": "20170614__A.txt",
+  "chars": 3743,
+  "src": "FOMC20170614tealbookb20170608"
+ },
+ {
+  "meeting": "20170614",
+  "alt": "B",
+  "file": "20170614__B.txt",
+  "chars": 4144,
+  "src": "FOMC20170614tealbookb20170608"
+ },
+ {
+  "meeting": "20170614",
+  "alt": "C",
+  "file": "20170614__C.txt",
+  "chars": 3989,
+  "src": "FOMC20170614tealbookb20170608"
+ },
+ {
+  "meeting": "20170726",
+  "alt": "A",
+  "file": "20170726__A.txt",
+  "chars": 3732,
+  "src": "FOMC20170726tealbookb20170720"
+ },
+ {
+  "meeting": "20170726",
+  "alt": "B",
+  "file": "20170726__B.txt",
+  "chars": 3469,
+  "src": "FOMC20170726tealbookb20170720"
+ },
+ {
+  "meeting": "20170726",
+  "alt": "C",
+  "file": "20170726__C.txt",
+  "chars": 4056,
+  "src": "FOMC20170726tealbookb20170720"
+ },
+ {
+  "meeting": "20170920",
+  "alt": "A",
+  "file": "20170920__A.txt",
+  "chars": 4241,
+  "src": "FOMC20170920tealbookb20170914"
+ },
+ {
+  "meeting": "20170920",
+  "alt": "B",
+  "file": "20170920__B.txt",
+  "chars": 4148,
+  "src": "FOMC20170920tealbookb20170914"
+ },
+ {
+  "meeting": "20170920",
+  "alt": "C",
+  "file": "20170920__C.txt",
+  "chars": 4269,
+  "src": "FOMC20170920tealbookb20170914"
+ },
+ {
+  "meeting": "20180131",
+  "alt": "A",
+  "file": "20180131__A.txt",
+  "chars": 3260,
+  "src": "FOMC20180131tealbookb20180125"
+ },
+ {
+  "meeting": "20180131",
+  "alt": "B",
+  "file": "20180131__B.txt",
+  "chars": 3064,
+  "src": "FOMC20180131tealbookb20180125"
+ },
+ {
+  "meeting": "20180131",
+  "alt": "C",
+  "file": "20180131__C.txt",
+  "chars": 3235,
+  "src": "FOMC20180131tealbookb20180125"
+ },
+ {
+  "meeting": "20180321",
+  "alt": "A",
+  "file": "20180321__A.txt",
+  "chars": 3001,
+  "src": "FOMC20180321tealbookb20180315"
+ },
+ {
+  "meeting": "20180321",
+  "alt": "B",
+  "file": "20180321__B.txt",
+  "chars": 2867,
+  "src": "FOMC20180321tealbookb20180315"
+ },
+ {
+  "meeting": "20180321",
+  "alt": "C",
+  "file": "20180321__C.txt",
+  "chars": 2917,
+  "src": "FOMC20180321tealbookb20180315"
+ },
+ {
+  "meeting": "20180502",
+  "alt": "A",
+  "file": "20180502__A.txt",
+  "chars": 3152,
+  "src": "FOMC20180502tealbookb20180426"
+ },
+ {
+  "meeting": "20180502",
+  "alt": "B",
+  "file": "20180502__B.txt",
+  "chars": 2873,
+  "src": "FOMC20180502tealbookb20180426"
+ },
+ {
+  "meeting": "20180502",
+  "alt": "C",
+  "file": "20180502__C.txt",
+  "chars": 3030,
+  "src": "FOMC20180502tealbookb20180426"
+ },
+ {
+  "meeting": "20180613",
+  "alt": "A",
+  "file": "20180613__A.txt",
+  "chars": 2908,
+  "src": "FOMC20180613tealbookb20180607"
+ },
+ {
+  "meeting": "20180613",
+  "alt": "B",
+  "file": "20180613__B.txt",
+  "chars": 2793,
+  "src": "FOMC20180613tealbookb20180607"
+ },
+ {
+  "meeting": "20180613",
+  "alt": "C",
+  "file": "20180613__C.txt",
+  "chars": 2926,
+  "src": "FOMC20180613tealbookb20180607"
+ },
+ {
+  "meeting": "20180926",
+  "alt": "A",
+  "file": "20180926__A.txt",
+  "chars": 1896,
+  "src": "FOMC20180926tealbookb20180920"
+ },
+ {
+  "meeting": "20180926",
+  "alt": "B",
+  "file": "20180926__B.txt",
+  "chars": 1903,
+  "src": "FOMC20180926tealbookb20180920"
+ },
+ {
+  "meeting": "20180926",
+  "alt": "C",
+  "file": "20180926__C.txt",
+  "chars": 2072,
+  "src": "FOMC20180926tealbookb20180920"
+ },
+ {
+  "meeting": "20181219",
+  "alt": "A",
+  "file": "20181219__A.txt",
+  "chars": 1882,
+  "src": "FOMC20181219tealbookb20181213"
+ },
+ {
+  "meeting": "20181219",
+  "alt": "B",
+  "file": "20181219__B.txt",
+  "chars": 1860,
+  "src": "FOMC20181219tealbookb20181213"
+ },
+ {
+  "meeting": "20181219",
+  "alt": "C",
+  "file": "20181219__C.txt",
+  "chars": 1976,
+  "src": "FOMC20181219tealbookb20181213"
+ },
+ {
+  "meeting": "20190130",
+  "alt": "A",
+  "file": "20190130__A.txt",
+  "chars": 2670,
+  "src": "FOMC20190130tealbookb20190124"
+ },
+ {
+  "meeting": "20190130",
+  "alt": "B",
+  "file": "20190130__B.txt",
+  "chars": 2583,
+  "src": "FOMC20190130tealbookb20190124"
+ },
+ {
+  "meeting": "20190130",
+  "alt": "C",
+  "file": "20190130__C.txt",
+  "chars": 2023,
+  "src": "FOMC20190130tealbookb20190124"
+ },
+ {
+  "meeting": "20190320",
+  "alt": "A",
+  "file": "20190320__A.txt",
+  "chars": 2568,
+  "src": "FOMC20190320tealbookb20190314"
+ },
+ {
+  "meeting": "20190320",
+  "alt": "B",
+  "file": "20190320__B.txt",
+  "chars": 2258,
+  "src": "FOMC20190320tealbookb20190314"
+ },
+ {
+  "meeting": "20190320",
+  "alt": "C",
+  "file": "20190320__C.txt",
+  "chars": 1412,
+  "src": "FOMC20190320tealbookb20190314"
+ },
+ {
+  "meeting": "20190619",
+  "alt": "A",
+  "file": "20190619__A.txt",
+  "chars": 2447,
+  "src": "FOMC20190619tealbookb20190613"
+ },
+ {
+  "meeting": "20190619",
+  "alt": "B",
+  "file": "20190619__B.txt",
+  "chars": 2211,
+  "src": "FOMC20190619tealbookb20190613"
+ },
+ {
+  "meeting": "20190619",
+  "alt": "C",
+  "file": "20190619__C.txt",
+  "chars": 2015,
+  "src": "FOMC20190619tealbookb20190613"
+ },
+ {
+  "meeting": "20190918",
+  "alt": "A",
+  "file": "20190918__A.txt",
+  "chars": 2429,
+  "src": "FOMC20190918tealbookb20190912"
+ },
+ {
+  "meeting": "20190918",
+  "alt": "B",
+  "file": "20190918__B.txt",
+  "chars": 2364,
+  "src": "FOMC20190918tealbookb20190912"
+ },
+ {
+  "meeting": "20190918",
+  "alt": "C",
+  "file": "20190918__C.txt",
+  "chars": 2406,
+  "src": "FOMC20190918tealbookb20190912"
+ },
+ {
+  "meeting": "20191030",
+  "alt": "A",
+  "file": "20191030__A.txt",
+  "chars": 2189,
+  "src": "FOMC20191030tealbookb20191024"
+ },
+ {
+  "meeting": "20191030",
+  "alt": "B",
+  "file": "20191030__B.txt",
+  "chars": 2219,
+  "src": "FOMC20191030tealbookb20191024"
+ },
+ {
+  "meeting": "20191030",
+  "alt": "C",
+  "file": "20191030__C.txt",
+  "chars": 2270,
+  "src": "FOMC20191030tealbookb20191024"
+ },
+ {
+  "meeting": "20191211",
+  "alt": "A",
+  "file": "20191211__A.txt",
+  "chars": 2203,
+  "src": "FOMC20191211tealbookb20191205"
+ },
+ {
+  "meeting": "20191211",
+  "alt": "B",
+  "file": "20191211__B.txt",
+  "chars": 2132,
+  "src": "FOMC20191211tealbookb20191205"
+ },
+ {
+  "meeting": "20191211",
+  "alt": "C",
+  "file": "20191211__C.txt",
+  "chars": 1519,
+  "src": "FOMC20191211tealbookb20191205"
+ },
+ {
+  "meeting": "20200129",
+  "alt": "A",
+  "file": "20200129__A.txt",
+  "chars": 2195,
+  "src": "FOMC20200129tealbookb20200123"
+ },
+ {
+  "meeting": "20200129",
+  "alt": "B",
+  "file": "20200129__B.txt",
+  "chars": 1926,
+  "src": "FOMC20200129tealbookb20200123"
+ },
+ {
+  "meeting": "20200129",
+  "alt": "C",
+  "file": "20200129__C.txt",
+  "chars": 1368,
+  "src": "FOMC20200129tealbookb20200123"
+ },
+ {
+  "meeting": "20200315",
+  "alt": "A",
+  "file": "20200315__A.txt",
+  "chars": 2786,
+  "src": "FOMC20200315tealbookb20200312"
+ },
+ {
+  "meeting": "20200315",
+  "alt": "B",
+  "file": "20200315__B.txt",
+  "chars": 2696,
+  "src": "FOMC20200315tealbookb20200312"
+ },
+ {
+  "meeting": "20200315",
+  "alt": "C",
+  "file": "20200315__C.txt",
+  "chars": 2430,
+  "src": "FOMC20200315tealbookb20200312"
+ },
+ {
+  "meeting": "20200915",
+  "alt": "A",
+  "file": "20200915__A.txt",
+  "chars": 3744,
+  "src": "FOMC20200915tealbookb20200910"
+ },
+ {
+  "meeting": "20200915",
+  "alt": "B",
+  "file": "20200915__B.txt",
+  "chars": 4034,
+  "src": "FOMC20200915tealbookb20200910"
+ },
+ {
+  "meeting": "20200915",
+  "alt": "C",
+  "file": "20200915__C.txt",
+  "chars": 3571,
+  "src": "FOMC20200915tealbookb20200910"
+ },
+ {
+  "meeting": "20201105",
+  "alt": "A",
+  "file": "20201105__A.txt",
+  "chars": 2851,
+  "src": "FOMC20201105tealbookb20201029"
+ },
+ {
+  "meeting": "20201105",
+  "alt": "B",
+  "file": "20201105__B.txt",
+  "chars": 2852,
+  "src": "FOMC20201105tealbookb20201029"
+ },
+ {
+  "meeting": "20201105",
+  "alt": "C",
+  "file": "20201105__C.txt",
+  "chars": 2877,
+  "src": "FOMC20201105tealbookb20201029"
+ },
+ {
+  "meeting": "20201216",
+  "alt": "A",
+  "file": "20201216__A.txt",
+  "chars": 3124,
+  "src": "FOMC20201216tealbookb20201210"
+ },
+ {
+  "meeting": "20201216",
+  "alt": "B",
+  "file": "20201216__B.txt",
+  "chars": 2996,
+  "src": "FOMC20201216tealbookb20201210"
+ },
+ {
+  "meeting": "20201216",
+  "alt": "C",
+  "file": "20201216__C.txt",
+  "chars": 2770,
+  "src": "FOMC20201216tealbookb20201210"
+ }
+]

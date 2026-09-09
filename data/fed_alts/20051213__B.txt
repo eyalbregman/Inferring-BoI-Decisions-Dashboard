@@ -1,0 +1,283 @@
+Alternative B
+(11) The Committee may favor the statement language of Alternative B if it
+thinks that somewhat higher federal funds rates are likely to prove necessary to limit
+pressures on resources and promote price stability but also believes that this
+tightening phase could be ending fairly soon. The resilience of the economy in the
+face of hurricane-related disruptions, already limited margins of slack in resource
+markets, and the pressures on inflation from elevated energy prices may incline the
+Committee to believe that additional firming will probably be necessary even after a
+25 basis point move at this meeting. But the Committee may be of the view that, with
+policy accommodation now significantly reduced, the appropriate timing and extent
+of additional policy firming are becoming more uncertain. Declines in energy prices
+and inflation expectations from their recent peaks may have eased members’ concerns
+about the inflation outlook. And the real federal funds rate (as measured using lagged
+inflation to proxy for inflation expectations) is now within the range of staff estimates
+of its equilibrium value (Chart 5). Moreover, with a 25 basis point tightening at this
+meeting, the federal funds rate would be above the range of prescriptions from policy
+rules based on a target for inflation of 1½ percent (Chart 6), and one more tightening
+would bring the rate to the top of the range that the rules would call for even in the
+second half of next year.
+ 
+Chart 5
+Equilibrium Real Federal Funds Rate
+Short-Run Estimates with Confidence Bands
+Percent
+8
+Actual real federal funds rate
+Range of model-based estimates
+7
+70 percent confidence band
+90 percent confidence band 6
+Greenbook-consistent measure
+5
+4
+3
+25 b.p. Tightening
+Current Rate 2
+1
+0
+-1
+-2
+1990 1991 1992 1993 1994 1995 1996 1997 1998 1999 2000 2001 2002 2003 2004 2005 2006 2007
+Notes: The actual real federal funds rate is constructed as the difference between the quarterly average of the observed
+nominal funds rate and the log difference of the core PCE price index over the previous four quarters. For the current
+quarter, the nominal funds rate used is the target federal funds rate as of the Bluebook publication date.
+Short-Run and Medium-Run Measures
+Current Estimate Previous Bluebook
+Short-Run Measures
+Single-equation model 2.1 1.9
+Small structural model 2.5 2.4
+Large model (FRB/US) 3.5 *2.8*
+Confidence intervals for three model-based estimates
+70 percent confidence interval (1.1 - 4.2(
+90 percent confidence interval (0.1 - 5.1(
+Greenbook-consistent measure 2.4 2.0
+Medium-Run Measures
+Single-equation model 2.2 2.1
+Small structural model 2.5 2.4
+Confidence intervals for two model-based estimates
+70 percent confidence interval (1.4 - 3.2(
+90 percent confidence interval (0.7 - 3.8(
+TIPS-based factor model 2.1 2.1
+Memo
+Actual real federal funds rate 2.17 1.85
+Notes: Confidence intervals and bands reflect uncertainties about model specification, coefficients, and the level of
+potential output. The final column indicates the values for the current quarter based on the estimation for the previous
+Bluebook, except that the TIPS-consistent measure and the actual real funds rate are the values published in the
+previous Bluebook.
+* Improvements have been made to the FRB/US procedures for projecting foreign economic conditions and domestic
+energy production in real time; these procedures have also been applied to the estimate shown in the "Previous
+Bluebook" column (revised up about 1/2 percentage point).
+ 
+Equilibrium Real Rate Chart: Explanatory Notes
+The equilibrium real rate is the real federal funds rate that, if maintained, would be projected to return
+output to its potential level over time. For the first three measures listed below, the short-run
+equilibrium rate is defined as the rate that would close the output gap in twelve quarters given the
+corresponding model’s projection of the economy. For the first two measures, the medium-run concept
+is the value of the real funds rate projected to keep output at potential in seven years under the
+assumption that monetary policy acts to bring actual and potential output into line in the short run and
+then keep them equal thereafter. The TIPS-based factor model measure provides an estimate of market
+expectations for the real federal funds rate seven years ahead. The actual real federal funds rate shown
+in the chart employs the log difference of the core PCE price index over the previous four quarters as a
+proxy for expected inflation, with the staff projection used for the current quarter.
+Measure Description
+Single-equation The measure of the equilibrium real rate in the single-equation model is based on an
+Model estimated aggregate-demand relationship between the current value of the output gap and
+its lagged values as well as the lagged values of the real federal funds rate. In light of this
+model’s simple structure, the short-run measure of the equilibrium real rate depends only
+on the recent position of output relative to potential, and the medium-run measure is
+virtually constant.
+Small Structural The small-scale model of the economy consists of equations for five variables: the output
+Model gap, the equity premium, the federal budget surplus, the trend growth rate of output, and
+the real bond yield. Unlike the estimates from the single-equation model, values of the
+equilibrium real rate also depend directly on conditions associated with output growth,
+fiscal policy, and capital markets.
+Large Model Estimates of the equilibrium real rate using FRB/US—the staff’s large-scale econometric
+(FRB/US) model of the U.S. economy—depend on a very broad array of economic factors, some of
+which take the form of projected values of the model’s exogenous variables. These
+projections make use of several simple forecasting rules which are appropriate for the
+three-year horizon relevant for the short-run concept but are less sensible over longer
+horizons. Thus, we report only the short-run measure for the FRB/US model.
+Greenbook- Measures of the equilibrium real rate cannot be directly obtained from the Greenbook
+consistent forecast, because the Greenbook is not based on a formal model. Rather, we use the
+FRB/US model in conjunction with an extended version of the Greenbook forecast to
+derive a Greenbook-consistent measure. FRB/US is first add-factored so that its
+simulation matches the extended Greenbook forecast, and then a second simulation is run
+off this baseline to determine the value of the real federal funds rate that closes the output
+gap. The medium-run concept of the equilibrium real rate is not computed because it
+requires a relatively long extension of the Greenbook forecast.
+TIPS-based Yields on TIPS (Treasury Inflation-Protected Securities) reflect investors’ expectations of
+Factor Model the future path of real interest rates, but also include term and liquidity premiums. The
+TIPS-based measure of the equilibrium real rate is constructed using the seven-year-ahead
+instantaneous real forward rate derived from TIPS yields as of the Bluebook publication
+date. This forward rate is adjusted to remove estimates of the term and liquidity
+premiums based on a three-factor arbitrage-free term-structure model applied to TIPS
+yields, nominal yields, and inflation. Because TIPS indexation is based on the total CPI,
+this measure is also adjusted for the medium-term difference—projected at 40 basis
+points—between total CPI inflation and core PCE inflation.
+ 
+Chart 6
+Actual and Assumed Federal Funds Rate and
+Range of Values from Policy Rules and Futures Markets
+Percent
+1 0 10
+Actual federal funds rate and Greenbook assumption
+Market expectations estimated from futures quotes
+8 Shaded region is the range of values from rules 1a, 2a, 4, 5, and 6 below 8
+6 6
+4 4
+2 2
+0 0
+1988 1989 1990 1991 1992 1993 1994 1995 1996 1997 1998 1999 2000 2001 2002 2003 2004 2005 2006
+Values of the Federal Funds Rate from Policy Rules and Futures Markets
+2005 2006
+Q3 Q4 Q1 Q2 Q3
+Rules with Imposed Coefficients
+1. Baseline Taylor Rule: a) π*=1.5 4.22 3.88 3.87 4.09 4.45
+1. Baseline Taylor Rule: b) π*=2 3.97 3.63 3.62 3.84 4.20
+2. Aggressive Taylor Rule: a) π*=1.5 4.07 3.74 3.79 4.04 4.44
+3. First-difference Rule: b) π*=2 3.82 3.49 3.54 3.79 4.19
+3. First-difference Rule: a) π*=1.5 3.48 3.95 4.40 4.74 4.95
+3. First-difference Rule: b) π*=2 3.23 3.70 4.15 4.24 4.20
+Rules with Estimated Coefficients
+4. Outcome-based Rule 3.36 3.65 4.07 4.13 4.26
+5. Greenbook Forecast-based Rule 3.38 3.75 4.11 4.11 4.02
+6. FOMC Forecast-based Rule 2.79 3.20 3.62 3.56 3.51
+7. TIPS-based Rule 3.29 3.86
+Memo
+Expected federal funds rate derived from futures 3.98 4.39 4.60 4.62
+Actual federal funds rate and Greenbook assumption 3.46 3.95 4.40 4.50 4.50
+Note: Rule prescriptions for 2005Q4 through 2006Q3 are calculated using current Greenbook projections for inflation
+and the output gap (or unemployment gap). For rules that contain the lagged funds rate, the rule’s previous prescription
+for the funds rate is used to compute prescriptions for 2006Q2 and 2006Q3. It is assumed that there is no feedback
+from the rule prescriptions to the Greenbook projections through 2006Q3. The TIPS-based rule is computed using
+average TIPS and nominal Treasury yields to date.
+ 
+Policy Rules Chart: Explanatory Notes
+In all of the rules below, i denotes the federal funds rate, π the staff estimate at date t of trailing four-
+t t
+quarter core PCE inflation, (y – y*) the staff estimate (at date t) of the output gap, π* policymakers’
+t t
+long-run objective for inflation, i the lagged federal funds rate, g the residual from the rule’s
+t-1 t-1
+prescription the previous quarter, (y – y *) the staff’s three-quarter-ahead forecast of the output
+t+3|t t+3|t
+gap, (Δ y – Δy *) the staff’s forecast of output growth less potential output growth three quarters
+t+3|t t+3|t
+ahead, π a three-quarter-ahead forecast of inflation, and (u – u *) a three-quarter-ahead forecast
+t+3|t t+3|t t+3|t
+of the unemployment gap. Data are quarterly averages taken from the Greenbook and staff memoranda
+closest to the middle of each quarter, unless otherwise noted.
+Root-mean-
+square error
+Rule Specification
+1988:1- 2001:1-
+2005:3 2005:3
+Rules with Imposed Coefficients
+1. Baseline Taylor Rule
+i = 2 + π + 0.5(y – y*) + 0.5(π – π*) .96a 1.04a
+t t t t t
+2. Aggressive Taylor Rule
+i = 2 + π + (y – y*) + 0.5(π – π*) .67a .62a
+t t t t t
+3. First-difference Rule i = i + 0.5(Δ y – Δ y *)
+t t-1 t+3|t t+3|t .96a .40a
++ 0.5(π – π*)
+t+3|t
+Rules with Estimated Coefficients
+4. Estimated Outcome-based Rule i = .51i + 0.49 [1.29 + 0.95(y – y*)
+t t-1 t t
+Rule includes both lagged interest rate and .23 .25
+serial correlation in residual. + 1.45π]+ 0.53g
+t t-1
+5. Estimated Greenbook Forecast-based i = .71i + 0.29 [0.75
+t t-1
+Rule
++ 1.03(y – y *) + 1.59π ] .25 .27
+Rule includes both lagged interest rate and t+3|t t+3|t t+3|t
+serial correlation in residual.
++ 0.38g
+t-1
+6. Estimated FOMC Forecast-based Rule
+Unemployment and inflation forecasts are
+from semiannual “central tendency” of FOMC
+forecasts, interpolated if necessary to yield 3- i = 0.48i + 0.52 [0.43
+t t-2
+qtr-ahead values; u* forecast is from staff .47 .64
+t
+memoranda. Inflation forecasts are adjusted to – 2.09(u – u *) + 1.56π ]
+t+3|t t+3|t t+3|t
+core PCE deflator basis. Rule is estimated at
+semiannual frequency, and projected forward
+using Greenbook forecasts.
+7. Estimated TIPS-based Rule
+π denotes the time-t difference between
+5 c - o y m r p 5 n |t ominal Treasury yields and TIPS. i = 0.97i + [–1.27 + 0.70π ] .40b .41
+t t-1 comp5|t
+Sample begins in 1999 due to TIPS volatility
+in 1997-8.
+a RMSE for rules with imposed coefficients is calculated setting π* = 1.5.
+b RMSE for TIPS-based rule is calculated for 1999:1-2005:3.
+ 
+(12) The rationale portion of the statement for Alternative B notes that the
+expansion in economic activity appears solid despite elevated energy prices and
+disruptions related to the hurricanes. The reference to policy accommodation has
+been dropped: If the federal funds rate is seen as nearing its equilibrium value, the
+Committee may no longer wish to suggest that policy accommodation is boosting
+growth. Members may also want to take this opportunity to remove the reference to
+the support to economic activity provided by robust underlying growth in
+productivity. In assessing inflation, the Committee may want to acknowledge the
+relatively benign core inflation readings in recent months and again indicate that
+longer-term inflation expectations remain contained. However, given the apparent
+underlying strength of aggregate demand, members may want to note that “possible
+increases in resource utilization as well as elevated energy prices have the potential to
+add to inflation pressures.”
+(13) The assessment of risks portion of the statement for Alternative B resolves
+some of the complications and tensions that have arisen in the current language. It
+starts by removing the arguably tautological statement that “appropriate policy”
+should keep the risks to sustainable growth and price stability balanced, and it also
+drops the indication that “policy accommodation can be removed at a pace that is
+likely to be measured.” Instead, the assessment notes that “some further measured
+policy firming is likely to be needed to keep the risks to both price stability and
+sustainable economic growth roughly in balance.” The Committee may find this
+formulation attractive because it simplifies the existing wording considerably but does
+not greatly change its message regarding the likely near-term path for policy. If the
+Committee continues to expect that policy will be adjusted gradually, almost surely in
+increments of 25 basis points, then the retention of the word “measured” would seem
+appropriate. And the use of the word “some” would suggest that the Committee
+expects that the necessary amount of additional tightening is not large. Given the
+ 
+considerable uncertainty about the level of the equilibrium federal funds rate,
+members may no longer be confident that policy is accommodative, and so welcome
+the deletion of the reference to the removal of policy accommodation here as well as
+in the rationale section. This deletion might seem even more appropriate if members
+see a possibility that the federal funds rate will need to be raised above its equilibrium
+value in order to keep inflation contained. As in recent announcements, the
+Committee might want to emphasize that policy actions will depend on evolving
+economic conditions. Along these lines, the last sentence in the statement notes that
+“the Committee will respond to changes in economic prospects as needed to maintain
+price stability and foster sustainable economic growth.”
+(14) Market participants uniformly expect a 25 basis point rate hike at this
+meeting. The desk’s survey of primary dealers indicates that most anticipate deletion
+or modification of the references to accommodative policy and that about half
+anticipate that the Committee will drop or modify the “measured pace” phrase. But
+market participants appear not to foresee a change in the formulation of the
+assessment of risks at this meeting. Given the extent of the changes proposed for
+Alternative B, it is difficult to be confident of how the new statement will be
+interpreted by investors. On the one hand, the rationale portion of the statement—by
+downplaying the adverse effects on activity of higher energy prices and the hurricanes,
+and pointing to increases in resource utilization as a potential source of inflation
+pressure—may be seen as somewhat hawkish, leading investors to mark up their path
+for policy. On the other hand, the indication in the risk assessment that “some
+further measured tightening is likely to be needed” to keep risks balanced would seem
+to be roughly congruent with current market expectations for policy. And the fact
+that the Committee was making substantial changes to the statement might be seen by
+investors as a sign that it expected to stop tightening soon. On balance, policy
+expectations could move a little higher, causing modest increases in interest rates,
+ 
+declines in stock prices, and strengthening of the dollar. These market effects could
+be somewhat larger if the removal of the reference to “policy accommodation,”
+coupled with the concerns expressed about the potential inflationary effects of
+increases in resource utilization, led some market participants to conclude that the
+Committee’s intent was not merely to bring the real funds rate to a neutral level but
+rather to move toward outright policy restraint.
