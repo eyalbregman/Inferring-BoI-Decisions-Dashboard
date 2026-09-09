@@ -8,12 +8,10 @@ S_BLIND = json.load(open(os.path.join(ROOT, 'results', 'scores.json')))
 S_RATE = json.load(open(os.path.join(ROOT, 'results', 'scores_rate.json')))
 TONE_PATH = os.path.join(ROOT, 'results', 'sentence_scores.json')
 S_TONE = json.load(open(TONE_PATH)) if os.path.exists(TONE_PATH) else []
-FED_PATH = os.path.join(ROOT, 'results', 'fed_lexicon_scores.json')
-S_FED = json.load(open(FED_PATH)) if os.path.exists(FED_PATH) else []
 FEDS_PATH = os.path.join(ROOT, 'results', 'fed_sentence_scores.json')
 S_FEDSENT = json.load(open(FEDS_PATH)) if os.path.exists(FEDS_PATH) else []
 PAYLOAD = json.dumps({"blind": S_BLIND, "rate": S_RATE, "tone": S_TONE,
-                      "fed": S_FED, "fedSent": S_FEDSENT}, indent=1)
+                      "fedSent": S_FEDSENT}, indent=1)
 
 FONTS = ('<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
          '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
@@ -103,6 +101,17 @@ h1{font-family:"IBM Plex Serif",Georgia,serif;font-weight:600;font-size:27px;lin
 .tone-legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:middle}
 td.sc{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;text-align:right}
 td.sc.h{color:var(--bad)} td.sc.d{color:var(--accent)}
+.bydec{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.bydec .cell{padding:14px 16px;border-right:1px solid var(--line)}
+.bydec .cell:last-child{border-right:0}
+.bydec .lbl{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.bydec .val{font-size:30px;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:-.01em;margin-top:4px}
+.bydec .val.h{color:var(--bad)} .bydec .val.d{color:var(--accent)}
+.bydec .sub2{font-size:12px;color:var(--muted);margin-top:2px}
+.bydec .track{height:6px;border-radius:3px;background:var(--line-soft);margin-top:10px;position:relative;overflow:hidden}
+.bydec .track>i{position:absolute;top:0;bottom:0;background:currentColor;opacity:.55}
+.fed-take{font-size:13px;color:var(--muted);padding:12px 16px 0}
+.fed-take b{color:var(--ink)}
 
 .tablewrap{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
 table{width:100%;border-collapse:collapse}
@@ -183,11 +192,13 @@ BODY = r"""
 
   <div id="view-fed" hidden>
     <p class="sub" style="margin-top:-6px">The Fed drafts a fully <b>dovish</b> (Alt A) and a fully <b>hawkish</b> (Alt C/D)
-       version of every FOMC statement. Using that as the basis (plus judgment), every sentence of every <b>raw</b>
-       BoI announcement is labelled <b>hawkish</b>, <b>dovish</b> or <b>neutral</b> &mdash; would this sentence
-       belong in the Fed's hawkish draft or its dovish one? Score = <b>(hawkish &minus; dovish) &divide; total
-       sentences</b>. The faint line is the alternative word-count score.</p>
+       version of every FOMC statement. Using that contrast as the basis &mdash; by meaning, not by matching exact
+       words &mdash; every sentence of every <b>raw</b> BoI announcement is judged: would it belong in the Fed's
+       hawkish draft, its dovish one, or neither? Score = <b>(hawkish &minus; dovish) &divide; total sentences</b>.</p>
     <div class="cards" id="fed-cards"></div>
+
+    <div class="panel full" id="fed-bydec" style="margin:4px 0 18px"></div>
+
     <div class="tone-legend">
       <span><i style="background:var(--bad)"></i>Hawkish (score &gt; 0)</span>
       <span><i style="background:var(--accent)"></i>Dovish (score &lt; 0)</span>
@@ -383,17 +394,32 @@ function renderFed(){
   const mean = T.reduce((s,r)=>s+r.score,0)/n;
   const sH = T.reduce((s,r)=>s+r.H,0), sD = T.reduce((s,r)=>s+r.D,0), sN = T.reduce((s,r)=>s+r.N,0);
   const tot = sH+sD+sN;
-  const byDec = d => { const v=T.filter(r=>r.decision===d); return v.reduce((s,r)=>s+r.score,0)/v.length; };
-  const mostH = T.reduce((a,b)=>b.score>a.score?b:a), mostD = T.reduce((a,b)=>b.score<a.score?b:a);
+  const grp = d => { const v=T.filter(r=>r.decision===d); return {m:v.reduce((s,r)=>s+r.score,0)/v.length, n:v.length}; };
+  const R = grp('raise'), M = grp('maintain'), L = grp('lower');
   const cards = [
     ['Announcements', n, 'raw text, Nov 2018 – today', true],
-    ['Sentences classified', tot.toLocaleString(), `${Math.round(100*sH/tot)}% H · ${Math.round(100*sD/tot)}% D · ${Math.round(100*sN/tot)}% N`, false],
-    ['Mean score', (mean>=0?'+':'')+mean.toFixed(3), mean>=0?'net hawkish':'net dovish', false],
-    ['Hiking vs holds vs cuts', '+'+byDec('raise').toFixed(2), `${byDec('maintain').toFixed(2)} · ${byDec('lower').toFixed(2)}`, false],
+    ['Sentences classified', tot.toLocaleString(), `${Math.round(100*sH/tot)}% hawkish · ${Math.round(100*sD/tot)}% dovish · ${Math.round(100*sN/tot)}% neutral`, false],
+    ['Mean score', (mean>=0?'+':'')+mean.toFixed(2), mean>=0?'net hawkish wording':'net dovish wording', false],
   ];
   document.getElementById('fed-cards').innerHTML = cards.map(c=>
     `<div class="stat${c[3]?' lead':''}"><div class="k">${c[0]}</div><div class="v">${c[1]}</div><div class="n">${c[2]}</div></div>`
   ).join('');
+
+  // score grouped by the decision that was actually taken (the decision is NOT used to compute the score)
+  const sgn = (x)=> (x>=0?'+':'')+x.toFixed(2);
+  const bar = (x)=>{ const p = Math.min(50, Math.abs(x)/0.4*50);
+    return x>=0 ? `left:50%;width:${p}%` : `right:50%;width:${p}%`; };
+  const cell = (lbl, g, cls)=>`<div class="cell">
+      <div class="lbl">${lbl} &nbsp;<span style="opacity:.6">n=${g.n}</span></div>
+      <div class="val ${cls}">${sgn(g.m)}</div>
+      <div class="sub2">mean Fed-anchored score</div>
+      <div class="track" style="color:${cls==='h'?'var(--bad)':cls==='d'?'var(--accent)':'var(--muted)'}"><i style="${bar(g.m)}"></i></div>
+    </div>`;
+  document.getElementById('fed-bydec').innerHTML =
+    `<div class="bydec">${cell('When the Bank hiked', R, 'h')}${cell('When it held', M, 'd')}${cell('When it cut', L, 'd')}</div>`
+    + `<p class="fed-take">The score never sees the decision &mdash; each sentence is judged on its own wording. `
+    + `Hike announcements come out clearly hawkish; <b>cut announcements read more dovish than holds</b> `
+    + `(${sgn(L.m)} vs ${sgn(M.m)}), so the language lines up with the decision in the right order.</p>`;
 
   const shape = {raise:'triangle', maintain:'rect', lower:'triangle'};
   const rot = T.map(r=>r.decision==='lower'?180:0);
@@ -406,10 +432,7 @@ function renderFed(){
       datasets:[
         { type:'bar', data: T.map(r=>r.score),
           backgroundColor: T.map(r=>r.score>=0?haw:dov), borderWidth:0,
-          categoryPercentage:0.9, barPercentage:0.95, order:3 },
-        { type:'line', data: T.map(r=>r.lex_score==null?null:r.lex_score),
-          borderColor: mut, borderWidth:1, borderDash:[3,3], pointRadius:0,
-          tension:0.3, spanGaps:true, order:2 },
+          categoryPercentage:0.9, barPercentage:0.95, order:2 },
         { type:'line', data: T.map(r=>r.score), showLine:false, order:1,
           pointStyle: T.map(r=>shape[r.decision]||'rect'), rotation: rot,
           pointRadius: T.map(r=>r.decision==='maintain'?4:6),
@@ -425,9 +448,8 @@ function renderFed(){
       plugins:{ legend:{display:false},
         tooltip:{ callbacks:{ title:i=>T[i[0].dataIndex].date,
           label:i=>{ const r=T[i.dataIndex];
-            return [`sentence score ${r.score>=0?'+':''}${r.score.toFixed(3)}  =  (${r.H} − ${r.D}) / ${r.n}`,
-                    r.lex_score==null?'':`word-count score ${r.lex_score>=0?'+':''}${r.lex_score.toFixed(3)}`,
-                    `decision that month: ${r.decision}`].filter(Boolean); } } } } }
+            return [`score ${r.score>=0?'+':''}${r.score.toFixed(3)}  =  (${r.H} − ${r.D}) / ${r.n}`,
+                    `decision that month: ${r.decision}`]; } } } } }
   }));
 
   const lab = d => d==='raise'?'raise':d==='lower'?'lower':'maintain';

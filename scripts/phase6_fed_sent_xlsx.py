@@ -42,15 +42,13 @@ wb = openpyxl.Workbook()
 ws = wb.active
 ws.title = "Announcement scores"
 ws.append(["Date", "Decision (reference only)", "Hawkish sentences (H)", "Dovish sentences (D)",
-           "Neutral sentences (N)", "Total sentences", "Score  (H - D) / Total", "Calculation",
-           "Lexicon-hit score (other method)"])
+           "Neutral sentences (N)", "Total sentences", "Score  (H - D) / Total", "Calculation"])
 for i, r in enumerate(scores, start=2):
     ws.append([r['date'], r['decision'], r['H'], r['D'], r['N'], r['n'], round(r['score'], 4),
-               f"({r['H']} - {r['D']}) / {r['n']} = {r['score']:+.3f}",
-               round(r['lex_score'], 3) if r.get('lex_score') is not None else None])
-    for c in range(1, 10):
+               f"({r['H']} - {r['D']}) / {r['n']} = {r['score']:+.3f}"])
+    for c in range(1, 9):
         cell = ws.cell(row=i, column=c); cell.font = BASE; cell.border = BORDER
-        if c in (3, 4, 5, 6, 9):
+        if c in (3, 4, 5, 6):
             cell.alignment = Alignment(horizontal="center")
     sc = ws.cell(row=i, column=7)
     sc.number_format = "+0.000;-0.000;0.000"; sc.font = Font(name="Arial", size=10, bold=True)
@@ -58,12 +56,9 @@ for i, r in enumerate(scores, start=2):
     ws.cell(row=i, column=3).fill = FILL_H
     ws.cell(row=i, column=4).fill = FILL_D
     ws.cell(row=i, column=5).fill = FILL_N
-    lc = ws.cell(row=i, column=9)
-    if r.get('lex_score') is not None:
-        lc.number_format = "+0.000;-0.000;0.000"
-for i, w in enumerate([12, 22, 15, 14, 14, 12, 16, 24, 20], start=1):
+for i, w in enumerate([12, 22, 15, 14, 14, 12, 16, 24], start=1):
     ws.column_dimensions[get_column_letter(i)].width = w
-head(ws, 9)
+head(ws, 8)
 
 sH = sum(r['H'] for r in scores); sD = sum(r['D'] for r in scores)
 sN = sum(r['N'] for r in scores); sT = sH + sD + sN
@@ -109,14 +104,17 @@ meth = [
     ("Fed-anchored hawkish / dovish tone, sentence by sentence", True),
     ("", False),
     ("The basis", True),
-    ("The US Federal Reserve staff drafts, for every FOMC meeting, a fully DOVISH version of", False),
-    ("its statement (Alternative A) and a fully HAWKISH version (Alternative C / D). We pooled", False),
-    ("75 meetings of those drafts and learned which content and phrasings are hawkish vs. dovish", False),
-    ("in the Fed's own extremes (see the 'hawkish_dovish_fed_anchored.xlsx' lexicon). Here we", False),
-    ("apply that basis at the SENTENCE level: each sentence of every BoI announcement is read", False),
-    ("and judged - would this sentence belong in the Fed's hawkish draft, its dovish draft, or", False),
-    ("neither? This is about direction / content, not about how confident the phrasing sounds", False),
-    ("(that is the separate 'Sentence tone' measure).", False),
+    ("The US Federal Reserve staff drafts, for every FOMC meeting, a fully DOVISH version of its", False),
+    ("statement (Alternative A) and a fully HAWKISH version (Alternative C / D). We pooled 75", False),
+    ("meetings of those drafts (2009-2020) and read a spanning sample of Alt A vs Alt C pairs to", False),
+    ("learn which content and phrasings are hawkish vs. dovish in the Fed's own extremes.", False),
+    ("", False),
+    ("Each sentence of every BoI announcement is then read and judged - BY MEANING, not by", False),
+    ("matching exact words - against that basis: would this sentence belong in the Fed's hawkish", False),
+    ("draft, its dovish draft, or neither? Synonyms, paraphrases and negation are handled", False),
+    ("('there is no concern of an inflationary outbreak' = dovish). This is about direction /", False),
+    ("content, not about how confident the phrasing sounds (that is the separate 'Sentence tone'", False),
+    ("measure).", False),
     ("", False),
     ("Corpus", True),
     ("62 Bank of Israel English announcements, Nov 2018 - today, RAW text: the headline and the", False),
@@ -139,8 +137,7 @@ meth = [
     ("", False),
     ("Score", True),
     ("For each announcement:   score = (H - D) / total sentences,   -1 to +1.", False),
-    ("The 'Calculation' column shows the arithmetic. The last column repeats the lexicon-hit", False),
-    ("score (counting matched hawk/dove terms) from hawkish_dovish_fed_anchored.xlsx for comparison.", False),
+    ("The 'Calculation' column shows the arithmetic behind every score.", False),
     ("", False),
     ("What it shows", True),
     ("Corpus mix H %.1f%% / D %.1f%% / N %.1f%%.  Mean score by decision:  hikes %+.2f,  holds %+.2f,  cuts %+.2f."

@@ -7,8 +7,7 @@
   "D": 20,
   "N": 23,
   "score": -0.125,
-  "decision": "raise",
-  "lex_score": -0.1429
+  "decision": "raise"
  },
  {
   "id": "2019-01-07",
@@ -18,8 +17,7 @@
   "D": 14,
   "N": 25,
   "score": -0.0392,
-  "decision": "maintain",
-  "lex_score": 0.1667
+  "decision": "maintain"
  },
  {
   "id": "2019-02-25",
@@ -29,8 +27,7 @@
   "D": 22,
   "N": 22,
   "score": -0.2941,
-  "decision": "maintain",
-  "lex_score": -0.3333
+  "decision": "maintain"
  },
  {
   "id": "2019-04-08",
@@ -40,8 +37,7 @@
   "D": 27,
   "N": 17,
   "score": -0.3654,
-  "decision": "maintain",
-  "lex_score": -0.5455
+  "decision": "maintain"
  },
  {
   "id": "2019-05-20",
@@ -51,8 +47,7 @@
   "D": 21,
   "N": 22,
   "score": -0.2549,
-  "decision": "maintain",
-  "lex_score": -0.2941
+  "decision": "maintain"
  },
  {
   "id": "2019-07-08",
@@ -62,8 +57,7 @@
   "D": 22,
   "N": 19,
   "score": -0.1667,
-  "decision": "maintain",
-  "lex_score": -0.36
+  "decision": "maintain"
  },
  {
   "id": "2019-08-28",
@@ -73,8 +67,7 @@
   "D": 30,
   "N": 23,
   "score": -0.4068,
-  "decision": "maintain",
-  "lex_score": -0.8621
+  "decision": "maintain"
  },
  {
   "id": "2019-10-07",
@@ -84,8 +77,7 @@
   "D": 33,
   "N": 18,
   "score": -0.5,
-  "decision": "maintain",
-  "lex_score": -0.6875
+  "decision": "maintain"
  },
  {
   "id": "2019-11-25",
@@ -95,8 +87,7 @@
   "D": 27,
   "N": 27,
   "score": -0.4464,
-  "decision": "maintain",
-  "lex_score": -0.5
+  "decision": "maintain"
  },
  {
   "id": "2020-01-09",
@@ -106,8 +97,7 @@
   "D": 26,
   "N": 21,
   "score": -0.4038,
-  "decision": "maintain",
-  "lex_score": -0.5652
+  "decision": "maintain"
  },
  {
   "id": "2020-02-24",
@@ -117,8 +107,7 @@
   "D": 33,
   "N": 25,
   "score": -0.4444,
-  "decision": "maintain",
-  "lex_score": -0.7778
+  "decision": "maintain"
  },
  {
   "id": "2020-04-06",
@@ -128,8 +117,7 @@
   "D": 44,
   "N": 12,
   "score": -0.5873,
-  "decision": "lower",
-  "lex_score": -0.5333
+  "decision": "lower"
  },
  {
   "id": "2020-05-25",
@@ -139,8 +127,7 @@
   "D": 40,
   "N": 19,
   "score": -0.5,
-  "decision": "maintain",
-  "lex_score": -0.8947
+  "decision": "maintain"
  },
  {
   "id": "2020-07-06",
@@ -150,8 +137,7 @@
   "D": 49,
   "N": 18,
   "score": -0.6571,
-  "decision": "maintain",
-  "lex_score": -1.0
+  "decision": "maintain"
  },
  {
   "id": "2020-08-24",
@@ -161,8 +147,7 @@
   "D": 43,
   "N": 21,
   "score": -0.5735,
-  "decision": "maintain",
-  "lex_score": -0.5758
+  "decision": "maintain"
  },
  {
   "id": "2020-10-22",
@@ -172,8 +157,7 @@
   "D": 41,
   "N": 29,
   "score": -0.4051,
-  "decision": "maintain",
-  "lex_score": -0.5789
+  "decision": "maintain"
  },
  {
   "id": "2020-11-30",
@@ -183,8 +167,7 @@
   "D": 38,
   "N": 26,
   "score": -0.3973,
-  "decision": "maintain",
-  "lex_score": -0.6296
+  "decision": "maintain"
  },
  {
   "id": "2021-01-04",
@@ -194,8 +177,7 @@
   "D": 34,
   "N": 40,
   "score": -0.3846,
-  "decision": "maintain",
-  "lex_score": -0.5
+  "decision": "maintain"
  },
  {
   "id": "2021-02-22",
@@ -205,8 +187,7 @@
   "D": 22,
   "N": 42,
   "score": -0.0617,
-  "decision": "maintain",
-  "lex_score": -0.2667
+  "decision": "maintain"
  },
  {
   "id": "2021-04-19",
@@ -216,8 +197,7 @@
   "D": 14,
   "N": 42,
   "score": 0.1765,
-  "decision": "maintain",
-  "lex_score": -0.25
+  "decision": "maintain"
  },
  {
   "id": "2021-05-31",
@@ -227,8 +207,7 @@
   "D": 15,
   "N": 47,
   "score": 0.2062,
-  "decision": "maintain",
-  "lex_score": -0.2308
+  "decision": "maintain"
  },
  {
   "id": "2021-07-05",
@@ -238,8 +217,7 @@
   "D": 10,
   "N": 48,
   "score": 0.1905,
-  "decision": "maintain",
-  "lex_score": 0.2381
+  "decision": "maintain"
  },
  {
   "id": "2021-08-23",
@@ -249,8 +227,7 @@
   "D": 17,
   "N": 42,
   "score": 0.0843,
-  "decision": "maintain",
-  "lex_score": -0.3043
+  "decision": "maintain"
  },
  {
   "id": "2021-10-07",
@@ -260,8 +237,7 @@
   "D": 10,
   "N": 44,
   "score": 0.1795,
-  "decision": "maintain",
-  "lex_score": -0.1579
+  "decision": "maintain"
  },
  {
   "id": "2021-11-22",
@@ -271,8 +247,7 @@
   "D": 30,
   "N": 21,
   "score": -0.125,
-  "decision": "maintain",
-  "lex_score": -0.2381
+  "decision": "maintain"
  },
  {
   "id": "2022-01-03",
@@ -282,8 +257,7 @@
   "D": 16,
   "N": 31,
   "score": 0.2125,
-  "decision": "maintain",
-  "lex_score": -0.2857
+  "decision": "maintain"
  },
  {
   "id": "2022-02-21",
@@ -293,8 +267,7 @@
   "D": 10,
   "N": 26,
   "score": 0.425,
-  "decision": "maintain",
-  "lex_score": 0.2
+  "decision": "maintain"
  },
  {
   "id": "2022-04-11",
@@ -304,8 +277,7 @@
   "D": 5,
   "N": 28,
   "score": 0.4571,
-  "decision": "raise",
-  "lex_score": 0.28
+  "decision": "raise"
  },
  {
   "id": "2022-05-23",
@@ -315,8 +287,7 @@
   "D": 7,
   "N": 25,
   "score": 0.4179,
-  "decision": "raise",
-  "lex_score": 0.1852
+  "decision": "raise"
  },
  {
   "id": "2022-07-04",
@@ -326,8 +297,7 @@
   "D": 14,
   "N": 24,
   "score": 0.2973,
-  "decision": "raise",
-  "lex_score": 0.2973
+  "decision": "raise"
  },
  {
   "id": "2022-08-22",
@@ -337,8 +307,7 @@
   "D": 14,
   "N": 22,
   "score": 0.3151,
-  "decision": "raise",
-  "lex_score": 0.5556
+  "decision": "raise"
  },
  {
   "id": "2022-10-03",
@@ -348,8 +317,7 @@
   "D": 17,
   "N": 21,
   "score": 0.3038,
-  "decision": "raise",
-  "lex_score": 0.3659
+  "decision": "raise"
  },
  {
   "id": "2022-11-21",
@@ -359,8 +327,7 @@
   "D": 31,
   "N": 15,
   "score": 0.0375,
-  "decision": "raise",
-  "lex_score": 0.2609
+  "decision": "raise"
  },
  {
   "id": "2023-01-02",
@@ -370,8 +337,7 @@
   "D": 35,
   "N": 24,
   "score": -0.0682,
-  "decision": "raise",
-  "lex_score": 0.0769
+  "decision": "raise"
  },
  {
   "id": "2023-02-20",
@@ -381,8 +347,7 @@
   "D": 21,
   "N": 30,
   "score": 0.122,
-  "decision": "raise",
-  "lex_score": 0.5
+  "decision": "raise"
  },
  {
   "id": "2023-04-03",
@@ -392,8 +357,7 @@
   "D": 38,
   "N": 33,
   "score": -0.0283,
-  "decision": "raise",
-  "lex_score": 0.1034
+  "decision": "raise"
  },
  {
   "id": "2023-05-22",
@@ -403,8 +367,7 @@
   "D": 30,
   "N": 30,
   "score": -0.0345,
-  "decision": "raise",
-  "lex_score": 0.2667
+  "decision": "raise"
  },
  {
   "id": "2023-07-10",
@@ -414,8 +377,7 @@
   "D": 32,
   "N": 39,
   "score": -0.0198,
-  "decision": "maintain",
-  "lex_score": 0.4286
+  "decision": "maintain"
  },
  {
   "id": "2023-09-04",
@@ -425,8 +387,7 @@
   "D": 34,
   "N": 30,
   "score": 0.0,
-  "decision": "maintain",
-  "lex_score": 0.5789
+  "decision": "maintain"
  },
  {
   "id": "2023-10-23",
@@ -436,8 +397,7 @@
   "D": 33,
   "N": 38,
   "score": -0.0947,
-  "decision": "maintain",
-  "lex_score": 0.0
+  "decision": "maintain"
  },
  {
   "id": "2023-11-27",
@@ -447,8 +407,7 @@
   "D": 53,
   "N": 50,
   "score": -0.3448,
-  "decision": "maintain",
-  "lex_score": -0.4783
+  "decision": "maintain"
  },
  {
   "id": "2024-01-01",
@@ -458,8 +417,7 @@
   "D": 43,
   "N": 40,
   "score": -0.4318,
-  "decision": "lower",
-  "lex_score": -0.7333
+  "decision": "lower"
  },
  {
   "id": "2024-02-26",
@@ -469,8 +427,7 @@
   "D": 28,
   "N": 48,
   "score": -0.0722,
-  "decision": "maintain",
-  "lex_score": -0.3714
+  "decision": "maintain"
  },
  {
   "id": "2024-04-08",
@@ -480,8 +437,7 @@
   "D": 18,
   "N": 58,
   "score": 0.0505,
-  "decision": "maintain",
-  "lex_score": -0.375
+  "decision": "maintain"
  },
  {
   "id": "2024-05-27",
@@ -491,8 +447,7 @@
   "D": 19,
   "N": 46,
   "score": 0.087,
-  "decision": "maintain",
-  "lex_score": -0.5
+  "decision": "maintain"
  },
  {
   "id": "2024-07-08",
@@ -502,8 +457,7 @@
   "D": 20,
   "N": 45,
   "score": 0.0659,
-  "decision": "maintain",
-  "lex_score": -0.2857
+  "decision": "maintain"
  },
  {
   "id": "2024-08-28",
@@ -513,8 +467,7 @@
   "D": 17,
   "N": 37,
   "score": 0.1341,
-  "decision": "maintain",
-  "lex_score": -0.3714
+  "decision": "maintain"
  },
  {
   "id": "2024-10-09",
@@ -524,8 +477,7 @@
   "D": 25,
   "N": 43,
   "score": -0.022,
-  "decision": "maintain",
-  "lex_score": -0.1818
+  "decision": "maintain"
  },
  {
   "id": "2024-11-25",
@@ -535,8 +487,7 @@
   "D": 24,
   "N": 51,
   "score": -0.1786,
-  "decision": "maintain",
-  "lex_score": -0.3913
+  "decision": "maintain"
  },
  {
   "id": "2025-01-06",
@@ -546,8 +497,7 @@
   "D": 18,
   "N": 58,
   "score": -0.0444,
-  "decision": "maintain",
-  "lex_score": 0.1304
+  "decision": "maintain"
  },
  {
   "id": "2025-02-24",
@@ -557,8 +507,7 @@
   "D": 18,
   "N": 44,
   "score": -0.0127,
-  "decision": "maintain",
-  "lex_score": 0.1429
+  "decision": "maintain"
  },
  {
   "id": "2025-04-07",
@@ -568,8 +517,7 @@
   "D": 25,
   "N": 40,
   "score": -0.0843,
-  "decision": "maintain",
-  "lex_score": -0.04
+  "decision": "maintain"
  },
  {
   "id": "2025-05-26",
@@ -579,8 +527,7 @@
   "D": 19,
   "N": 43,
   "score": -0.125,
-  "decision": "maintain",
-  "lex_score": -0.3333
+  "decision": "maintain"
  },
  {
   "id": "2025-07-07",
@@ -590,8 +537,7 @@
   "D": 23,
   "N": 47,
   "score": -0.0941,
-  "decision": "maintain",
-  "lex_score": -0.2258
+  "decision": "maintain"
  },
  {
   "id": "2025-08-20",
@@ -601,8 +547,7 @@
   "D": 15,
   "N": 46,
   "score": -0.0411,
-  "decision": "maintain",
-  "lex_score": -0.3333
+  "decision": "maintain"
  },
  {
   "id": "2025-09-29",
@@ -612,8 +557,7 @@
   "D": 18,
   "N": 45,
   "score": -0.0125,
-  "decision": "maintain",
-  "lex_score": -0.2593
+  "decision": "maintain"
  },
  {
   "id": "2025-11-24",
@@ -623,8 +567,7 @@
   "D": 17,
   "N": 41,
   "score": -0.0135,
-  "decision": "lower",
-  "lex_score": -0.1304
+  "decision": "lower"
  },
  {
   "id": "2026-01-05",
@@ -634,8 +577,7 @@
   "D": 29,
   "N": 56,
   "score": -0.2128,
-  "decision": "lower",
-  "lex_score": -0.1667
+  "decision": "lower"
  },
  {
   "id": "2026-02-23",
@@ -645,8 +587,7 @@
   "D": 17,
   "N": 45,
   "score": 0.092,
-  "decision": "maintain",
-  "lex_score": -0.1667
+  "decision": "maintain"
  },
  {
   "id": "2026-03-30",
@@ -656,8 +597,7 @@
   "D": 15,
   "N": 50,
   "score": 0.1398,
-  "decision": "maintain",
-  "lex_score": 0.2
+  "decision": "maintain"
  },
  {
   "id": "2026-05-25",
@@ -667,8 +607,7 @@
   "D": 18,
   "N": 44,
   "score": -0.039,
-  "decision": "lower",
-  "lex_score": -0.5556
+  "decision": "lower"
  },
  {
   "id": "2026-07-06",
@@ -678,7 +617,6 @@
   "D": 19,
   "N": 45,
   "score": 0.0349,
-  "decision": "lower",
-  "lex_score": 0.1852
+  "decision": "lower"
  }
 ]

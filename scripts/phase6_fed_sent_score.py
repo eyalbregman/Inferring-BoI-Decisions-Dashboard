@@ -15,8 +15,6 @@ SENT = os.path.join(ROOT, 'data', 'fed_sentences')
 LAB = os.path.join(ROOT, 'data', 'fed_sent_labels')
 
 gt = {r['id']: r for r in json.load(open(os.path.join(ROOT, 'data', 'ground_truth.json'), encoding='utf-8'))}
-lexhit = {r['id']: r for r in json.load(open(os.path.join(ROOT, 'results', 'fed_lexicon_scores.json'), encoding='utf-8'))} \
-    if os.path.exists(os.path.join(ROOT, 'results', 'fed_lexicon_scores.json')) else {}
 
 rows, full, missing = [], [], []
 for sf in sorted(glob.glob(os.path.join(SENT, '20*.json'))):
@@ -34,8 +32,7 @@ for sf in sorted(glob.glob(os.path.join(SENT, '20*.json'))):
     score = (H - D) / tot if tot else 0.0
     rows.append({"id": dt, "date": dt, "n": tot, "H": H, "D": D, "N": N,
                  "score": round(score, 4),
-                 "decision": gt.get(dt, {}).get('decision', ''),
-                 "lex_score": lexhit.get(dt, {}).get('score')})
+                 "decision": gt.get(dt, {}).get('decision', '')})
     for i, (s, l) in enumerate(zip(sents, labs), 1):
         full.append({"id": dt, "i": i, "label": l, "sentence": s})
 

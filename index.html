@@ -80,6 +80,17 @@ h1{font-family:"IBM Plex Serif",Georgia,serif;font-weight:600;font-size:27px;lin
 .tone-legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:middle}
 td.sc{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;text-align:right}
 td.sc.h{color:var(--bad)} td.sc.d{color:var(--accent)}
+.bydec{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.bydec .cell{padding:14px 16px;border-right:1px solid var(--line)}
+.bydec .cell:last-child{border-right:0}
+.bydec .lbl{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.bydec .val{font-size:30px;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:-.01em;margin-top:4px}
+.bydec .val.h{color:var(--bad)} .bydec .val.d{color:var(--accent)}
+.bydec .sub2{font-size:12px;color:var(--muted);margin-top:2px}
+.bydec .track{height:6px;border-radius:3px;background:var(--line-soft);margin-top:10px;position:relative;overflow:hidden}
+.bydec .track>i{position:absolute;top:0;bottom:0;background:currentColor;opacity:.55}
+.fed-take{font-size:13px;color:var(--muted);padding:12px 16px 0}
+.fed-take b{color:var(--ink)}
 
 .tablewrap{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
 table{width:100%;border-collapse:collapse}
@@ -158,11 +169,13 @@ tr.bad td.guess .pill{color:var(--bad)}
 
   <div id="view-fed" hidden>
     <p class="sub" style="margin-top:-6px">The Fed drafts a fully <b>dovish</b> (Alt A) and a fully <b>hawkish</b> (Alt C/D)
-       version of every FOMC statement. Using that as the basis (plus judgment), every sentence of every <b>raw</b>
-       BoI announcement is labelled <b>hawkish</b>, <b>dovish</b> or <b>neutral</b> &mdash; would this sentence
-       belong in the Fed's hawkish draft or its dovish one? Score = <b>(hawkish &minus; dovish) &divide; total
-       sentences</b>. The faint line is the alternative word-count score.</p>
+       version of every FOMC statement. Using that contrast as the basis &mdash; by meaning, not by matching exact
+       words &mdash; every sentence of every <b>raw</b> BoI announcement is judged: would it belong in the Fed's
+       hawkish draft, its dovish one, or neither? Score = <b>(hawkish &minus; dovish) &divide; total sentences</b>.</p>
     <div class="cards" id="fed-cards"></div>
+
+    <div class="panel full" id="fed-bydec" style="margin:4px 0 18px"></div>
+
     <div class="tone-legend">
       <span><i style="background:var(--bad)"></i>Hawkish (score &gt; 0)</span>
       <span><i style="background:var(--accent)"></i>Dovish (score &lt; 0)</span>
@@ -2394,690 +2407,6 @@ tr.bad td.guess .pill{color:var(--bad)}
    "decision": "lower"
   }
  ],
- "fed": [
-  {
-   "id": "2018-11-26",
-   "date": "2018-11-26",
-   "H": 12,
-   "D": 16,
-   "words": 1281,
-   "score": -0.1429,
-   "hawk_per_1k": 9.37,
-   "dove_per_1k": 12.49,
-   "decision": "raise"
-  },
-  {
-   "id": "2019-01-07",
-   "date": "2019-01-07",
-   "H": 14,
-   "D": 10,
-   "words": 1248,
-   "score": 0.1667,
-   "hawk_per_1k": 11.22,
-   "dove_per_1k": 8.01,
-   "decision": "maintain"
-  },
-  {
-   "id": "2019-02-25",
-   "date": "2019-02-25",
-   "H": 7,
-   "D": 14,
-   "words": 1172,
-   "score": -0.3333,
-   "hawk_per_1k": 5.97,
-   "dove_per_1k": 11.95,
-   "decision": "maintain"
-  },
-  {
-   "id": "2019-04-08",
-   "date": "2019-04-08",
-   "H": 5,
-   "D": 17,
-   "words": 1199,
-   "score": -0.5455,
-   "hawk_per_1k": 4.17,
-   "dove_per_1k": 14.18,
-   "decision": "maintain"
-  },
-  {
-   "id": "2019-05-20",
-   "date": "2019-05-20",
-   "H": 6,
-   "D": 11,
-   "words": 1253,
-   "score": -0.2941,
-   "hawk_per_1k": 4.79,
-   "dove_per_1k": 8.78,
-   "decision": "maintain"
-  },
-  {
-   "id": "2019-07-08",
-   "date": "2019-07-08",
-   "H": 8,
-   "D": 17,
-   "words": 1326,
-   "score": -0.36,
-   "hawk_per_1k": 6.03,
-   "dove_per_1k": 12.82,
-   "decision": "maintain"
-  },
-  {
-   "id": "2019-08-28",
-   "date": "2019-08-28",
-   "H": 2,
-   "D": 27,
-   "words": 1406,
-   "score": -0.8621,
-   "hawk_per_1k": 1.42,
-   "dove_per_1k": 19.2,
-   "decision": "maintain"
-  },
-  {
-   "id": "2019-10-07",
-   "date": "2019-10-07",
-   "H": 5,
-   "D": 27,
-   "words": 1487,
-   "score": -0.6875,
-   "hawk_per_1k": 3.36,
-   "dove_per_1k": 18.16,
-   "decision": "maintain"
-  },
-  {
-   "id": "2019-11-25",
-   "date": "2019-11-25",
-   "H": 8,
-   "D": 24,
-   "words": 1306,
-   "score": -0.5,
-   "hawk_per_1k": 6.13,
-   "dove_per_1k": 18.38,
-   "decision": "maintain"
-  },
-  {
-   "id": "2020-01-09",
-   "date": "2020-01-09",
-   "H": 5,
-   "D": 18,
-   "words": 1264,
-   "score": -0.5652,
-   "hawk_per_1k": 3.96,
-   "dove_per_1k": 14.24,
-   "decision": "maintain"
-  },
-  {
-   "id": "2020-02-24",
-   "date": "2020-02-24",
-   "H": 3,
-   "D": 24,
-   "words": 1633,
-   "score": -0.7778,
-   "hawk_per_1k": 1.84,
-   "dove_per_1k": 14.7,
-   "decision": "maintain"
-  },
-  {
-   "id": "2020-04-06",
-   "date": "2020-04-06",
-   "H": 7,
-   "D": 23,
-   "words": 1837,
-   "score": -0.5333,
-   "hawk_per_1k": 3.81,
-   "dove_per_1k": 12.52,
-   "decision": "lower"
-  },
-  {
-   "id": "2020-05-25",
-   "date": "2020-05-25",
-   "H": 1,
-   "D": 18,
-   "words": 2142,
-   "score": -0.8947,
-   "hawk_per_1k": 0.47,
-   "dove_per_1k": 8.4,
-   "decision": "maintain"
-  },
-  {
-   "id": "2020-07-06",
-   "date": "2020-07-06",
-   "H": 0,
-   "D": 17,
-   "words": 2021,
-   "score": -1.0,
-   "hawk_per_1k": 0.0,
-   "dove_per_1k": 8.41,
-   "decision": "maintain"
-  },
-  {
-   "id": "2020-08-24",
-   "date": "2020-08-24",
-   "H": 7,
-   "D": 26,
-   "words": 1930,
-   "score": -0.5758,
-   "hawk_per_1k": 3.63,
-   "dove_per_1k": 13.47,
-   "decision": "maintain"
-  },
-  {
-   "id": "2020-10-22",
-   "date": "2020-10-22",
-   "H": 4,
-   "D": 15,
-   "words": 1835,
-   "score": -0.5789,
-   "hawk_per_1k": 2.18,
-   "dove_per_1k": 8.17,
-   "decision": "maintain"
-  },
-  {
-   "id": "2020-11-30",
-   "date": "2020-11-30",
-   "H": 5,
-   "D": 22,
-   "words": 2011,
-   "score": -0.6296,
-   "hawk_per_1k": 2.49,
-   "dove_per_1k": 10.94,
-   "decision": "maintain"
-  },
-  {
-   "id": "2021-01-04",
-   "date": "2021-01-04",
-   "H": 7,
-   "D": 21,
-   "words": 1950,
-   "score": -0.5,
-   "hawk_per_1k": 3.59,
-   "dove_per_1k": 10.77,
-   "decision": "maintain"
-  },
-  {
-   "id": "2021-02-22",
-   "date": "2021-02-22",
-   "H": 11,
-   "D": 19,
-   "words": 2019,
-   "score": -0.2667,
-   "hawk_per_1k": 5.45,
-   "dove_per_1k": 9.41,
-   "decision": "maintain"
-  },
-  {
-   "id": "2021-04-19",
-   "date": "2021-04-19",
-   "H": 6,
-   "D": 10,
-   "words": 1984,
-   "score": -0.25,
-   "hawk_per_1k": 3.02,
-   "dove_per_1k": 5.04,
-   "decision": "maintain"
-  },
-  {
-   "id": "2021-05-31",
-   "date": "2021-05-31",
-   "H": 15,
-   "D": 24,
-   "words": 2227,
-   "score": -0.2308,
-   "hawk_per_1k": 6.74,
-   "dove_per_1k": 10.78,
-   "decision": "maintain"
-  },
-  {
-   "id": "2021-07-05",
-   "date": "2021-07-05",
-   "H": 13,
-   "D": 8,
-   "words": 1941,
-   "score": 0.2381,
-   "hawk_per_1k": 6.7,
-   "dove_per_1k": 4.12,
-   "decision": "maintain"
-  },
-  {
-   "id": "2021-08-23",
-   "date": "2021-08-23",
-   "H": 8,
-   "D": 15,
-   "words": 1926,
-   "score": -0.3043,
-   "hawk_per_1k": 4.15,
-   "dove_per_1k": 7.79,
-   "decision": "maintain"
-  },
-  {
-   "id": "2021-10-07",
-   "date": "2021-10-07",
-   "H": 8,
-   "D": 11,
-   "words": 1669,
-   "score": -0.1579,
-   "hawk_per_1k": 4.79,
-   "dove_per_1k": 6.59,
-   "decision": "maintain"
-  },
-  {
-   "id": "2021-11-22",
-   "date": "2021-11-22",
-   "H": 8,
-   "D": 13,
-   "words": 1646,
-   "score": -0.2381,
-   "hawk_per_1k": 4.86,
-   "dove_per_1k": 7.9,
-   "decision": "maintain"
-  },
-  {
-   "id": "2022-01-03",
-   "date": "2022-01-03",
-   "H": 5,
-   "D": 9,
-   "words": 1580,
-   "score": -0.2857,
-   "hawk_per_1k": 3.16,
-   "dove_per_1k": 5.7,
-   "decision": "maintain"
-  },
-  {
-   "id": "2022-02-21",
-   "date": "2022-02-21",
-   "H": 9,
-   "D": 6,
-   "words": 1739,
-   "score": 0.2,
-   "hawk_per_1k": 5.18,
-   "dove_per_1k": 3.45,
-   "decision": "maintain"
-  },
-  {
-   "id": "2022-04-11",
-   "date": "2022-04-11",
-   "H": 16,
-   "D": 9,
-   "words": 1539,
-   "score": 0.28,
-   "hawk_per_1k": 10.4,
-   "dove_per_1k": 5.85,
-   "decision": "raise"
-  },
-  {
-   "id": "2022-05-23",
-   "date": "2022-05-23",
-   "H": 16,
-   "D": 11,
-   "words": 1429,
-   "score": 0.1852,
-   "hawk_per_1k": 11.2,
-   "dove_per_1k": 7.7,
-   "decision": "raise"
-  },
-  {
-   "id": "2022-07-04",
-   "date": "2022-07-04",
-   "H": 24,
-   "D": 13,
-   "words": 1530,
-   "score": 0.2973,
-   "hawk_per_1k": 15.69,
-   "dove_per_1k": 8.5,
-   "decision": "raise"
-  },
-  {
-   "id": "2022-08-22",
-   "date": "2022-08-22",
-   "H": 35,
-   "D": 10,
-   "words": 1457,
-   "score": 0.5556,
-   "hawk_per_1k": 24.02,
-   "dove_per_1k": 6.86,
-   "decision": "raise"
-  },
-  {
-   "id": "2022-10-03",
-   "date": "2022-10-03",
-   "H": 28,
-   "D": 13,
-   "words": 1674,
-   "score": 0.3659,
-   "hawk_per_1k": 16.73,
-   "dove_per_1k": 7.77,
-   "decision": "raise"
-  },
-  {
-   "id": "2022-11-21",
-   "date": "2022-11-21",
-   "H": 29,
-   "D": 17,
-   "words": 1692,
-   "score": 0.2609,
-   "hawk_per_1k": 17.14,
-   "dove_per_1k": 10.05,
-   "decision": "raise"
-  },
-  {
-   "id": "2023-01-02",
-   "date": "2023-01-02",
-   "H": 21,
-   "D": 18,
-   "words": 1861,
-   "score": 0.0769,
-   "hawk_per_1k": 11.28,
-   "dove_per_1k": 9.67,
-   "decision": "raise"
-  },
-  {
-   "id": "2023-02-20",
-   "date": "2023-02-20",
-   "H": 24,
-   "D": 8,
-   "words": 1627,
-   "score": 0.5,
-   "hawk_per_1k": 14.75,
-   "dove_per_1k": 4.92,
-   "decision": "raise"
-  },
-  {
-   "id": "2023-04-03",
-   "date": "2023-04-03",
-   "H": 16,
-   "D": 13,
-   "words": 2105,
-   "score": 0.1034,
-   "hawk_per_1k": 7.6,
-   "dove_per_1k": 6.18,
-   "decision": "raise"
-  },
-  {
-   "id": "2023-05-22",
-   "date": "2023-05-22",
-   "H": 19,
-   "D": 11,
-   "words": 1839,
-   "score": 0.2667,
-   "hawk_per_1k": 10.33,
-   "dove_per_1k": 5.98,
-   "decision": "raise"
-  },
-  {
-   "id": "2023-07-10",
-   "date": "2023-07-10",
-   "H": 30,
-   "D": 12,
-   "words": 2131,
-   "score": 0.4286,
-   "hawk_per_1k": 14.08,
-   "dove_per_1k": 5.63,
-   "decision": "maintain"
-  },
-  {
-   "id": "2023-09-04",
-   "date": "2023-09-04",
-   "H": 30,
-   "D": 8,
-   "words": 2034,
-   "score": 0.5789,
-   "hawk_per_1k": 14.75,
-   "dove_per_1k": 3.93,
-   "decision": "maintain"
-  },
-  {
-   "id": "2023-10-23",
-   "date": "2023-10-23",
-   "H": 15,
-   "D": 15,
-   "words": 2255,
-   "score": 0.0,
-   "hawk_per_1k": 6.65,
-   "dove_per_1k": 6.65,
-   "decision": "maintain"
-  },
-  {
-   "id": "2023-11-27",
-   "date": "2023-11-27",
-   "H": 12,
-   "D": 34,
-   "words": 2642,
-   "score": -0.4783,
-   "hawk_per_1k": 4.54,
-   "dove_per_1k": 12.87,
-   "decision": "maintain"
-  },
-  {
-   "id": "2024-01-01",
-   "date": "2024-01-01",
-   "H": 4,
-   "D": 26,
-   "words": 2153,
-   "score": -0.7333,
-   "hawk_per_1k": 1.86,
-   "dove_per_1k": 12.08,
-   "decision": "lower"
-  },
-  {
-   "id": "2024-02-26",
-   "date": "2024-02-26",
-   "H": 11,
-   "D": 24,
-   "words": 2182,
-   "score": -0.3714,
-   "hawk_per_1k": 5.04,
-   "dove_per_1k": 11.0,
-   "decision": "maintain"
-  },
-  {
-   "id": "2024-04-08",
-   "date": "2024-04-08",
-   "H": 10,
-   "D": 22,
-   "words": 2168,
-   "score": -0.375,
-   "hawk_per_1k": 4.61,
-   "dove_per_1k": 10.15,
-   "decision": "maintain"
-  },
-  {
-   "id": "2024-05-27",
-   "date": "2024-05-27",
-   "H": 5,
-   "D": 15,
-   "words": 1989,
-   "score": -0.5,
-   "hawk_per_1k": 2.51,
-   "dove_per_1k": 7.54,
-   "decision": "maintain"
-  },
-  {
-   "id": "2024-07-08",
-   "date": "2024-07-08",
-   "H": 10,
-   "D": 18,
-   "words": 2020,
-   "score": -0.2857,
-   "hawk_per_1k": 4.95,
-   "dove_per_1k": 8.91,
-   "decision": "maintain"
-  },
-  {
-   "id": "2024-08-28",
-   "date": "2024-08-28",
-   "H": 11,
-   "D": 24,
-   "words": 1980,
-   "score": -0.3714,
-   "hawk_per_1k": 5.56,
-   "dove_per_1k": 12.12,
-   "decision": "maintain"
-  },
-  {
-   "id": "2024-10-09",
-   "date": "2024-10-09",
-   "H": 9,
-   "D": 13,
-   "words": 2014,
-   "score": -0.1818,
-   "hawk_per_1k": 4.47,
-   "dove_per_1k": 6.45,
-   "decision": "maintain"
-  },
-  {
-   "id": "2024-11-25",
-   "date": "2024-11-25",
-   "H": 7,
-   "D": 16,
-   "words": 1741,
-   "score": -0.3913,
-   "hawk_per_1k": 4.02,
-   "dove_per_1k": 9.19,
-   "decision": "maintain"
-  },
-  {
-   "id": "2025-01-06",
-   "date": "2025-01-06",
-   "H": 13,
-   "D": 10,
-   "words": 1906,
-   "score": 0.1304,
-   "hawk_per_1k": 6.82,
-   "dove_per_1k": 5.25,
-   "decision": "maintain"
-  },
-  {
-   "id": "2025-02-24",
-   "date": "2025-02-24",
-   "H": 12,
-   "D": 9,
-   "words": 1503,
-   "score": 0.1429,
-   "hawk_per_1k": 7.98,
-   "dove_per_1k": 5.99,
-   "decision": "maintain"
-  },
-  {
-   "id": "2025-04-07",
-   "date": "2025-04-07",
-   "H": 12,
-   "D": 13,
-   "words": 1806,
-   "score": -0.04,
-   "hawk_per_1k": 6.64,
-   "dove_per_1k": 7.2,
-   "decision": "maintain"
-  },
-  {
-   "id": "2025-05-26",
-   "date": "2025-05-26",
-   "H": 10,
-   "D": 20,
-   "words": 1455,
-   "score": -0.3333,
-   "hawk_per_1k": 6.87,
-   "dove_per_1k": 13.75,
-   "decision": "maintain"
-  },
-  {
-   "id": "2025-07-07",
-   "date": "2025-07-07",
-   "H": 12,
-   "D": 19,
-   "words": 1762,
-   "score": -0.2258,
-   "hawk_per_1k": 6.81,
-   "dove_per_1k": 10.78,
-   "decision": "maintain"
-  },
-  {
-   "id": "2025-08-20",
-   "date": "2025-08-20",
-   "H": 9,
-   "D": 18,
-   "words": 1597,
-   "score": -0.3333,
-   "hawk_per_1k": 5.64,
-   "dove_per_1k": 11.27,
-   "decision": "maintain"
-  },
-  {
-   "id": "2025-09-29",
-   "date": "2025-09-29",
-   "H": 10,
-   "D": 17,
-   "words": 1765,
-   "score": -0.2593,
-   "hawk_per_1k": 5.67,
-   "dove_per_1k": 9.63,
-   "decision": "maintain"
-  },
-  {
-   "id": "2025-11-24",
-   "date": "2025-11-24",
-   "H": 10,
-   "D": 13,
-   "words": 1326,
-   "score": -0.1304,
-   "hawk_per_1k": 7.54,
-   "dove_per_1k": 9.8,
-   "decision": "lower"
-  },
-  {
-   "id": "2026-01-05",
-   "date": "2026-01-05",
-   "H": 10,
-   "D": 14,
-   "words": 1780,
-   "score": -0.1667,
-   "hawk_per_1k": 5.62,
-   "dove_per_1k": 7.87,
-   "decision": "lower"
-  },
-  {
-   "id": "2026-02-23",
-   "date": "2026-02-23",
-   "H": 10,
-   "D": 14,
-   "words": 1653,
-   "score": -0.1667,
-   "hawk_per_1k": 6.05,
-   "dove_per_1k": 8.47,
-   "decision": "maintain"
-  },
-  {
-   "id": "2026-03-30",
-   "date": "2026-03-30",
-   "H": 15,
-   "D": 10,
-   "words": 2146,
-   "score": 0.2,
-   "hawk_per_1k": 6.99,
-   "dove_per_1k": 4.66,
-   "decision": "maintain"
-  },
-  {
-   "id": "2026-05-25",
-   "date": "2026-05-25",
-   "H": 6,
-   "D": 21,
-   "words": 1571,
-   "score": -0.5556,
-   "hawk_per_1k": 3.82,
-   "dove_per_1k": 13.37,
-   "decision": "lower"
-  },
-  {
-   "id": "2026-07-06",
-   "date": "2026-07-06",
-   "H": 16,
-   "D": 11,
-   "words": 1897,
-   "score": 0.1852,
-   "hawk_per_1k": 8.43,
-   "dove_per_1k": 5.8,
-   "decision": "lower"
-  }
- ],
  "fedSent": [
   {
    "id": "2018-11-26",
@@ -3087,8 +2416,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 20,
    "N": 23,
    "score": -0.125,
-   "decision": "raise",
-   "lex_score": -0.1429
+   "decision": "raise"
   },
   {
    "id": "2019-01-07",
@@ -3098,8 +2426,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 14,
    "N": 25,
    "score": -0.0392,
-   "decision": "maintain",
-   "lex_score": 0.1667
+   "decision": "maintain"
   },
   {
    "id": "2019-02-25",
@@ -3109,8 +2436,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 22,
    "N": 22,
    "score": -0.2941,
-   "decision": "maintain",
-   "lex_score": -0.3333
+   "decision": "maintain"
   },
   {
    "id": "2019-04-08",
@@ -3120,8 +2446,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 27,
    "N": 17,
    "score": -0.3654,
-   "decision": "maintain",
-   "lex_score": -0.5455
+   "decision": "maintain"
   },
   {
    "id": "2019-05-20",
@@ -3131,8 +2456,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 21,
    "N": 22,
    "score": -0.2549,
-   "decision": "maintain",
-   "lex_score": -0.2941
+   "decision": "maintain"
   },
   {
    "id": "2019-07-08",
@@ -3142,8 +2466,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 22,
    "N": 19,
    "score": -0.1667,
-   "decision": "maintain",
-   "lex_score": -0.36
+   "decision": "maintain"
   },
   {
    "id": "2019-08-28",
@@ -3153,8 +2476,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 30,
    "N": 23,
    "score": -0.4068,
-   "decision": "maintain",
-   "lex_score": -0.8621
+   "decision": "maintain"
   },
   {
    "id": "2019-10-07",
@@ -3164,8 +2486,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 33,
    "N": 18,
    "score": -0.5,
-   "decision": "maintain",
-   "lex_score": -0.6875
+   "decision": "maintain"
   },
   {
    "id": "2019-11-25",
@@ -3175,8 +2496,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 27,
    "N": 27,
    "score": -0.4464,
-   "decision": "maintain",
-   "lex_score": -0.5
+   "decision": "maintain"
   },
   {
    "id": "2020-01-09",
@@ -3186,8 +2506,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 26,
    "N": 21,
    "score": -0.4038,
-   "decision": "maintain",
-   "lex_score": -0.5652
+   "decision": "maintain"
   },
   {
    "id": "2020-02-24",
@@ -3197,8 +2516,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 33,
    "N": 25,
    "score": -0.4444,
-   "decision": "maintain",
-   "lex_score": -0.7778
+   "decision": "maintain"
   },
   {
    "id": "2020-04-06",
@@ -3208,8 +2526,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 44,
    "N": 12,
    "score": -0.5873,
-   "decision": "lower",
-   "lex_score": -0.5333
+   "decision": "lower"
   },
   {
    "id": "2020-05-25",
@@ -3219,8 +2536,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 40,
    "N": 19,
    "score": -0.5,
-   "decision": "maintain",
-   "lex_score": -0.8947
+   "decision": "maintain"
   },
   {
    "id": "2020-07-06",
@@ -3230,8 +2546,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 49,
    "N": 18,
    "score": -0.6571,
-   "decision": "maintain",
-   "lex_score": -1.0
+   "decision": "maintain"
   },
   {
    "id": "2020-08-24",
@@ -3241,8 +2556,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 43,
    "N": 21,
    "score": -0.5735,
-   "decision": "maintain",
-   "lex_score": -0.5758
+   "decision": "maintain"
   },
   {
    "id": "2020-10-22",
@@ -3252,8 +2566,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 41,
    "N": 29,
    "score": -0.4051,
-   "decision": "maintain",
-   "lex_score": -0.5789
+   "decision": "maintain"
   },
   {
    "id": "2020-11-30",
@@ -3263,8 +2576,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 38,
    "N": 26,
    "score": -0.3973,
-   "decision": "maintain",
-   "lex_score": -0.6296
+   "decision": "maintain"
   },
   {
    "id": "2021-01-04",
@@ -3274,8 +2586,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 34,
    "N": 40,
    "score": -0.3846,
-   "decision": "maintain",
-   "lex_score": -0.5
+   "decision": "maintain"
   },
   {
    "id": "2021-02-22",
@@ -3285,8 +2596,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 22,
    "N": 42,
    "score": -0.0617,
-   "decision": "maintain",
-   "lex_score": -0.2667
+   "decision": "maintain"
   },
   {
    "id": "2021-04-19",
@@ -3296,8 +2606,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 14,
    "N": 42,
    "score": 0.1765,
-   "decision": "maintain",
-   "lex_score": -0.25
+   "decision": "maintain"
   },
   {
    "id": "2021-05-31",
@@ -3307,8 +2616,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 15,
    "N": 47,
    "score": 0.2062,
-   "decision": "maintain",
-   "lex_score": -0.2308
+   "decision": "maintain"
   },
   {
    "id": "2021-07-05",
@@ -3318,8 +2626,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 10,
    "N": 48,
    "score": 0.1905,
-   "decision": "maintain",
-   "lex_score": 0.2381
+   "decision": "maintain"
   },
   {
    "id": "2021-08-23",
@@ -3329,8 +2636,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 17,
    "N": 42,
    "score": 0.0843,
-   "decision": "maintain",
-   "lex_score": -0.3043
+   "decision": "maintain"
   },
   {
    "id": "2021-10-07",
@@ -3340,8 +2646,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 10,
    "N": 44,
    "score": 0.1795,
-   "decision": "maintain",
-   "lex_score": -0.1579
+   "decision": "maintain"
   },
   {
    "id": "2021-11-22",
@@ -3351,8 +2656,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 30,
    "N": 21,
    "score": -0.125,
-   "decision": "maintain",
-   "lex_score": -0.2381
+   "decision": "maintain"
   },
   {
    "id": "2022-01-03",
@@ -3362,8 +2666,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 16,
    "N": 31,
    "score": 0.2125,
-   "decision": "maintain",
-   "lex_score": -0.2857
+   "decision": "maintain"
   },
   {
    "id": "2022-02-21",
@@ -3373,8 +2676,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 10,
    "N": 26,
    "score": 0.425,
-   "decision": "maintain",
-   "lex_score": 0.2
+   "decision": "maintain"
   },
   {
    "id": "2022-04-11",
@@ -3384,8 +2686,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 5,
    "N": 28,
    "score": 0.4571,
-   "decision": "raise",
-   "lex_score": 0.28
+   "decision": "raise"
   },
   {
    "id": "2022-05-23",
@@ -3395,8 +2696,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 7,
    "N": 25,
    "score": 0.4179,
-   "decision": "raise",
-   "lex_score": 0.1852
+   "decision": "raise"
   },
   {
    "id": "2022-07-04",
@@ -3406,8 +2706,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 14,
    "N": 24,
    "score": 0.2973,
-   "decision": "raise",
-   "lex_score": 0.2973
+   "decision": "raise"
   },
   {
    "id": "2022-08-22",
@@ -3417,8 +2716,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 14,
    "N": 22,
    "score": 0.3151,
-   "decision": "raise",
-   "lex_score": 0.5556
+   "decision": "raise"
   },
   {
    "id": "2022-10-03",
@@ -3428,8 +2726,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 17,
    "N": 21,
    "score": 0.3038,
-   "decision": "raise",
-   "lex_score": 0.3659
+   "decision": "raise"
   },
   {
    "id": "2022-11-21",
@@ -3439,8 +2736,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 31,
    "N": 15,
    "score": 0.0375,
-   "decision": "raise",
-   "lex_score": 0.2609
+   "decision": "raise"
   },
   {
    "id": "2023-01-02",
@@ -3450,8 +2746,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 35,
    "N": 24,
    "score": -0.0682,
-   "decision": "raise",
-   "lex_score": 0.0769
+   "decision": "raise"
   },
   {
    "id": "2023-02-20",
@@ -3461,8 +2756,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 21,
    "N": 30,
    "score": 0.122,
-   "decision": "raise",
-   "lex_score": 0.5
+   "decision": "raise"
   },
   {
    "id": "2023-04-03",
@@ -3472,8 +2766,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 38,
    "N": 33,
    "score": -0.0283,
-   "decision": "raise",
-   "lex_score": 0.1034
+   "decision": "raise"
   },
   {
    "id": "2023-05-22",
@@ -3483,8 +2776,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 30,
    "N": 30,
    "score": -0.0345,
-   "decision": "raise",
-   "lex_score": 0.2667
+   "decision": "raise"
   },
   {
    "id": "2023-07-10",
@@ -3494,8 +2786,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 32,
    "N": 39,
    "score": -0.0198,
-   "decision": "maintain",
-   "lex_score": 0.4286
+   "decision": "maintain"
   },
   {
    "id": "2023-09-04",
@@ -3505,8 +2796,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 34,
    "N": 30,
    "score": 0.0,
-   "decision": "maintain",
-   "lex_score": 0.5789
+   "decision": "maintain"
   },
   {
    "id": "2023-10-23",
@@ -3516,8 +2806,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 33,
    "N": 38,
    "score": -0.0947,
-   "decision": "maintain",
-   "lex_score": 0.0
+   "decision": "maintain"
   },
   {
    "id": "2023-11-27",
@@ -3527,8 +2816,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 53,
    "N": 50,
    "score": -0.3448,
-   "decision": "maintain",
-   "lex_score": -0.4783
+   "decision": "maintain"
   },
   {
    "id": "2024-01-01",
@@ -3538,8 +2826,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 43,
    "N": 40,
    "score": -0.4318,
-   "decision": "lower",
-   "lex_score": -0.7333
+   "decision": "lower"
   },
   {
    "id": "2024-02-26",
@@ -3549,8 +2836,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 28,
    "N": 48,
    "score": -0.0722,
-   "decision": "maintain",
-   "lex_score": -0.3714
+   "decision": "maintain"
   },
   {
    "id": "2024-04-08",
@@ -3560,8 +2846,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 18,
    "N": 58,
    "score": 0.0505,
-   "decision": "maintain",
-   "lex_score": -0.375
+   "decision": "maintain"
   },
   {
    "id": "2024-05-27",
@@ -3571,8 +2856,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 19,
    "N": 46,
    "score": 0.087,
-   "decision": "maintain",
-   "lex_score": -0.5
+   "decision": "maintain"
   },
   {
    "id": "2024-07-08",
@@ -3582,8 +2866,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 20,
    "N": 45,
    "score": 0.0659,
-   "decision": "maintain",
-   "lex_score": -0.2857
+   "decision": "maintain"
   },
   {
    "id": "2024-08-28",
@@ -3593,8 +2876,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 17,
    "N": 37,
    "score": 0.1341,
-   "decision": "maintain",
-   "lex_score": -0.3714
+   "decision": "maintain"
   },
   {
    "id": "2024-10-09",
@@ -3604,8 +2886,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 25,
    "N": 43,
    "score": -0.022,
-   "decision": "maintain",
-   "lex_score": -0.1818
+   "decision": "maintain"
   },
   {
    "id": "2024-11-25",
@@ -3615,8 +2896,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 24,
    "N": 51,
    "score": -0.1786,
-   "decision": "maintain",
-   "lex_score": -0.3913
+   "decision": "maintain"
   },
   {
    "id": "2025-01-06",
@@ -3626,8 +2906,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 18,
    "N": 58,
    "score": -0.0444,
-   "decision": "maintain",
-   "lex_score": 0.1304
+   "decision": "maintain"
   },
   {
    "id": "2025-02-24",
@@ -3637,8 +2916,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 18,
    "N": 44,
    "score": -0.0127,
-   "decision": "maintain",
-   "lex_score": 0.1429
+   "decision": "maintain"
   },
   {
    "id": "2025-04-07",
@@ -3648,8 +2926,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 25,
    "N": 40,
    "score": -0.0843,
-   "decision": "maintain",
-   "lex_score": -0.04
+   "decision": "maintain"
   },
   {
    "id": "2025-05-26",
@@ -3659,8 +2936,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 19,
    "N": 43,
    "score": -0.125,
-   "decision": "maintain",
-   "lex_score": -0.3333
+   "decision": "maintain"
   },
   {
    "id": "2025-07-07",
@@ -3670,8 +2946,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 23,
    "N": 47,
    "score": -0.0941,
-   "decision": "maintain",
-   "lex_score": -0.2258
+   "decision": "maintain"
   },
   {
    "id": "2025-08-20",
@@ -3681,8 +2956,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 15,
    "N": 46,
    "score": -0.0411,
-   "decision": "maintain",
-   "lex_score": -0.3333
+   "decision": "maintain"
   },
   {
    "id": "2025-09-29",
@@ -3692,8 +2966,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 18,
    "N": 45,
    "score": -0.0125,
-   "decision": "maintain",
-   "lex_score": -0.2593
+   "decision": "maintain"
   },
   {
    "id": "2025-11-24",
@@ -3703,8 +2976,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 17,
    "N": 41,
    "score": -0.0135,
-   "decision": "lower",
-   "lex_score": -0.1304
+   "decision": "lower"
   },
   {
    "id": "2026-01-05",
@@ -3714,8 +2986,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 29,
    "N": 56,
    "score": -0.2128,
-   "decision": "lower",
-   "lex_score": -0.1667
+   "decision": "lower"
   },
   {
    "id": "2026-02-23",
@@ -3725,8 +2996,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 17,
    "N": 45,
    "score": 0.092,
-   "decision": "maintain",
-   "lex_score": -0.1667
+   "decision": "maintain"
   },
   {
    "id": "2026-03-30",
@@ -3736,8 +3006,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 15,
    "N": 50,
    "score": 0.1398,
-   "decision": "maintain",
-   "lex_score": 0.2
+   "decision": "maintain"
   },
   {
    "id": "2026-05-25",
@@ -3747,8 +3016,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 18,
    "N": 44,
    "score": -0.039,
-   "decision": "lower",
-   "lex_score": -0.5556
+   "decision": "lower"
   },
   {
    "id": "2026-07-06",
@@ -3758,8 +3026,7 @@ tr.bad td.guess .pill{color:var(--bad)}
    "D": 19,
    "N": 45,
    "score": 0.0349,
-   "decision": "lower",
-   "lex_score": 0.1852
+   "decision": "lower"
   }
  ]
 }</script>
@@ -3937,17 +3204,32 @@ function renderFed(){
   const mean = T.reduce((s,r)=>s+r.score,0)/n;
   const sH = T.reduce((s,r)=>s+r.H,0), sD = T.reduce((s,r)=>s+r.D,0), sN = T.reduce((s,r)=>s+r.N,0);
   const tot = sH+sD+sN;
-  const byDec = d => { const v=T.filter(r=>r.decision===d); return v.reduce((s,r)=>s+r.score,0)/v.length; };
-  const mostH = T.reduce((a,b)=>b.score>a.score?b:a), mostD = T.reduce((a,b)=>b.score<a.score?b:a);
+  const grp = d => { const v=T.filter(r=>r.decision===d); return {m:v.reduce((s,r)=>s+r.score,0)/v.length, n:v.length}; };
+  const R = grp('raise'), M = grp('maintain'), L = grp('lower');
   const cards = [
     ['Announcements', n, 'raw text, Nov 2018 – today', true],
-    ['Sentences classified', tot.toLocaleString(), `${Math.round(100*sH/tot)}% H · ${Math.round(100*sD/tot)}% D · ${Math.round(100*sN/tot)}% N`, false],
-    ['Mean score', (mean>=0?'+':'')+mean.toFixed(3), mean>=0?'net hawkish':'net dovish', false],
-    ['Hiking vs holds vs cuts', '+'+byDec('raise').toFixed(2), `${byDec('maintain').toFixed(2)} · ${byDec('lower').toFixed(2)}`, false],
+    ['Sentences classified', tot.toLocaleString(), `${Math.round(100*sH/tot)}% hawkish · ${Math.round(100*sD/tot)}% dovish · ${Math.round(100*sN/tot)}% neutral`, false],
+    ['Mean score', (mean>=0?'+':'')+mean.toFixed(2), mean>=0?'net hawkish wording':'net dovish wording', false],
   ];
   document.getElementById('fed-cards').innerHTML = cards.map(c=>
     `<div class="stat${c[3]?' lead':''}"><div class="k">${c[0]}</div><div class="v">${c[1]}</div><div class="n">${c[2]}</div></div>`
   ).join('');
+
+  // score grouped by the decision that was actually taken (the decision is NOT used to compute the score)
+  const sgn = (x)=> (x>=0?'+':'')+x.toFixed(2);
+  const bar = (x)=>{ const p = Math.min(50, Math.abs(x)/0.4*50);
+    return x>=0 ? `left:50%;width:${p}%` : `right:50%;width:${p}%`; };
+  const cell = (lbl, g, cls)=>`<div class="cell">
+      <div class="lbl">${lbl} &nbsp;<span style="opacity:.6">n=${g.n}</span></div>
+      <div class="val ${cls}">${sgn(g.m)}</div>
+      <div class="sub2">mean Fed-anchored score</div>
+      <div class="track" style="color:${cls==='h'?'var(--bad)':cls==='d'?'var(--accent)':'var(--muted)'}"><i style="${bar(g.m)}"></i></div>
+    </div>`;
+  document.getElementById('fed-bydec').innerHTML =
+    `<div class="bydec">${cell('When the Bank hiked', R, 'h')}${cell('When it held', M, 'd')}${cell('When it cut', L, 'd')}</div>`
+    + `<p class="fed-take">The score never sees the decision &mdash; each sentence is judged on its own wording. `
+    + `Hike announcements come out clearly hawkish; <b>cut announcements read more dovish than holds</b> `
+    + `(${sgn(L.m)} vs ${sgn(M.m)}), so the language lines up with the decision in the right order.</p>`;
 
   const shape = {raise:'triangle', maintain:'rect', lower:'triangle'};
   const rot = T.map(r=>r.decision==='lower'?180:0);
@@ -3960,10 +3242,7 @@ function renderFed(){
       datasets:[
         { type:'bar', data: T.map(r=>r.score),
           backgroundColor: T.map(r=>r.score>=0?haw:dov), borderWidth:0,
-          categoryPercentage:0.9, barPercentage:0.95, order:3 },
-        { type:'line', data: T.map(r=>r.lex_score==null?null:r.lex_score),
-          borderColor: mut, borderWidth:1, borderDash:[3,3], pointRadius:0,
-          tension:0.3, spanGaps:true, order:2 },
+          categoryPercentage:0.9, barPercentage:0.95, order:2 },
         { type:'line', data: T.map(r=>r.score), showLine:false, order:1,
           pointStyle: T.map(r=>shape[r.decision]||'rect'), rotation: rot,
           pointRadius: T.map(r=>r.decision==='maintain'?4:6),
@@ -3979,9 +3258,8 @@ function renderFed(){
       plugins:{ legend:{display:false},
         tooltip:{ callbacks:{ title:i=>T[i[0].dataIndex].date,
           label:i=>{ const r=T[i.dataIndex];
-            return [`sentence score ${r.score>=0?'+':''}${r.score.toFixed(3)}  =  (${r.H} − ${r.D}) / ${r.n}`,
-                    r.lex_score==null?'':`word-count score ${r.lex_score>=0?'+':''}${r.lex_score.toFixed(3)}`,
-                    `decision that month: ${r.decision}`].filter(Boolean); } } } } }
+            return [`score ${r.score>=0?'+':''}${r.score.toFixed(3)}  =  (${r.H} − ${r.D}) / ${r.n}`,
+                    `decision that month: ${r.decision}`]; } } } } }
   }));
 
   const lab = d => d==='raise'?'raise':d==='lower'?'lower':'maintain';
