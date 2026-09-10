@@ -6,12 +6,9 @@ import json, os
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 S_BLIND = json.load(open(os.path.join(ROOT, 'results', 'scores.json')))
 S_RATE = json.load(open(os.path.join(ROOT, 'results', 'scores_rate.json')))
-TONE_PATH = os.path.join(ROOT, 'results', 'sentence_scores.json')
-S_TONE = json.load(open(TONE_PATH)) if os.path.exists(TONE_PATH) else []
 FEDS_PATH = os.path.join(ROOT, 'results', 'fed_sentence_scores.json')
 S_FEDSENT = json.load(open(FEDS_PATH)) if os.path.exists(FEDS_PATH) else []
-PAYLOAD = json.dumps({"blind": S_BLIND, "rate": S_RATE, "tone": S_TONE,
-                      "fedSent": S_FEDSENT}, indent=1)
+PAYLOAD = json.dumps({"blind": S_BLIND, "rate": S_RATE, "fedSent": S_FEDSENT}, indent=1)
 
 FONTS = ('<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
          '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
@@ -110,8 +107,6 @@ td.sc.h{color:var(--bad)} td.sc.d{color:var(--accent)}
 .bydec .sub2{font-size:12px;color:var(--muted);margin-top:2px}
 .bydec .track{height:6px;border-radius:3px;background:var(--line-soft);margin-top:10px;position:relative;overflow:hidden}
 .bydec .track>i{position:absolute;top:0;bottom:0;background:currentColor;opacity:.55}
-.fed-take{font-size:13px;color:var(--muted);padding:12px 16px 0}
-.fed-take b{color:var(--ink)}
 
 .tablewrap{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
 table{width:100%;border-collapse:collapse}
@@ -136,17 +131,13 @@ tr.bad td.guess .pill{color:var(--bad)}
 BODY = r"""
 <div class="wrap">
   <p class="eyebrow">Bank of Israel interest-rate announcements &nbsp;/&nbsp; Nov 2018 &ndash; today</p>
-  <h1>Inferring Bank of Israel interest-rate decisions</h1>
-  <p class="sub">Every Bank of Israel interest-rate announcement is stripped of its headline, the
-     decision sentence, the policy-rate figure and the dates. A model then reads only what's left
-     &mdash; the economic reasoning &mdash; and predicts <b>lower</b>, <b>maintain</b> or <b>raise</b>.
-     Each announcement is judged in a fresh, isolated context. <span id="sheetsub"></span></p>
+  <h1 id="h1">Inferring Bank of Israel interest-rate decisions</h1>
+  <p class="sub" id="subp"></p>
 
   <div class="tabs" role="tablist" aria-label="View">
     <button class="tab" role="tab" data-v="blind" aria-selected="true">Reasoning only</button>
     <button class="tab" role="tab" data-v="rate" aria-selected="false">&plus; prior rate level</button>
-    <button class="tab" role="tab" data-v="tone" aria-selected="false">Sentence tone</button>
-    <button class="tab" role="tab" data-v="fed" aria-selected="false">Fed-anchored score</button>
+    <button class="tab" role="tab" data-v="fed" aria-selected="false">Fed-anchored tone score</button>
   </div>
 
   <div id="view-infer">
@@ -167,34 +158,7 @@ BODY = r"""
     </div>
   </div>
 
-  <div id="view-tone" hidden>
-    <p class="sub" style="margin-top:-6px">Each announcement is split into sentences; every sentence is
-       labelled <b>hawkish</b> (strong, confident, emphatic wording), <b>dovish</b> (hedged, tentative,
-       qualified wording) or <b>neutral</b> &mdash; by the language only, not the decision. The score is
-       <b>(hawkish &minus; dovish) &divide; total sentences</b>, from &minus;1 (all dovish) to &plus;1 (all hawkish).</p>
-    <div class="cards" id="tone-cards"></div>
-    <div class="tone-legend">
-      <span><i style="background:var(--bad)"></i>Hawkish tone (score &gt; 0)</span>
-      <span><i style="background:var(--accent)"></i>Dovish tone (score &lt; 0)</span>
-      <span>Marker = actual decision that month (&#9650; raise &nbsp; &#9644; maintain &nbsp; &#9660; lower)</span>
-    </div>
-    <div class="panel full" style="margin-bottom:22px">
-      <h2>Tone score by announcement &mdash; Nov 2018 to today</h2>
-      <div class="cwrap wide"><canvas id="toneTL"></canvas></div>
-    </div>
-    <div class="tablewrap">
-      <table id="tonetbl">
-        <thead><tr><th>Date</th><th>Decision</th><th>Hawkish</th><th>Dovish</th><th>Neutral</th><th>Total</th><th>Score</th></tr></thead>
-        <tbody></tbody>
-      </table>
-    </div>
-  </div>
-
   <div id="view-fed" hidden>
-    <p class="sub" style="margin-top:-6px">The Fed drafts a fully <b>dovish</b> (Alt A) and a fully <b>hawkish</b> (Alt C/D)
-       version of every FOMC statement. Using that contrast as the basis &mdash; by meaning, not by matching exact
-       words &mdash; every sentence of every <b>raw</b> BoI announcement is judged: would it belong in the Fed's
-       hawkish draft, its dovish one, or neither? Score = <b>(hawkish &minus; dovish) &divide; total sentences</b>.</p>
     <div class="cards" id="fed-cards"></div>
 
     <div class="panel full" id="fed-bydec" style="margin:4px 0 18px"></div>
@@ -224,21 +188,36 @@ SCRIPT = r"""
 const ALL = JSON.parse(document.getElementById('data').textContent);
 const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
 const fmtPct = x => x==null ? 'n/a' : Math.round(x*100)+'%';
-const SHEETSUB = {
-  blind: "The model sees only the blinded rationale — nothing about the rate, the date, or the previous decision.",
-  rate: "The model sees only the blinded rationale, and here the previous rate level also — but still nothing "
-      + "about the date or the previous decision."
+const HEAD = {
+  blind: "Inferring Bank of Israel interest-rate decisions",
+  rate:  "Inferring Bank of Israel interest-rate decisions",
+  fed:   "Fed-anchored hawkish&ndash;dovish tone"
+};
+const INTRO = {
+  blind: "Every Bank of Israel interest-rate announcement is stripped of its headline, the decision "
+       + "sentence, the policy-rate figure and the dates. A model then reads only what's left &mdash; "
+       + "the economic reasoning &mdash; and predicts <b>lower</b>, <b>maintain</b> or <b>raise</b>, each "
+       + "announcement judged in a fresh, isolated context. The model sees nothing about the rate, the "
+       + "date, or the previous decision.",
+  rate:  "Every Bank of Israel interest-rate announcement is stripped of its headline, the decision "
+       + "sentence, the policy-rate figure and the dates. A model then reads only what's left &mdash; "
+       + "the economic reasoning &mdash; and predicts <b>lower</b>, <b>maintain</b> or <b>raise</b>, each "
+       + "announcement judged in a fresh, isolated context. Here it is also told the previous rate "
+       + "<i>level</i> &mdash; but still nothing about the date or the previous decision.",
+  fed:   "The Fed publishes a fully <b>hawkish</b> and a fully <b>dovish</b> draft of every policy "
+       + "statement. Using that contrast as the basis, every sentence of every Bank of Israel "
+       + "announcement is judged hawkish, dovish or neutral, and each announcement is scored "
+       + "<b>(hawkish &minus; dovish) &divide; total sentences</b> &mdash; from &minus;1 (dovish) to &plus;1 (hawkish)."
 };
 let charts = [];
 
 function render(v){
   document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected', t.dataset.v===v));
-  const isTone = v === 'tone', isFed = v === 'fed';
-  document.getElementById('view-infer').hidden = isTone || isFed;
-  document.getElementById('view-tone').hidden = !isTone;
+  const isFed = v === 'fed';
+  document.getElementById('view-infer').hidden = isFed;
   document.getElementById('view-fed').hidden = !isFed;
-  document.getElementById('sheetsub').textContent = (isTone || isFed) ? "" : SHEETSUB[v];
-  if (isTone){ renderTone(); return; }
+  document.getElementById('h1').innerHTML = HEAD[v];
+  document.getElementById('subp').innerHTML = INTRO[v];
   if (isFed){ renderFed(); return; }
 
   const S = ALL[v], pc = S.per_class_accuracy;
@@ -321,72 +300,6 @@ function render(v){
       <td class="res"><span class="pill">${r.actual}</span></td>
     </tr>`).join('');
 }
-function renderTone(){
-  const T = [...ALL.tone].sort((a,b)=>a.date.localeCompare(b.date));
-  const haw = css('--bad'), dov = css('--accent'), mut = css('--muted');
-  const n = T.length;
-  const mean = T.reduce((s,r)=>s+r.score,0)/n;
-  const sH = T.reduce((s,r)=>s+r.H,0), sD = T.reduce((s,r)=>s+r.D,0), sN = T.reduce((s,r)=>s+r.N,0);
-  const tot = sH+sD+sN;
-  const mostH = T.reduce((a,b)=>b.score>a.score?b:a);
-  const mostD = T.reduce((a,b)=>b.score<a.score?b:a);
-  const cards = [
-    ['Announcements', n, 'Nov 2018 – today', true],
-    ['Sentences classified', tot.toLocaleString(), `${Math.round(100*sH/tot)}% H · ${Math.round(100*sD/tot)}% D · ${Math.round(100*sN/tot)}% N`, false],
-    ['Mean tone score', (mean>=0?'+':'')+mean.toFixed(3), mean>=0?'net hawkish wording':'net dovish wording', false],
-    ['Most hawkish', (mostH.score>=0?'+':'')+mostH.score.toFixed(2), mostH.date, false],
-    ['Most dovish', mostD.score.toFixed(2), mostD.date, false],
-  ];
-  document.getElementById('tone-cards').innerHTML = cards.map(c=>
-    `<div class="stat${c[3]?' lead':''}"><div class="k">${c[0]}</div><div class="v">${c[1]}</div><div class="n">${c[2]}</div></div>`
-  ).join('');
-
-  const shape = {raise:'triangle', maintain:'rect', lower:'triangle'};
-  const rot = T.map(r=>r.decision==='lower'?180:0);
-  charts.forEach(c=>c.destroy()); charts = [];
-  Chart.defaults.font.family = "'IBM Plex Sans', sans-serif";
-  Chart.defaults.color = mut;
-  charts.push(new Chart(document.getElementById('toneTL'), {
-    type:'bar',
-    data:{ labels: T.map(r=>r.date),
-      datasets:[
-        { type:'bar', label:'Tone score', data: T.map(r=>r.score),
-          backgroundColor: T.map(r=>r.score>=0?haw:dov), borderWidth:0,
-          categoryPercentage:0.9, barPercentage:0.95 },
-        { type:'line', label:'Decision', data: T.map(r=>r.score),
-          showLine:false,
-          pointStyle: T.map(r=>shape[r.decision]||'rect'),
-          rotation: rot,
-          pointRadius: T.map(r=>r.decision==='maintain'?4:6),
-          pointBackgroundColor:'transparent',
-          pointBorderColor: css('--ink'), pointBorderWidth:1.5 }
-      ] },
-    options:{ responsive:true, maintainAspectRatio:false, animation:false,
-      scales:{
-        y:{ min:-0.5, max:0.5, title:{display:true,text:'dovish  ←   tone score   →  hawkish'},
-            grid:{color:c=>c.tick.value===0?css('--muted'):css('--line-soft')}, ticks:{stepSize:0.1} },
-        x:{ ticks:{ maxRotation:90, minRotation:90, autoSkip:true, maxTicksLimit:24, font:{size:9} },
-            grid:{display:false} } },
-      plugins:{ legend:{display:false},
-        tooltip:{ callbacks:{ title:i=>T[i[0].dataIndex].date,
-          label:i=>{ const r=T[i.dataIndex];
-            return [`score ${r.score>=0?'+':''}${r.score.toFixed(3)}  =  (${r.H} − ${r.D}) / ${r.n}`,
-                    `decision that month: ${r.decision}`]; } } } } }
-  }));
-
-  const chg = d => d==='raise'?'raise':d==='lower'?'lower':'maintain';
-  document.querySelector('#tonetbl tbody').innerHTML = T.map(r=>`
-    <tr>
-      <td class="mono">${r.date}</td>
-      <td><span class="pill">${chg(r.decision)}</span></td>
-      <td class="mono" style="text-align:right">${r.H}</td>
-      <td class="mono" style="text-align:right">${r.D}</td>
-      <td class="mono" style="text-align:right">${r.N}</td>
-      <td class="mono" style="text-align:right">${r.n}</td>
-      <td class="sc ${r.score>0?'h':r.score<0?'d':''}">${r.score>=0?'+':''}${r.score.toFixed(3)}</td>
-    </tr>`).join('');
-}
-
 function renderFed(){
   const T = [...ALL.fedSent].sort((a,b)=>a.date.localeCompare(b.date));
   const haw = css('--bad'), dov = css('--accent'), mut = css('--muted');
@@ -416,10 +329,7 @@ function renderFed(){
       <div class="track" style="color:${cls==='h'?'var(--bad)':cls==='d'?'var(--accent)':'var(--muted)'}"><i style="${bar(g.m)}"></i></div>
     </div>`;
   document.getElementById('fed-bydec').innerHTML =
-    `<div class="bydec">${cell('When the Bank hiked', R, 'h')}${cell('When it held', M, 'd')}${cell('When it cut', L, 'd')}</div>`
-    + `<p class="fed-take">The score never sees the decision &mdash; each sentence is judged on its own wording. `
-    + `Hike announcements come out clearly hawkish; <b>cut announcements read more dovish than holds</b> `
-    + `(${sgn(L.m)} vs ${sgn(M.m)}), so the language lines up with the decision in the right order.</p>`;
+    `<div class="bydec">${cell('When the Bank hiked', R, 'h')}${cell('When it held', M, 'd')}${cell('When it cut', L, 'd')}</div>`;
 
   const shape = {raise:'triangle', maintain:'rect', lower:'triangle'};
   const rot = T.map(r=>r.decision==='lower'?180:0);
@@ -441,8 +351,8 @@ function renderFed(){
       ] },
     options:{ responsive:true, maintainAspectRatio:false, animation:false,
       scales:{
-        y:{ min:-0.6, max:0.6, title:{display:true,text:'dovish  ←   Fed-anchored score   →  hawkish'},
-            grid:{color:c=>c.tick.value===0?css('--muted'):css('--line-soft')}, ticks:{stepSize:0.2} },
+        y:{ min:-0.7, max:0.7, title:{display:true,text:'dovish  ←   Fed-anchored score   →  hawkish'},
+            grid:{color:c=>Math.abs(c.tick.value)<1e-9?css('--muted'):css('--line-soft')}, ticks:{stepSize:0.1} },
         x:{ ticks:{ maxRotation:90, minRotation:90, autoSkip:true, maxTicksLimit:24, font:{size:9} },
             grid:{display:false} } },
       plugins:{ legend:{display:false},
