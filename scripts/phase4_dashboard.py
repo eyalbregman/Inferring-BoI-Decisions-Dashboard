@@ -8,6 +8,9 @@ S_BLIND = json.load(open(os.path.join(ROOT, 'results', 'scores.json')))
 S_RATE = json.load(open(os.path.join(ROOT, 'results', 'scores_rate.json')))
 FEDS_PATH = os.path.join(ROOT, 'results', 'fed_sentence_scores.json')
 S_FEDSENT = json.load(open(FEDS_PATH)) if os.path.exists(FEDS_PATH) else []
+import datetime
+_last = max(r['date'] for r in S_BLIND['rows'])            # date of the last announcement analysed
+LAST = datetime.date.fromisoformat(_last).strftime('%b %Y')   # e.g. 'Jul 2026'
 PAYLOAD = json.dumps({"blind": S_BLIND, "rate": S_RATE, "fedSent": S_FEDSENT}, indent=1)
 
 FONTS = ('<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
@@ -130,7 +133,7 @@ tr.bad td.guess .pill{color:var(--bad)}
 
 BODY = r"""
 <div class="wrap">
-  <p class="eyebrow">Bank of Israel interest-rate announcements &nbsp;/&nbsp; Nov 2018 &ndash; today</p>
+  <p class="eyebrow">Bank of Israel interest-rate announcements &nbsp;/&nbsp; Nov 2018 &ndash; __LAST__</p>
   <h1 id="h1">Inferring Bank of Israel interest-rate decisions</h1>
   <p class="sub" id="subp"></p>
 
@@ -169,7 +172,7 @@ BODY = r"""
       <span>Marker = actual decision that month (&#9650; raise &nbsp; &#9644; maintain &nbsp; &#9660; lower)</span>
     </div>
     <div class="panel full" style="margin-bottom:22px">
-      <h2>Fed-anchored sentence score by announcement &mdash; Nov 2018 to today</h2>
+      <h2>Fed-anchored sentence score by announcement &mdash; Nov 2018 to __LAST__</h2>
       <div class="cwrap wide"><canvas id="fedTL"></canvas></div>
     </div>
     <div class="tablewrap">
@@ -225,7 +228,7 @@ function render(v){
   const acc = fmtPct(S.overall_accuracy);
   const cards = [
     ['Overall accuracy', acc, S.correct+' of '+S.n_decisions+' correct', S.overall_accuracy, true],
-    ['Decisions', S.n_decisions, 'Nov 2018 – today', null, false],
+    ['Decisions', S.n_decisions, 'Nov 2018 – __LAST__', null, false],
     ['Majority baseline', fmtPct(S.majority_class_baseline), "always guess '"+S.majority_class+"'", S.majority_class_baseline, false],
     ['Persistence baseline', fmtPct(S.persistence_baseline), 'guess = last meeting', S.persistence_baseline, false],
     ['Lower', fmtPct(pc.lower.accuracy), pc.lower.correct+' / '+pc.lower.n, pc.lower.accuracy, false],
@@ -310,7 +313,7 @@ function renderFed(){
   const grp = d => { const v=T.filter(r=>r.decision===d); return {m:v.reduce((s,r)=>s+r.score,0)/v.length, n:v.length}; };
   const R = grp('raise'), M = grp('maintain'), L = grp('lower');
   const cards = [
-    ['Announcements', n, 'raw text, Nov 2018 – today', true],
+    ['Announcements', n, 'raw text, Nov 2018 – __LAST__', true],
     ['Sentences classified', tot.toLocaleString(), `${Math.round(100*sH/tot)}% hawkish · ${Math.round(100*sD/tot)}% dovish · ${Math.round(100*sN/tot)}% neutral`, false],
     ['Mean score', (mean>=0?'+':'')+mean.toFixed(2), mean>=0?'net hawkish wording':'net dovish wording', false],
   ];
@@ -387,5 +390,5 @@ PAGE = ("<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\">"
 
 # One canonical file: index.html at the repo root — it is what sits in the folder, what git
 # tracks, and what GitHub Pages serves. Regenerate, then commit + push to update everywhere.
-open(os.path.join(ROOT, 'index.html'), 'w', encoding='utf-8').write(PAGE)
+open(os.path.join(ROOT, 'index.html'), 'w', encoding='utf-8').write(PAGE.replace('__LAST__', LAST))
 print("wrote index.html")

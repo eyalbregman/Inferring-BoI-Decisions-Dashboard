@@ -1,6 +1,6 @@
 # Can a language model read a Bank of Israel rate decision from the reasoning alone?
 
-An experiment. Every Bank of Israel interest-rate announcement from **November 2018 to today**
+An experiment. Every Bank of Israel interest-rate announcement from **November 2018 to July 2026**
 (62 decisions) is stripped of everything that reveals the outcome — the headline, the decision
 sentence, the stated policy-rate figure, the direction/stance language, and all dates. A language
 model then reads only the remaining economic reasoning (inflation, growth, the shekel, the labour
